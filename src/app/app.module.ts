@@ -8,6 +8,7 @@
   import { HomeModule } from './home/home.module';
   import { MaterialModule } from './material/material.module';
   import { CenterModule } from './center/center.module';
+  import { HttpClientModule } from '@angular/common/http';
 
   @NgModule({
     declarations: [
@@ -15,13 +16,18 @@
     ],
     imports: [
       BrowserModule,
-      AppRoutingModule,
+      HttpClientModule,
+      //material
       BrowserAnimationsModule,
+      MaterialModule,
+      //modulos
       CoreModule,
       ShareModule,
       HomeModule,
-      MaterialModule,
-      CenterModule
+      CenterModule,
+      //rutas
+      AppRoutingModule,
+
     ],
     providers: [],
     bootstrap: [AppComponent]
