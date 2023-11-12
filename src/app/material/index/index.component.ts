@@ -42,8 +42,9 @@ export class IndexComponent {
     this.gService.list('material/')
       .pipe(takeUntil(this.destroy$))
       .subscribe((response:any)=>{
-        console.log(response);
-        this.datos=response;
+        console.log('CALL BACK API',response);
+        this.datos=response.Data;
+        console.log('DATOS PARA MOSTRAR', this.datos)
         this.filterDatos=this.datos
       })
   }
