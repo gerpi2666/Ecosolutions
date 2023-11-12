@@ -4,3 +4,10 @@
       </mat-card>
 </div>
 
+
+<div *ngIf="datos">
+  <h1>Datos de la API:</h1>
+  <ul>
+    <li *ngFor="let item of datos">{{ item.nombre }}</li>
+  </ul>
+</div>
