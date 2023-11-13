@@ -49,10 +49,20 @@ export class IndexComponent {
       })
   }
 
-  
   ngOnDestroy(){
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  filterMaterial(text: string) {
+    if(!text){
+      this.filterDatos=this.datos
+    }else{
+      this.filterDatos=this.datos.filter(
+        videojuego=> 
+          videojuego?.Name.toLowerCase().includes(text.toLowerCase())
+      )
+    }
   }
 
 
