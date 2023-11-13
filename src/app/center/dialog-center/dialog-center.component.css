@@ -1,0 +1,32 @@
+.diagCon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialogDivision1{
+    width: 40vw;
+    height: 50vh;
+    margin: 0px;
+    text-align: justify;
+}
+
+.dialogDivision1 strong{
+    font-size: 20px;
+    
+}
+.dialogDivision1 li{
+    margin: 20px;
+}
+
+.dialogDivision2{
+    width: 60vw;
+    height: 50vh;
+    padding: 0px;
+   
+}
+
+#imgDia{
+    width: 75%;
+    height: 100%;
+}
