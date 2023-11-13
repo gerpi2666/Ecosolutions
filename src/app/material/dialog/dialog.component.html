@@ -1,0 +1,32 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="primary">close</mat-icon>
+  </button>
+  <div *ngIf="datos" class="info">
+    <h2 mat-dialog-title color="primary" style="text-align: center;font-size: 50px;">{{ datos.Name }}</h2>
+  
+    <mat-dialog-content>
+        <div class="row diagCon">
+            <div class="col-6  dialogDivision1">
+                <ul>
+                    <li><strong>Descripcion</strong>:  <p>{{ datos.Description }}</p></li>
+                    <li><strong>Precio</strong>: {{ datos.Price | currency : "USD" }}</li>
+                    <li><strong>Unidad de compra: </strong>{{datos.Unit}}</li>
+                    <li><strong>Centros de Reciclaje</strong>
+                         <ul *ngIf="datos.RecicleCenter">
+                            <li *ngFor="let item of datos.RecicleCenter">{{ item.Name }}</li>
+                         </ul>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col-6 dialogDivision2">
+                <img id="imgDia" src="https://th.bing.com/th/id/OIG.q3e2QADAw3qonNEWSADa?pid=ImgGn">
+            </div>
+        </div>
+       
+        
+       
+
+    </mat-dialog-content>
+  
+    <mat-dialog-actions> </mat-dialog-actions>
+  </div>

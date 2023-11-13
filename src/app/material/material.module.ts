@@ -15,15 +15,18 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MaterialRoutingModule } from './material-routing.module';
 import { IndexComponent } from './index/index.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
   declarations: [
-    IndexComponent
+    IndexComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
     MaterialRoutingModule,
+    
     MatGridListModule,
     MatCardModule,
     MatMenuModule,

@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {IndexComponent} from 'src/app/material/index/index.component'
+import {IndexCenterComponent} from './center/index/index.component'
+
 import { TemplateComponent } from './core/template/template.component';
 
 const routes: Routes = [
@@ -14,7 +16,10 @@ const routes: Routes = [
         path: 'material',
         component: IndexComponent,
       },
-     
+      {
+        path:'center',
+        component: IndexCenterComponent,
+      }
     ],
   },
 ];

@@ -7,18 +7,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
-
-
+//import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-
-
-export class IndexComponent {
+export class IndexCenterComponent {
   datos:any; //Respuesta del API
   filterDatos: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -34,15 +30,15 @@ export class IndexComponent {
     private router: Router,
     private route: ActivatedRoute)
   {
-    this.listarMaterial();
+    this.LisCenter();
 
   }
 
 
-  listarMaterial(){
+  LisCenter(){
     //Solicitud al API para listar todos los videojuegos
     //localhost:3000/videojuego
-    this.gService.list('material/')
+    this.gService.list('center/')
       .pipe(takeUntil(this.destroy$))
       .subscribe((response:any)=>{
         //console.log('CALL BACK API',response);
@@ -77,7 +73,7 @@ export class IndexComponent {
       Id:Id
      
     };
-    this.dialog.open(DialogComponent,dialogConfig);
+    //this.dialog.open(DialogComponent,dialogConfig);
   }
 
 }

@@ -25,6 +25,8 @@ export class GenericService {
   }
   // Obtener
   get(endopoint: string, filtro: any): Observable<any | any[]> {
+    console.log('RUTA ANTES DEL GET',this.urlAPI+''+endopoint+'/'+filtro)
+
     return this.http.get<any | any[]>(this.urlAPI + endopoint + `/${filtro}`);
   }
   // crear

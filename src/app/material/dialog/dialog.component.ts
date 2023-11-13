@@ -4,36 +4,41 @@ import { Subject, takeUntil } from 'rxjs';
 import { GenericService } from 'src/app/share/generic.service';
 
 @Component({
-  selector: 'app-material-diag',
-  templateUrl: './material-diag.component.html',
-  styleUrls: ['./material-diag.component.css']
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.css']
 })
-export class MaterialDiagComponent implements OnInit {
-
+export class DialogComponent implements OnInit{
   datos: any;
   datosDialog: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
+
+
   constructor(
     @Inject(MAT_DIALOG_DATA) data,
-    private dialogRef: MatDialogRef<MaterialDiagComponent>,
+    private dialogRef: MatDialogRef<DialogComponent>,
     private gService: GenericService
   ) {
     this.datosDialog = data;
   }
 
+  
   ngOnInit(): void {
-    if (this.datosDialog.id) {
-      this.obtenerMaterial(this.datosDialog.id);
+    console.log('DATA INJECTED DIALOG',this.datosDialog)
+    if (this.datosDialog.Id) {
+      this.obtenerMaterial(this.datosDialog.Id);
     }
   }
-  obtenerMaterial(id: any) {
+
+
+  obtenerMaterial(Id: any) {
     this.gService
-      .get('material', id)
+      .get('material', Id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
-        console.log(this.datos)
-        this.datos = data;
-
+        console.log('Call back api',data.Data)
+        this.datos = data.Data;
+        console.log('DATOS IN THE DIALOG', this.datos)
       });
 
   }
@@ -42,5 +47,4 @@ export class MaterialDiagComponent implements OnInit {
     //this.form.value 
     this.dialogRef.close();
   }
-
 }
