@@ -13,7 +13,6 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-
 import { MaterialRoutingModule } from './material-routing.module';
 import { IndexComponent } from './index/index.component';
 
@@ -25,7 +24,6 @@ import { IndexComponent } from './index/index.component';
   imports: [
     CommonModule,
     MaterialRoutingModule,
-    MatCardModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,

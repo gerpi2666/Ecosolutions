@@ -6,6 +6,8 @@ import { GenericService } from 'src/app/share/generic.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MaterialDiagComponent } from '../material-diag/material-diag.component';
 
 
 
@@ -27,7 +29,8 @@ export class IndexComponent {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['nombre', 'precio','acciones'];
 
-  constructor(private gService: GenericService, 
+  constructor(private gService: GenericService,
+    private dialog:MatDialog, 
     private router: Router,
     private route: ActivatedRoute)
   {
@@ -65,5 +68,14 @@ export class IndexComponent {
     }
   }
 
+  detailMaterial(id:number){
+    //Detalle en formato diálogo
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.data={
+      id:id
+    };
+    this.dialog.open(MaterialDiagComponent,dialogConfig);
+  }
 
 }
