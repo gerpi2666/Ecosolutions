@@ -1,5 +1,5 @@
 
-  .custom-card {  
+/*   .custom-card {  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,4 +17,17 @@
     margin: 2px;
     color: rgb(141, 240, 204);
  
+  } */
+  .example-card {
+    max-width: 40vh;
+    margin: 50px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .contenedorCard{
+    display: flex;
+    flex-direction: column;
   }
