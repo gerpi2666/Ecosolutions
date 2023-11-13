@@ -7,7 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-//import { DialogComponent } from '../dialog/dialog.component';
+import { DialogCenterComponent } from '../dialog-center/dialog-center.component';
 
 @Component({
   selector: 'app-index',
@@ -64,7 +64,7 @@ export class IndexCenterComponent {
     }
   }
 
-  detailMaterial(Id:number){
+  detailCenter(Id:number){
     console.log('ID',Id)
     //Detalle en formato diálogo
     const dialogConfig=new MatDialogConfig();
@@ -73,7 +73,7 @@ export class IndexCenterComponent {
       Id:Id
      
     };
-    //this.dialog.open(DialogComponent,dialogConfig);
+    this.dialog.open(DialogCenterComponent,dialogConfig);
   }
 
 }

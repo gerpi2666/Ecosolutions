@@ -2,24 +2,24 @@
     <mat-icon class="close-icon" color="primary">close</mat-icon>
   </button>
   <div *ngIf="datos" class="info">
-    <h2 mat-dialog-title color="primary" style="text-align: center;font-size: 50px;">{{ datos.Name }}</h2>
   
     <mat-dialog-content>
         <div class="row diagCon">
-            <div class="col-6  dialogDivision1">
+          <h2 mat-dialog-title style="font-size: 50px;">{{ datos.Name }}</h2>
+            <div class="col-6  dialogDivision1" style="border-left: 2px solid white;">
+            
                 <ul>
-                    <li><strong>Provincia</strong>:  <p>{{ datos.Provincia }}</p></li>
-                    <li><strong>Canton</strong>: {{ datos.Canton | currency : "USD" }}</li>
-                    <li><strong>Distrito: </strong>{{datos.Distrito}}</li>
-                    <li><strong>Numero</strong>{{datos.Numero}} </li>
-                    <li><strong>Email</strong>{{datos.Email}} </li>
-                    <li><strong>Horario de atencion</strong>{{datos.Schecudale}} </li>
-                    <li><strong>Adminitrador</strong>{{datos.User.Name}} </li>
+                    <li><strong>Direccion: </strong>{{ datos.Provincia }}, {{ datos.Canton }},{{datos.Distrito}}</li>
+                    <li><strong>Horario de atencion: </strong>{{datos.Schecudale}} </li>
+
+                
+                    <li><strong>Numero: </strong>{{datos.Numero}} </li>
+                    <li><strong>Email: </strong>{{datos.Email}} </li>
+
+                    <li><strong>Adminitrador: </strong>{{datos.User.Name}} </li>
                   </ul>
             </div>
-            <div class="col-6 dialogDivision2">
-                <img id="imgDia" src="https://th.bing.com/th/id/OIG.q3e2QADAw3qonNEWSADa?pid=ImgGn">
-            </div>
+            
         </div>
        
         

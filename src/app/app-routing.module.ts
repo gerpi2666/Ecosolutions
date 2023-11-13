@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {IndexComponent} from 'src/app/material/index/index.component'
 import {IndexCenterComponent} from './center/index/index.component'
 
+
 import { TemplateComponent } from './core/template/template.component';
 
 const routes: Routes = [

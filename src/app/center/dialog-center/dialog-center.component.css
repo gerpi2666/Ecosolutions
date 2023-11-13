@@ -1,32 +1,28 @@
-.diagCon{
+.diagCon {
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    align-items: center; 
+  }
+  
+  .dialogDivision1 {
+    flex: 1;
+    padding-right: 0px;
+    margin-right: 0px;
+  }
 
-.dialogDivision1{
-    width: 40vw;
-    height: 50vh;
-    margin: 0px;
-    text-align: justify;
-}
-
-.dialogDivision1 strong{
-    font-size: 20px;
-    
-}
-.dialogDivision1 li{
+  
+.dialogDivision1 li {
     margin: 20px;
 }
 
-.dialogDivision2{
-    width: 60vw;
-    height: 50vh;
-    padding: 0px;
+  
+  .dialogDivision2 {
+    flex: 1;
+    max-width: 50%; /* Ajusta según tus necesidades para controlar el tamaño máximo de la imagen */
    
-}
-
-#imgDia{
-    width: 75%;
-    height: 100%;
-}
+  }
+  
+  #imgDia {
+    max-width: 100%; /* La imagen no será más grande que el contenedor div */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  

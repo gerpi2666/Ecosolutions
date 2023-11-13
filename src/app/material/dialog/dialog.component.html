@@ -2,13 +2,16 @@
     <mat-icon class="close-icon" color="primary">close</mat-icon>
   </button>
   <div *ngIf="datos" class="info">
-    <h2 mat-dialog-title color="primary" style="text-align: center;font-size: 50px;">{{ datos.Name }}</h2>
+    
   
     <mat-dialog-content>
+        
         <div class="row diagCon">
-            <div class="col-6  dialogDivision1">
+            <h2 mat-dialog-title color="primary" style="font-size: 50px;">{{ datos.Name }}</h2>
+            <div class="col-6  dialogDivision1" style="border-left: 2px solid white;">
+               
                 <ul>
-                    <li><strong>Descripcion</strong>:  <p>{{ datos.Description }}</p></li>
+                    <li><strong>Descripcion</strong>:{{ datos.Description }}</li>
                     <li><strong>Precio</strong>: {{ datos.Price | currency : "USD" }}</li>
                     <li><strong>Unidad de compra: </strong>{{datos.Unit}}</li>
                     <li><strong>Centros de Reciclaje</strong>
@@ -19,7 +22,7 @@
                   </ul>
             </div>
             <div class="col-6 dialogDivision2">
-                <img id="imgDia" src="https://th.bing.com/th/id/OIG.q3e2QADAw3qonNEWSADa?pid=ImgGn">
+                <img id="imgDia" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
             </div>
         </div>
        
