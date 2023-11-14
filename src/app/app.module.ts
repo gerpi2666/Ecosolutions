@@ -9,10 +9,13 @@
   import { MaterialModule } from './material/material.module';
   import { CenterModule } from './center/center.module';
   import { HttpClientModule } from '@angular/common/http';
+import { CajeDetailComponent } from './change/canje-detail/caje-detail.component';
+import { ChangeModule } from './change/change.module';
 
   @NgModule({
     declarations: [
-      AppComponent
+      AppComponent,
+      CajeDetailComponent
     ],
     imports: [
       BrowserModule,
@@ -27,6 +30,7 @@
       CenterModule,
       //rutas
       AppRoutingModule,
+      ChangeModule,
 
     ],
     providers: [],

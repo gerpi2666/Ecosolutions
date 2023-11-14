@@ -16,6 +16,7 @@ import { MatRadioModule } from '@angular/material/radio';
 //import { MaterialRoutingModule } from './material-routing.module';
 import { IndexCenterComponent } from './index/index.component';
 import { DialogCenterComponent } from './dialog-center/dialog-center.component';
+import { CanjeComponent } from '../change/canje/canje.component';
 
 
 
@@ -23,7 +24,8 @@ import { DialogCenterComponent } from './dialog-center/dialog-center.component';
 @NgModule({
   declarations: [
     IndexCenterComponent,
-    DialogCenterComponent
+    DialogCenterComponent,
+    CanjeComponent
   ],
   imports: [
     CommonModule,
