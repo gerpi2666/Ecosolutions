@@ -1,0 +1,85 @@
+/* styles.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Establece una fuente predeterminada para todo el cuerpo */
+}
+
+.content {
+  margin: 20px; /* Ajusta los márgenes del contenedor principal */
+  padding: 20px; /* Ajusta el relleno del contenedor principal */
+  border: 1px solid #ccc; /* Añade un borde al contenedor principal para mayor claridad */
+}
+
+#producto-titulo {
+  font-size: 1.8rem;
+  margin-bottom: 10px; /* Ajusta el margen inferior del título */
+}
+
+.custom-pedido-list {
+  list-style: none; /* Elimina los estilos de la lista predeterminada */
+  padding: 0;
+  margin: 0;
+}
+
+.custom-pedido-list li {
+  margin-bottom: 5px; /* Ajusta el margen inferior de cada elemento de la lista */
+}
+
+.card {
+  background: var(--color-background);
+  margin-bottom: 20px; /* Ajusta el margen inferior de las tarjetas */
+}
+
+.small-image {
+  width: 50px;
+}
+
+/* Agrega más estilos según sea necesario */
+
+/* Estilos adicionales para centrar la tabla */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+
+th {
+  background-color: #f2f2f2;
+}
+
+.card-text ol {
+  margin: 0;
+  padding: 0;
+}
+
+.left-align {
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom:  50px;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.bottom-right-with-margin {
+  position: absolute;
+  bottom: 5px; /* Ajusta el valor según tus preferencias */
+  right: 10px;
+ 
+   /* Ajusta el valor según tus preferencias */
+}
+
+
+.table-container {/* Ajusta el valor según tus preferencias */
+  margin-bottom: 50px; /* Ajusta el valor según tus preferencias */
+}

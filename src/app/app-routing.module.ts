@@ -2,10 +2,13 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {IndexComponent} from 'src/app/material/index/index.component'
 import {IndexCenterComponent} from './center/index/index.component'
-import {CanjeComponent} from './change/canje/canje.component'
+
 
 
 import { TemplateComponent } from './core/template/template.component';
+import { IndexOrdenComponent } from './orden/index-orden/index-orden.component';
+import { DetailComponent } from './orden/detail/detail.component';
+import { OrdenCenterComponent } from './orden/orden-center/orden-center.component';
 
 const routes: Routes = [
  
@@ -23,9 +26,17 @@ const routes: Routes = [
         component: IndexCenterComponent,
       },
       {
-        path:'canje',
-        component: CanjeComponent,
-      }
+        path:'orden',
+        component: IndexOrdenComponent,
+      },
+      {
+         path: 'orden/:id', 
+        component: DetailComponent,
+      },
+      {
+        path: 'orden/center/:id', 
+       component:  OrdenCenterComponent,
+     }
     ],
   },
 ];

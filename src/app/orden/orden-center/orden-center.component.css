@@ -1,0 +1,13 @@
+.mi-combobox {
+    width: 200px; /* Ajusta el tamaño según tus necesidades */
+    margin: 10px; /* Ajusta los márgenes según tus necesidades */
+    padding: 5px; /* Ajusta el relleno según tus necesidades */
+    background-color:  #343440 ;/* Tu color primario aquí */;
+    color: aqua;/* Color del texto */;
+    /* Otros estilos que desees agregar */
+  }
+  
+  h1 {
+    margin-top: 20px; /* Ajusta el valor según tus necesidades */
+    margin-bottom: 50px; /* Ajusta el valor según tus necesidades */
+  }

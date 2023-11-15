@@ -1,20 +1,19 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import {  Component, ViewChild } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { MatCardModule } from '@angular/material/card';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { GenericService } from 'src/app/share/generic.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogCenterComponent } from '../../center/dialog-center/dialog-center.component';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 @Component({
-  selector: 'app-canje',
-  templateUrl: './canje.component.html',
-  styleUrls: ['./canje.component.css']
+  selector: 'app-index-orden',
+  templateUrl: './index-orden.component.html',
+  styleUrls: ['./index-orden.component.css']
 })
-export class CanjeComponent {
+export class IndexOrdenComponent {
+
   datos:any; //Respuesta del API
   datosUsuario:any; //Respuesta del API
   filterDatos: any;
@@ -37,18 +36,12 @@ export class CanjeComponent {
     this.listarUsuarios();
   }
 
-
-  ngOnInit() {
-    
-    this.listarUsuarios();
-   
-   
+  ngOnInit() { 
+    this.listarUsuarios();  
   }
 
-  onUsuarioChange(event: any) {
-    
+  onUsuarioChange(event: any) { 
     const userId: number = event.target['value'];
-    
     // Lógica a realizar cuando cambia el usuario seleccionado
     this.historialCanje(userId);
   }
@@ -75,17 +68,10 @@ export class CanjeComponent {
   }
 
 
-  detailCanje(Id:number){
-    console.log('ID',Id)
-    //Detalle en formato diálogo
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.disableClose=false;
-    dialogConfig.data={
-      Id:Id
-     
-    };
-    this.dialog.open(DialogCenterComponent,dialogConfig);
-  }
+detailCanje(Id:number){
+  this.router.navigate(['orden/', Id]);
+  console.log(Id)
+}
 
 
   listarUsuarios(){
@@ -99,5 +85,6 @@ export class CanjeComponent {
        
       })
   }
+
 
 }
