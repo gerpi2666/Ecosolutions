@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { MatCardModule } from '@angular/material/card'; 
 import { MatGridListModule } from '@angular/material/grid-list'; 
 import { MatIconModule } from '@angular/material/icon'; 
@@ -16,17 +19,20 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MaterialRoutingModule } from './material-routing.module';
 import { IndexComponent } from './index/index.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
   declarations: [
     IndexComponent,
-    DialogComponent
+    DialogComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
     MaterialRoutingModule,
-    
+    ReactiveFormsModule,
+
     MatGridListModule,
     MatCardModule,
     MatMenuModule,

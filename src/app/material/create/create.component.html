@@ -1,0 +1,64 @@
+<h1>{{TitleForm}}</h1>
+<form [formGroup]="MaterialForm" >
+    <input type="hidden" formControlName="id"/>
+   <div class="row">
+        <div class="col-12">
+            <mat-form-field class="full-width">
+                <input matInput formControlName="Name" maxlength="20" placeholder="Nombre">
+                <mat-error *ngIf="errorHandling('Name','required')">
+                    Nombre es <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-form-field class="full-width">
+                <input matInput formControlName="Description" maxlength="20" placeholder="Descripcion">
+                <mat-error *ngIf="errorHandling('Description','required')">
+                    La descripcion es <strong>requerida</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-form-field class="full-width">
+                <input matInput formControlName="Color" maxlength="20" placeholder="Color">
+                <mat-error *ngIf="errorHandling('Color','required')">
+                    El Color es <strong>requerido</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-form-field class="full-width">
+                <input matInput formControlName="Unit" maxlength="20" placeholder="Unidad">
+                <mat-error *ngIf="errorHandling('Unit','required')">
+                    La la unidad de medida es <strong>requerida</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-form-field class="full-width">
+                <input matInput formControlName="Price" maxlength="20" placeholder="Precio">
+                <mat-error *ngIf="errorHandling('Price','required')">
+                    El precion es <strong>requerido</strong>
+                </mat-error>
+                <mat-error *ngIf="errorHandling('Price','pattern')">
+                    Precio debe tener <strong>números con dos decimales</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-form-field class="full-width">
+                <mat-select placeholder="Centros de acopio" formControlName="Center" multiple>
+                    <mat-option *ngFor="let item of CenterList" [value]="item.Id">
+                        {{item.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="errorHandling('Unit','required')">
+                    Los centros son <strong>requeridos</strong>
+                </mat-error>  
+            </mat-form-field>
+        </div>
+   </div>
+   <div class="row">
+    <button mat-raised-button color="accent" (click)="submitM()" >Guardar</button>
+   </div>
+</form>

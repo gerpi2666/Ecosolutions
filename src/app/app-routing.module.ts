@@ -6,6 +6,7 @@ import {CanjeComponent} from './change/canje/canje.component'
 
 
 import { TemplateComponent } from './core/template/template.component';
+import { CreateComponent } from './material/create/create.component';
 
 const routes: Routes = [
  
@@ -17,6 +18,7 @@ const routes: Routes = [
       {
         path: 'material',
         component: IndexComponent,
+        
       },
       {
         path:'center',
@@ -25,6 +27,10 @@ const routes: Routes = [
       {
         path:'canje',
         component: CanjeComponent,
+      },
+      {
+        path:'createMaterial',
+        component: CreateComponent
       }
     ],
   },
