@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { GenericService } from 'src/app/share/generic.service';
+import { NotificacionService, TipoMessage } from 'src/app/share/notification.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class CreateComponent implements OnInit{
     private fb:FormBuilder,
     private gService: GenericService,
     private router: Router,
-    private activeRouter: ActivatedRoute
+    private activeRouter: ActivatedRoute,
+    private notify:NotificacionService
 
   ){
     this.reactiveForm()
@@ -37,7 +39,32 @@ export class CreateComponent implements OnInit{
   }
 
   ngOnInit(): void {
-  
+    this.activeRouter.params.subscribe((params: Params)=>{
+      this.IdMaterial=params['Id'];
+      if(this.IdMaterial != undefined && !isNaN(Number(this.IdMaterial))){
+          this.IsCreate=false;
+          this.TitleForm= 'Actualizar Material';
+          //call al api
+          this.gService
+          .get('material', this.IdMaterial)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe((data: any)=>{
+            this.MaterialInfo=data.Data;
+            console.log('Api return data',this.MaterialInfo)
+            console.log('DATA COMBO',this.MaterialInfo.RecicleCenter.map(({Id})=>Id))
+            //Precargar los datos en el formulario
+            this.MaterialForm.setValue({
+              id: this.MaterialInfo.Id,
+              Name: this.MaterialInfo.Name,
+              Description: this.MaterialInfo.Description,
+              Color: this.MaterialInfo.Color,
+              Unit: this.MaterialInfo.Unit,
+              Price: this.MaterialInfo.Price,
+              Center: this.MaterialInfo.RecicleCenter.map(({Id})=>Id),
+            })
+          })
+      }
+    })
   }
 
   reactiveForm(){
@@ -57,7 +84,39 @@ export class CreateComponent implements OnInit{
     
     let centerFormat: any= this.MaterialForm.get("Center").value.map((x:any)=>({['Id']:x}))
     this.MaterialForm.patchValue({Center:centerFormat})
-    console.log('FORM DATA',this.MaterialForm.value)
+    console.log('FORM DATA',this.MaterialForm.value);
+
+    if(this.IsCreate){
+      
+      this.gService
+        .create('material',this.MaterialForm.value)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data:any)=>{
+          //Obtener respuesta
+          this.CallMat=data;
+          console.log('CALLBACK API', this.CallMat);
+         /*  this.notify.mensajeRedirect('Crear Material',
+              `Material creado: ${data.Name}`,
+              TipoMessage.success,
+              '/videojuego/all');
+          this.router.navigate(['/videojuego/all']) */
+        })
+    }else{
+      this.gService
+      .update('material',this.MaterialForm.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data:any)=>{
+        //Obtener respuesta
+        this.CallMat=data;
+        console.log('CALLBACK API', this.CallMat);
+
+     /*    this.notify.mensajeRedirect('Actualizar Videojuego',
+            `Videojuego actualizado: ${data.nombre}`,
+            TipoMessage.success,
+            '/videojuego/all');
+        this.router.navigate(['/videojuego/all']) */
+      })
+    }
   }
 
   public errorHandling = (control: string, error: string) => {

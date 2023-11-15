@@ -11,6 +11,7 @@
   import { HttpClientModule } from '@angular/common/http';
 import { CajeDetailComponent } from './change/canje-detail/caje-detail.component';
 import { ChangeModule } from './change/change.module';
+import { ToastrModule } from 'ngx-toastr';
 
   @NgModule({
     declarations: [
@@ -22,6 +23,8 @@ import { ChangeModule } from './change/change.module';
       HttpClientModule,
       //material
       BrowserAnimationsModule,
+      ToastrModule.forRoot(), 
+
       MaterialModule,
       //modulos
       CoreModule,
