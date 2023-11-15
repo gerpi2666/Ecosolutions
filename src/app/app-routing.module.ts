@@ -39,10 +39,8 @@ const routes: Routes = [
       {
         path: 'orden/center/:id', 
        component:  OrdenCenterComponent,
-     }
-        path:'canje',
-        component: CanjeComponent,
-      },
+     }      
+      ,
       {
         path:'material/update/:Id', component: CreateComponent
       },

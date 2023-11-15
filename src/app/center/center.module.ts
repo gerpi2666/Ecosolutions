@@ -16,7 +16,6 @@ import { MatRadioModule } from '@angular/material/radio';
 //import { MaterialRoutingModule } from './material-routing.module';
 import { IndexCenterComponent } from './index/index.component';
 import { DialogCenterComponent } from './dialog-center/dialog-center.component';
-import { CanjeComponent } from '../change/canje/canje.component';
 import { CreateCenterComponent } from './create/create.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +28,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     IndexCenterComponent,
     DialogCenterComponent,
-    CanjeComponent,
     CreateCenterComponent
   ],
   imports: [
