@@ -30,15 +30,39 @@ export class DialogComponent implements OnInit{
     }
   }
 
+  getImage(Name:string){
+    let data;
+    
+    this.gService
+      .get('img', `${Name}.png`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {
+        
+      /*   const material = this.datos.find((mat: any) => mat.Name === Name);
+      if (material) {
+        material.image = `data:image/png;base64,${data.Data}`; // Asignar la imagen al material
+        console.log('Imagen asignada a', Name);
+
+      } */
+      
+      this.datos.image= data.Data
+      });
+
+      
+  }
+
+
 
   obtenerMaterial(Id: any) {
     this.gService
       .get('material', Id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
-        console.log('Call back api',data.Data)
+        //console.log('Call back api',data.Data)
         this.datos = data.Data;
-        console.log('DATOS IN THE DIALOG', this.datos)
+        //console.log('DATOS IN THE DIALOG', this.datos)
+        this.getImage(this.datos.Name)
+        console.log('DATOS',this.datos)
       });
 
   }
