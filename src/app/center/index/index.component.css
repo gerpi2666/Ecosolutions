@@ -1,18 +1,53 @@
+
+
+.center-text {
+  /* Color del texto del título (ajusta el valor según tus preferencias) */
+    text-align: center;/* Ajusta el relleno según tus necesidades */
+   
+   /* Ajusta el valor según tus necesidades */
+}
+
 .left-align {
-    text-align: left;
-   margin-bottom: 50px;
-   margin-right: 0px;
-  }
+  text-align: left;
+}
 
-  .absolute-bottom-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 0px;
-  }
+.padding-content {
+  padding: 20px;
 
-  .example-card{
-    
-    margin-top: 20px;
-  }
-  
+}
+
+.padding-actions {
+  padding: 10px; 
+  /* Ajusta el valor según tus necesidades */
+}
+
+.absolute-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+.custom-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; 
+  padding: 10px; 
+  color:  #4AD9A4;
+}
+
+.custom-button {
+  color:  #4AD9A4; 
+  border: none; 
+  padding: 10px;
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+.custom-button:hover {
+  color: #ffffff;
+  background-color: #3E8C76 
+}

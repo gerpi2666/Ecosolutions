@@ -1,33 +1,51 @@
 
-/*   .custom-card {  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .custom-image {
-    margin-top: 1px;
-    margin-bottom: 1px;
-    width: 100%;
-    max-width: 100px;
-  }
-  
-  .header{
-    background-color: #343440;
-    margin: 2px;
-    color: rgb(141, 240, 204);
- 
-  } */
+.custom-button {
+  color:  #4AD9A4; 
+  border: none; 
+  padding: 10px;
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+.custom-button:hover {
+  color: #ffffff;
+  background-color: #3E8C76 
+}
   .example-card {
-    max-width: 40vh;
-    margin: 200px;
+    max-width: 300vh;
+    margin: 90px;
   }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+
+  .card img {
+    width: 100%;
+    height: auto;
   }
   .contenedorCard{
     display: flex;
     flex-direction: column;
+  }
+
+  .title-container {
+  
+    color: #ffffff; /* Color del texto del título (ajusta el valor según tus preferencias) */
+    text-align: center;
+    padding: 15px; /* Ajusta el relleno según tus necesidades */
+    margin: 10px;
+  }
+  
+  h1 {
+    margin: 0;
+    width: 100%;
+  }
+
+  .custom-center {
+    color:  #4AD9A4; 
+    text-align: center;
+    width: 100%; /* Opcional: para asegurarse de que ocupe el 100% del ancho */
+    margin: 0;
+
+  }
+  
+  .custom-card-header{
+    height: 1px;
   }
