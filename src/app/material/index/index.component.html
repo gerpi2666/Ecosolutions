@@ -6,7 +6,8 @@
     <div class="card">
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-content style=" height: 15px; margin-bottom: 8px;" class="custom-center" ><h3>{{item.Name}}</h3></mat-card-content>
+        <mat-card-content style=" height: 15px; margin-bottom: 8px;" class="custom-center" >
+          <h3 style="text-transform: uppercase;">{{item.Name}}</h3></mat-card-content>
       </mat-card-header>
       <mat-card-header *ngIf="item.Color === 'Rojo'" [ngStyle]="{ 'background-color': '#ff0000' }" class="custom-card-header">
         <mat-card-header>
@@ -33,7 +34,7 @@
       </mat-card-header>
      
       <img  mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content style="margin: 25px 0px 0px 0px; text-align: left;">
+      <mat-card-content style="margin: 25px 0px 5px 0px; text-align: left;">
         <p>
           Descripcion: {{item.Description}}
         </p>
