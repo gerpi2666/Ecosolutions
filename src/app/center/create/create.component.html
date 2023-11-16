@@ -1,2 +1,97 @@
-<h1>{{TitleForm}}</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<form [formGroup]="CenterForm" enctype="multipart/form-data">
+    <input type="hidden" formControlName="id"/>
+    <mat-card>
+        <mat-card-header>
+            <h1>{{TitleForm}}</h1>
+        </mat-card-header>
+        <mat-card-content>
+
+            <div class="row">
+                
+                <mat-form-field class="col-4" >
+                    <input matInput formControlName="Name" maxlength="20" placeholder="Nombre">
+                    <mat-error *ngIf="errorHandling('Name','required')">
+                        Nombre es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="col-4" >
+                    <input matInput formControlName="Numero" maxlength="20" placeholder="Numero">
+                    <mat-error *ngIf="errorHandling('Numero','required')">
+                        El numero <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-4" >
+                    <input matInput formControlName="Email" maxlength="20" placeholder="Email">
+                    <mat-error *ngIf="errorHandling('Email','required')">
+                        El correo es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+               
+                <mat-form-field class="col-4" >
+                    <input matInput formControlName="Provincia" maxlength="20" placeholder="Provincia">
+                    <mat-error *ngIf="errorHandling('Provincia','required')">
+                        La Provincia <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-4" >
+                    <input matInput formControlName="Canton" maxlength="20" placeholder="Canton">
+                    <mat-error *ngIf="errorHandling('Canton','required')">
+                        El Canton <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-4" >
+                    <input matInput formControlName="Distrito" maxlength="20" placeholder="Distrito">
+                    <mat-error *ngIf="errorHandling('Distrito','required')">
+                        El Distrito<strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+               
+                <mat-form-field class="col-12" >
+                    <input matInput formControlName="Schecudale" maxlength="20" placeholder="Horario">
+                    <mat-error *ngIf="errorHandling('Schecudale','required')">
+                        El horario es <strong>requerido</strong>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+            <div class="row">
+                <mat-form-field class="col=6">
+                    <mat-select placeholder="Materiales" formControlName="Materials" multiple>
+                        <mat-option *ngFor="let item of MateList" [value]="item.Id">
+                            {{item.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="errorHandling('Materials','required')">
+                        Los Materiales son <strong>requeridos</strong>
+                    </mat-error>  
+                </mat-form-field>
+                <mat-form-field class="col=6">
+                    <mat-select placeholder="User" formControlName="User" >
+                        <mat-option *ngFor="let item of UserList" [value]="item.Id">
+                            {{item.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="errorHandling('User','required')">
+                        El usuario es <strong>requerido</strong>
+                    </mat-error>  
+                </mat-form-field>
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+    <mat-card-actions  class="align-items-center">
+        <div class=" align-items-center">
+            <button style="width:50vw;" mat-raised-button color="accent" (click)="submitM()" >Guardar</button>
+        </div>
+
+    </mat-card-actions>
+</form>
 

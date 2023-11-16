@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+
 
 import { MatCardModule } from '@angular/material/card'; 
 import { MatGridListModule } from '@angular/material/grid-list'; 
@@ -33,6 +35,7 @@ import { CreateComponent } from './create/create.component';
     MaterialRoutingModule,
     ReactiveFormsModule,
 
+    NgxMatFileInputModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,

@@ -39,13 +39,19 @@ const routes: Routes = [
       {
         path: 'orden/center/:id', 
        component:  OrdenCenterComponent,
-     }      
+      }    
       ,
+      {
+        path:'material/create', component: CreateComponent
+      },
       {
         path:'material/update/:Id', component: CreateComponent
       },
       {
         path:'center/create', component: CreateCenterComponent
+      },
+      {
+        path:'center/update/:Id', component: CreateCenterComponent
       }
     
       

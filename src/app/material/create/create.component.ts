@@ -73,6 +73,7 @@ export class CreateComponent implements OnInit{
     Name:[null,Validators.compose([Validators.required])],
     Description:[null,Validators.compose([Validators.required])],
     Color:[null, Validators.compose([Validators.required])],
+    Image:[null,Validators.compose([Validators.required])],
     Unit:[null,Validators.compose([Validators.required])],
     Price:[null,Validators.compose([Validators.required,Validators.pattern(this.expreRegula)])],
     Center:[null,Validators.required]
@@ -86,7 +87,7 @@ export class CreateComponent implements OnInit{
     this.MaterialForm.patchValue({Center:centerFormat})
     console.log('FORM DATA',this.MaterialForm.value);
 
-    if(this.IsCreate){
+      if(this.IsCreate){
       
       this.gService
         .create('material',this.MaterialForm.value)
@@ -95,13 +96,13 @@ export class CreateComponent implements OnInit{
           //Obtener respuesta
           this.CallMat=data;
           console.log('CALLBACK API', this.CallMat);
-         /*  this.notify.mensajeRedirect('Crear Material',
+          this.notify.mensajeRedirect('Crear Material',
               `Material creado: ${data.Name}`,
               TipoMessage.success,
               '/videojuego/all');
-          this.router.navigate(['/videojuego/all']) */
-        })
-    }else{
+          this.router.navigate(['/videojuego/all']) 
+        }) 
+      }else{
       this.gService
       .update('material',this.MaterialForm.value)
       .pipe(takeUntil(this.destroy$))
@@ -110,13 +111,13 @@ export class CreateComponent implements OnInit{
         this.CallMat=data;
         console.log('CALLBACK API', this.CallMat);
 
-     /*    this.notify.mensajeRedirect('Actualizar Videojuego',
+         this.notify.mensajeRedirect('Actualizar Videojuego',
             `Videojuego actualizado: ${data.nombre}`,
             TipoMessage.success,
             '/videojuego/all');
-        this.router.navigate(['/videojuego/all']) */
+        this.router.navigate(['/videojuego/all']) 
       })
-    }
+      } 
   }
 
   public errorHandling = (control: string, error: string) => {

@@ -1,0 +1,8 @@
+.inpustF1{
+    margin: 20px;
+    width: 25vw;
+}
+.button-row {
+    display: table-cell;
+    max-width: 600px;
+}
