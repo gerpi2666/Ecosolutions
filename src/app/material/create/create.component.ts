@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { GenericService } from 'src/app/share/generic.service';
-import { NotificacionService, TipoMessage } from 'src/app/share/notification.service';
+import { NotificacionService, TipoMessage } from 'src/app/share/notification.service'
 
 
 @Component({
