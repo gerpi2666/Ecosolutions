@@ -14,7 +14,7 @@
                     <li><strong>Descripcion</strong>:{{ datos.Description }}</li>
                     <li><strong>Precio</strong>: {{ datos.Price | currency : "USD" }}</li>
                     <li><strong>Unidad de compra: </strong>{{datos.Unit}}</li>
-                    <li><strong>Centros de Reciclaje</strong>
+                    <li><strong>Centros de Reciclaje:</strong>
                          <ul *ngIf="datos.RecicleCenter">
                             <li *ngFor="let item of datos.RecicleCenter">{{ item.Name }}</li>
                          </ul>

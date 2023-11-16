@@ -45,7 +45,7 @@ export class DialogComponent implements OnInit{
 
       } */
       
-      this.datos.image= data.Data
+      this.datos.image= `data:image/png;base64,${data.Data}`
       });
 
       
