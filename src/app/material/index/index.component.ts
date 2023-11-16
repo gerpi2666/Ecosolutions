@@ -35,9 +35,27 @@ export class IndexComponent {
     private route: ActivatedRoute)
   {
     this.listarMaterial();
-
+   
   }
 
+  getImage(Name:string){
+    let data;
+    
+    this.gService
+      .get('img', `${Name}.png`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {
+        
+        const material = this.datos.find((mat: any) => mat.Name === Name);
+      if (material) {
+        material.image = `data:image/png;base64,${data.Data}`; // Asignar la imagen al material
+        console.log('Imagen asignada a', Name);
+      }
+        
+      });
+
+      
+  }
 
   listarMaterial(){
     //Solicitud al API para listar todos los videojuegos
@@ -46,9 +64,13 @@ export class IndexComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe((response:any)=>{
         //console.log('CALL BACK API',response);
-        this.datos=response.Data;
-        //console.log('DATOS PARA MOSTRAR', this.datos)
-        this.filterDatos=this.datos
+        this.datos = response.Data;
+        console.log('DATOS PARA MOSTRAR', this.datos);
+  
+        // Por cada material, obtener la imagen
+        this.datos.forEach((material: any) => {
+          this.getImage(material.Name); // Llamada para obtener la imagen
+        });
       })
   }
 
