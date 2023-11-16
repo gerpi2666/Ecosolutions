@@ -1,25 +1,21 @@
+<mat-grid-list cols="4" class="">
 
-<mat-grid-list cols="4" class=" example-card" >
-
-    <mat-grid-tile  *ngFor="let item of datos" >
-      <mat-card class=" exa">
-        
-        <mat-card-header>        
-          <h1 color="primary"> Centro: {{item.Name}}</h1>
-        </mat-card-header>
-       
-        <mat-card-content class="left-align">
-          <p>Direccion: {{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</p>
-          <p> Horario: {{item.Schecudale}}</p>
-          <p> Numero: {{item.Numero}}</p>
-        </mat-card-content>
-        <mat-card-actions class="absolute-bottom-right">
-          <button color="primary" mat-button (click)=" detailCenter(item.Id)"><mat-icon>informacion</mat-icon></button>
-        </mat-card-actions>
-       
-      </mat-card>
-    
+  <mat-grid-tile *ngFor="let item of datos" > 
+    <mat-card >
+      <mat-card-header class="custom-card-header center-text" >
+        <h1 mat-raised-button> {{item.Name}}</h1>
+      </mat-card-header>
+      <mat-card-content class="left-align padding-content">
+        <p>Direccion: {{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</p>
+        <p>Horario: {{item.Schecudale}}</p>
+        <p>Numero: {{item.Numero}}</p>
+      </mat-card-content>
       
-    </mat-grid-tile>
-  
-  </mat-grid-list>
+      <mat-card-actions class="absolute-bottom-right padding-actions">
+        <button class="custom-button"  mat-button (click)="detailCenter(item.Id)"><mat-icon>informacion</mat-icon></button>
+      </mat-card-actions>    
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+

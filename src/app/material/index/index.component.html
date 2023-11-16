@@ -1,36 +1,49 @@
-
-<mat-grid-list cols="4" >
-
-  <mat-grid-tile  *ngFor="let item of datos" >
+<div class="title-container">
+  <h1>Materiales para canjear</h1>
+</div>
+<mat-grid-list cols="3" >
+  <mat-grid-tile *ngFor="let item of datos">
+    <div class="card">
     <mat-card class="example-card">
       <mat-card-header>
-        
-        <mat-card-title>{{item.Name}}</mat-card-title>
-   
-       
+        <mat-card-content style=" height: 15px; margin-bottom: 8px;" class="custom-center" ><h3>{{item.Name}}</h3></mat-card-content>
       </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
+      <mat-card-header *ngIf="item.Color === 'Rojo'" [ngStyle]="{ 'background-color': '#ff0000' }" class="custom-card-header">
+        <mat-card-header>
+          
+        </mat-card-header>
+      </mat-card-header>
+     
+      <mat-card-header *ngIf="item.Color === 'Azul'" [ngStyle]="{ 'background-color': '#087EEE' }" class="custom-card-header">
+        <mat-card-header>
+          
+        </mat-card-header>
+      </mat-card-header>
+
+      <mat-card-header *ngIf="item.Color === 'Verde'" [ngStyle]="{ 'background-color': '#35CA1D' }" class="custom-card-header">
+        <mat-card-header>
+          
+        </mat-card-header>
+      </mat-card-header>
+
+      <mat-card-header *ngIf="item.Color === 'Amarillo'" [ngStyle]="{ 'background-color': '#F4FB09' }" class="custom-card-header">
+        <mat-card-header>
+          
+        </mat-card-header>
+      </mat-card-header>
+     
+      <img  mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content style="margin: 25px 0px 0px 0px; text-align: left;">
         <p>
-         Descripcion: {{item.Description}}
+          Descripcion: {{item.Description}}
         </p>
-        <h5> Precio: {{item.Price}}</h5>
+        <p> Precio: {{item.Price}}</p>
       </mat-card-content>
-      <mat-card-actions>
-        <button color="primary" mat-button (click)="detailMaterial(item.Id)"><mat-icon>informaation</mat-icon></button>
-        <button mat-button>Canjear</button>
-        
+      <mat-card-actions  >
+        <button class="custom-button" mat-button (click)="detailMaterial(item.Id)"><mat-icon>informaation</mat-icon></button>
+        <button class="custom-button" mat-button>Canjear</button>
       </mat-card-actions>
     </mat-card>
+  </div>
   </mat-grid-tile>
-
 </mat-grid-list>
-
- 
-
-
-  
-
- 
-
-  
