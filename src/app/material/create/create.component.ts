@@ -61,6 +61,7 @@ export class CreateComponent implements OnInit{
               Color: this.MaterialInfo.Color,
               Unit: this.MaterialInfo.Unit,
               Price: this.MaterialInfo.Price,
+              Imagen: '',
               Center: this.MaterialInfo.RecicleCenter.map(({Id})=>Id),
             })
           })

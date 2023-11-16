@@ -1,31 +1,35 @@
 <button mat-icon-button class="close-button" [mat-dialog-close]="true">
-    <mat-icon class="close-icon" color="primary">close</mat-icon>
-  </button>
-  <div *ngIf="datos" class="info">
-  
-    <mat-dialog-content>
-        <div class="row diagCon">
-          <h2 mat-dialog-title style="font-size: 50px;">{{ datos.Name }}</h2>
-            <div class="col-6  dialogDivision1" style="border-left: 2px solid white;">
-            
-                <ul>
-                    <li><strong>Direccion: </strong>{{ datos.Provincia }}, {{ datos.Canton }},{{datos.Distrito}}</li>
-                    <li><strong>Horario de atencion: </strong>{{datos.Schecudale}} </li>
+  <mat-icon class="close-icon" color="primary">close</mat-icon>
+</button>
+<div *ngIf="datos" class="info">
 
-                
-                    <li><strong>Numero: </strong>{{datos.Numero}} </li>
-                    <li><strong>Email: </strong>{{datos.Email}} </li>
+  <mat-dialog-content>
+    <div class="row diagCon">
+      <h2 mat-dialog-title style="font-size: 50px;">{{ datos.Name }}</h2>
+      <div class="col-6  dialogDivision1" style="border-left: 2px solid white;">
 
-                    <li><strong>Adminitrador: </strong>{{datos.User.Name}} </li>
-                  </ul>
-            </div>
-            
-        </div>
-       
-        
-       
+        <ul  style="list-style: none;">
+          <li><strong>Direccion: </strong>{{ datos.Provincia }}, {{ datos.Canton }},{{datos.Distrito}}</li>
+          <li><strong>Horario de atencion: </strong>{{datos.Schecudale}} </li>
+          <li><strong>Numero: </strong>{{datos.Numero}} </li>
+          <li><strong>Email: </strong>{{datos.Email}} </li>
 
-    </mat-dialog-content>
-  
-    <mat-dialog-actions> </mat-dialog-actions>
-  </div>
+          <ng-container *ngIf="datos.Materials[0].Name!=null">
+            <li ><strong>Materiales del centro:</strong>
+              <ul>
+                <li *ngFor="let item of datos.Materials">{{ item.Name}}</li>
+              </ul>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions> </mat-dialog-actions>
+</div>

@@ -68,7 +68,7 @@
                 </mat-form-field>
 
                 <div class="col-4">
-                    <input type="file" (change)="handleFileInput($event)" formControlName="Imagen" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    <input type="file" (change)="handleFileInput($event)" formControlName="Imagen" class="form-control"  aria-describedby="helpId" placeholder="">
                       <mat-error *ngIf="errorHandling('Imagen','required')">
                            La imagen es <strong>requerida</strong>
                       </mat-error>

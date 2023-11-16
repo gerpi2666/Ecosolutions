@@ -10,6 +10,7 @@ import { GenericService } from 'src/app/share/generic.service';
 })
 export class DialogCenterComponent  implements OnInit{
   datos: any;
+  datosMaterial: any;
   datosDialog: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -32,15 +33,20 @@ export class DialogCenterComponent  implements OnInit{
 
 
   obtenerMaterial(Id: any) {
+    const resultado = [];
     this.gService
       .get('center', Id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
-        console.log('Call back api',data.Data)
+       
         this.datos = data.Data;
-        console.log('DATOS IN THE DIALOG', this.datos)
-      });
+     
+        console.log('DATOS IN THE DIALOG', this.datos.Materials)
+      
 
+      });
+     
+      
   }
   close() {
     //Dentro de close ()
