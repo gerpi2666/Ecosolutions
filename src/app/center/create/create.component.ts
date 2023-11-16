@@ -93,16 +93,21 @@ export class CreateCenterComponent implements OnInit{
   submitM(): void{
     let MaterialFormat: any= this.CenterForm.get("Materials").value.map((x:any)=>({['Id']:x}))
     this.CenterForm.patchValue({Materials:MaterialFormat})
-    console.log('FORM DATA',this.CenterForm.value);
+    
 
+    const formData = { ...this.CenterForm.value };
+    formData.UserAdmin= formData.User
+    formData.Enabled=true;
+    console.log('FORM DATA',formData);
+    
     if(this.IsCreate){
       
       this.gService
-        .create('center',this.CenterForm.value)
+        .create('center',formData)
         .pipe(takeUntil(this.destroy$))
         .subscribe((data:any)=>{
           //Obtener respuesta
-          this.callCent=data.Data;
+          this.callCent=data;
           console.log('CALLBACK API', this.callCent);
           /* this.notify.mensajeRedirect('Crear Centro',
               `Centro creado: ${data.Data.Name}`,
@@ -112,7 +117,7 @@ export class CreateCenterComponent implements OnInit{
         }) 
       }else{
       this.gService
-      .update('center',this.CenterForm.value)
+      .update('center',formData)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data:any)=>{
         //Obtener respuesta
@@ -126,6 +131,7 @@ export class CreateCenterComponent implements OnInit{
         this.router.navigate(['/videojuego/all'])  */
       })
       } 
+
   }
 
   listUser(){

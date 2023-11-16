@@ -22,6 +22,7 @@ export class CreateComponent implements OnInit{
   Submitted: false;
   MaterialForm: FormGroup;
   IdMaterial: number =0;
+  previewImage :any;
   IsCreate: boolean=true;
   expreRegula=  /^-?\d*[.,]?\d{0,2}$/;
 
@@ -81,43 +82,43 @@ export class CreateComponent implements OnInit{
   })
   }
 
+  // Dentro de tu componente de Angular
+  handleFileInput(event: any) {
+    this.previewImage = event.target.files[0];
+
+    console.log('FILE IN HANDLE',this.previewImage)
+    if (this.previewImage) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        // e.target.result contiene la URL de la imagen
+        let eve=e.target.result;
+      };
+      reader.readAsDataURL(this.previewImage); // Esto lee el archivo como una URL base64
+    }
+  }
+
+
+  InsertImage(Image:any){
+    this.gService
+    .create('img',Image)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((data: any) => {
+      console.log('Call back',data);
+      
+    });
+  }
+
   submitM(): void{
     
     let centerFormat: any= this.MaterialForm.get("Center").value.map((x:any)=>({['Id']:x}))
     this.MaterialForm.patchValue({Center:centerFormat})
     console.log('FORM DATA',this.MaterialForm.value);
-
-      if(this.IsCreate){
-      
-      this.gService
-        .create('material',this.MaterialForm.value)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe((data:any)=>{
-          //Obtener respuesta
-          this.CallMat=data;
-          console.log('CALLBACK API', this.CallMat);
-          this.notify.mensajeRedirect('Crear Material',
-              `Material creado: ${data.Name}`,
-              TipoMessage.success,
-              '/videojuego/all');
-          this.router.navigate(['/videojuego/all']) 
-        }) 
-      }else{
-      this.gService
-      .update('material',this.MaterialForm.value)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data:any)=>{
-        //Obtener respuesta
-        this.CallMat=data;
-        console.log('CALLBACK API', this.CallMat);
-
-         this.notify.mensajeRedirect('Actualizar Videojuego',
-            `Videojuego actualizado: ${data.nombre}`,
-            TipoMessage.success,
-            '/videojuego/all');
-        this.router.navigate(['/videojuego/all']) 
-      })
-      } 
+    
+    const formData = new FormData();
+  formData.append('Name', this.MaterialForm.value.Name);
+  formData.append('Image', this.previewImage);
+    console.log('DATOS IMAGEN',Image)
+     this.InsertImage(formData)
   }
 
   public errorHandling = (control: string, error: string) => {
