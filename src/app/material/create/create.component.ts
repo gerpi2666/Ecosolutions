@@ -74,7 +74,7 @@ export class CreateComponent implements OnInit{
     Name:[null,Validators.compose([Validators.required])],
     Description:[null,Validators.compose([Validators.required])],
     Color:[null, Validators.compose([Validators.required])],
-    Image:[null,Validators.compose([Validators.required])],
+    Imagen:[null,Validators.compose([Validators.required])],
     Unit:[null,Validators.compose([Validators.required])],
     Price:[null,Validators.compose([Validators.required,Validators.pattern(this.expreRegula)])],
     Center:[null,Validators.required]
@@ -115,10 +115,44 @@ export class CreateComponent implements OnInit{
     console.log('FORM DATA',this.MaterialForm.value);
     
     const formData = new FormData();
-  formData.append('Name', this.MaterialForm.value.Name);
-  formData.append('Image', this.previewImage);
+    formData.append('Name', this.MaterialForm.value.Name);
+    formData.append('Image', this.previewImage);
+
     console.log('DATOS IMAGEN',Image)
-     this.InsertImage(formData)
+    this.InsertImage(formData)
+
+    if(this.IsCreate){
+      
+      this.gService
+        .create('material',this.MaterialForm.value)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data:any)=>{
+          //Obtener respuesta
+          this.CallMat=data;
+          console.log('CALLBACK API', this.CallMat);
+          /* this.notify.mensajeRedirect('Crear Material',
+              `Material creado: ${data.Name}`,
+              TipoMessage.success,
+              '/videojuego/all');
+          this.router.navigate(['/videojuego/all'])  */
+        }) 
+      }else{
+      this.gService
+      .update('material',this.MaterialForm.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data:any)=>{
+        //Obtener respuesta
+        this.CallMat=data;
+        console.log('CALLBACK API', this.CallMat);
+
+         /* this.notify.mensajeRedirect('Actualizar Videojuego',
+            `Videojuego actualizado: ${data.nombre}`,
+            TipoMessage.success,
+            '/videojuego/all');
+        this.router.navigate(['/videojuego/all'])  */
+      })
+      } 
+
   }
 
   public errorHandling = (control: string, error: string) => {
