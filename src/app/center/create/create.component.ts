@@ -116,7 +116,9 @@ export class CreateCenterComponent implements OnInit{
           this.router.navigate(['/videojuego/all'])  */
         }) 
       }else{
+        console.log('Form data update',formData)
       this.gService
+      
       .update('center',formData)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data:any)=>{

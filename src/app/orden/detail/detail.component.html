@@ -19,19 +19,15 @@
                         <table class="table table-striped w-100">
                             <thead>
                                 <tr>
-                                    <td>Imagen</td>
-                                    <td>Nombre</td>
+                                    
+                                    <td>Material</td>
                                     <td>Subtotal</td>
                                     <td>Cantidad</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of datosDetail">
-                                    <td>
-                                        <img class="small-image" mat-card-image
-                                            src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                                            alt="Photo of a Shiba Inu">
-                                    </td>
+                                  
                                     <td><strong>{{ item.Material.Name}}</strong></td>
                                     <td><span>{{ item.Subtotal}}</span></td>
                                     <td>{{ item.Cantidad }}</td>

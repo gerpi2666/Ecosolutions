@@ -76,7 +76,7 @@ detailCanje(Id:number){
 
   listarUsuarios(){
 
-    this.gService.list('user/')
+    this.gService.list('user/client')
       .pipe(takeUntil(this.destroy$))
       .subscribe((response:any)=>{
        
