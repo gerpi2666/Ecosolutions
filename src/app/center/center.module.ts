@@ -19,6 +19,7 @@ import { DialogCenterComponent } from './dialog-center/dialog-center.component';
 import { CreateCenterComponent } from './create/create.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { CenterRoutingModule } from './center-routing.module';
 
 
 
@@ -34,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MatGridListModule,
     ReactiveFormsModule,
+    CenterRoutingModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
