@@ -11,51 +11,15 @@ import { DetailComponent } from './orden/detail/detail.component';
 import { OrdenCenterComponent } from './orden/orden-center/orden-center.component';
 import { CreateComponent } from './material/create/create.component';
 import { CreateCenterComponent } from './center/create/create.component';
+import { LandingModule } from './landing/landing.module';
+import { HomeLandingComponent } from './landing/home-landing/home-landing.component';
 
 const routes: Routes = [
  
   {
     path: '',
-    component: TemplateComponent
-    ,
-    children: [
-      {
-        path: 'material',
-        component: IndexComponent,
-       
-      },
-      {
-        path:'center',
-        component: IndexCenterComponent,
-      },
-      {
-        path:'orden',
-        component: IndexOrdenComponent,
-      },
-      {
-         path: 'orden/:id', 
-        component: DetailComponent,
-      },
-      {
-        path: 'orden/center/:id', 
-       component:  OrdenCenterComponent,
-      }    
-      ,
-      {
-        path:'material/create', component: CreateComponent
-      },
-      {
-        path:'material/update/:Id', component: CreateComponent
-      },
-      {
-        path:'center/create', component: CreateCenterComponent
-      },
-      {
-        path:'center/update/:Id', component: CreateCenterComponent
-      }
-    
-      
-    ],
+    component: HomeLandingComponent,
+    children: [],
   },
 ];
 

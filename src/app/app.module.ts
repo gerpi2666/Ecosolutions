@@ -11,6 +11,7 @@
   import { HttpClientModule } from '@angular/common/http';
 import { OrdenModule } from './orden/orden.module';
 import { ToastrModule } from 'ngx-toastr';
+import { LandingModule } from './landing/landing.module';
 
   @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
       //rutas
       AppRoutingModule,
       OrdenModule,
+      LandingModule,
 
     ],
     providers: [],
