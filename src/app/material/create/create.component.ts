@@ -104,22 +104,21 @@ export class CreateComponent implements OnInit{
     .create('img',Image)
     .pipe(takeUntil(this.destroy$))
     .subscribe((data: any) => {
-      console.log('Call back',data);
+      
       
     });
   }
 
   submitM(): void{
     
-    let centerFormat: any= this.MaterialForm.get("Center").value.map((x:any)=>({['Id']:x}))
-    this.MaterialForm.patchValue({Center:centerFormat})
+    /* let centerFormat: any= this.MaterialForm.get("Center").value.map((x:any)=>({['Id']:x}))
+    this.MaterialForm.patchValue({Center:centerFormat}) */
     console.log('FORM DATA',this.MaterialForm.value);
     
     const formData = new FormData();
     formData.append('Name', this.MaterialForm.value.Name);
     formData.append('Image', this.previewImage);
 
-    console.log('DATOS IMAGEN',Image)
     this.InsertImage(formData)
 
     if(this.IsCreate){
@@ -131,11 +130,11 @@ export class CreateComponent implements OnInit{
           //Obtener respuesta
           this.CallMat=data;
           console.log('CALLBACK API', this.CallMat);
-          /* this.notify.mensajeRedirect('Crear Material',
-              `Material creado: ${data.Name}`,
+          this.notify.mensajeRedirect('Crear Material',
+              `Material creado: ${data.Data.Name}`,
               TipoMessage.success,
-              '/videojuego/all');
-          this.router.navigate(['/videojuego/all'])  */
+              '/Dash/material');
+          this.router.navigate(['/Dash/material']) 
         }) 
       }else{
       this.gService

@@ -48,7 +48,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="col-4">
-                    <input matInput formControlName="Color" maxlength="20" placeholder="Color">
+                    <input type="color" matInput formControlName="Color" maxlength="20" placeholder="Color">
                     <mat-error *ngIf="errorHandling('Color','required')">
                         El Color es <strong>requerido</strong>
                     </mat-error>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="row">
-                <mat-form-field class="col-6">
+               <!--  <mat-form-field class="col-6">
                     <mat-select placeholder="Centros de acopio" formControlName="Center" multiple>
                         <mat-option *ngFor="let item of CenterList" [value]="item.Id">
                             {{item.Name}}
@@ -66,7 +66,7 @@
                     <mat-error *ngIf="errorHandling('Unit','required')">
                         Los centros son <strong>requeridos</strong>
                     </mat-error>  
-                </mat-form-field>
+                </mat-form-field> -->
 
                 <div class="col-4">
                     <input type="file" (change)="handleFileInput($event)" formControlName="Imagen" class="form-control"  aria-describedby="helpId" placeholder="">
