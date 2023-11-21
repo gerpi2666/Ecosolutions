@@ -12,6 +12,7 @@
 import { OrdenModule } from './orden/orden.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LandingModule } from './landing/landing.module';
+import { UserModule } from './user/user.module';
 
   @NgModule({
     declarations: [
@@ -24,7 +25,7 @@ import { LandingModule } from './landing/landing.module';
       //material
       BrowserAnimationsModule,
       ToastrModule.forRoot(), 
-
+      UserModule,
       MaterialModule,
       //modulos
       CoreModule,
