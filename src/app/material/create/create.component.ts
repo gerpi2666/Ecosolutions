@@ -36,7 +36,7 @@ export class CreateComponent implements OnInit{
 
   ){
     this.reactiveForm()
-    this.listCenters()
+   
   }
 
   ngOnInit(): void {
@@ -109,6 +109,10 @@ export class CreateComponent implements OnInit{
     });
   }
 
+  discard(){
+    this.router.navigate(['Dash/material'])
+  }
+
   submitM(): void{
     
     /* let centerFormat: any= this.MaterialForm.get("Center").value.map((x:any)=>({['Id']:x}))
@@ -144,12 +148,11 @@ export class CreateComponent implements OnInit{
         //Obtener respuesta
         this.CallMat=data;
         console.log('CALLBACK API', this.CallMat);
-
-         /* this.notify.mensajeRedirect('Actualizar Videojuego',
-            `Videojuego actualizado: ${data.nombre}`,
-            TipoMessage.success,
-            '/videojuego/all');
-        this.router.navigate(['/videojuego/all'])  */
+        this.notify.mensajeRedirect('Actualizar Material',
+        `Material Actualizado: ${data.Data.Name}`,
+        TipoMessage.success,
+        '/Dash/material');
+    this.router.navigate(['/Dash/material']) 
       })
       } 
 
@@ -159,15 +162,7 @@ export class CreateComponent implements OnInit{
   return this.MaterialForm.controls[control].hasError(error);
   };
 
-  listCenters(){
-    this.gService
-    .list('center')
-    .pipe(takeUntil(this.destroy$))
-    .subscribe((data: any) => {
-      console.log('Call back',data);
-      this.CenterList = data.Data;
-    });
-  }
+
 
 
 }
