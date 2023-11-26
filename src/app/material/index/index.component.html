@@ -10,24 +10,6 @@
           <h3 style="text-transform: uppercase;">{{item.Name}}</h3></mat-card-content>
       </mat-card-header>
       
-  <!--     <mat-card-header *ngIf="item.Color === 'Rojo'" [ngStyle]="{ 'background-color': '#ff0000' }" class="custom-card-header">
-        <mat-card-header>
-          
-        </mat-card-header>
-      </mat-card-header>
-     
-      <mat-card-header *ngIf="item.Color === 'Azul'" [ngStyle]="{ 'background-color': '#087EEE' }" class="custom-card-header">
-        <mat-card-header>
-          
-        </mat-card-header>
-      </mat-card-header>
-
-      <mat-card-header *ngIf="item.Color === 'Verde'" [ngStyle]="{ 'background-color': '#35CA1D' }" class="custom-card-header">
-        <mat-card-header>
-          
-        </mat-card-header>
-      </mat-card-header> -->
-
       <mat-card-header *ngIf="item.Color" [style.background-color]="item.Color" class="custom-card-header">
         <mat-card-header>
           

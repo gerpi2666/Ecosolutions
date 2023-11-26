@@ -27,13 +27,16 @@ import {MatCheckboxModule} from "@angular/material/checkbox"
 import { MatGridListModule } from '@angular/material/grid-list'; 
 import {MatDialogModule} from "@angular/material/dialog";
 import { OrdenCenterComponent } from './orden-center/orden-center.component';
+import { CreateOrdenComponent } from './create-orden/create-orden.component';
 
 
 @NgModule({
   declarations: [
     IndexOrdenComponent,
     DetailComponent,
-    OrdenCenterComponent
+    OrdenCenterComponent,
+    CreateOrdenComponent,
+    
   ],
   imports: [
     CommonModule,

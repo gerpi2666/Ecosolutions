@@ -5,6 +5,7 @@ import { TemplateComponent } from '../core/template/template.component';
 import { IndexOrdenComponent } from './index-orden/index-orden.component';
 import { DetailComponent } from './detail/detail.component';
 import { OrdenCenterComponent } from './orden-center/orden-center.component';
+import { CreateOrdenComponent } from './create-orden/create-orden.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
       {
          path: 'orden/:id', 
         component: DetailComponent,
+      },
+      {
+        path:'orden/create', component: CreateOrdenComponent
       },
       {
         path: 'orden/center/:id', 
