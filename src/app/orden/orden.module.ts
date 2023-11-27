@@ -28,6 +28,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatDialogModule} from "@angular/material/dialog";
 import { OrdenCenterComponent } from './orden-center/orden-center.component';
 import { CreateOrdenComponent } from './create-orden/create-orden.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { CreateOrdenComponent } from './create-orden/create-orden.component';
   imports: [
     CommonModule,
     OrdenRoutingModule,
+    FormsModule,ReactiveFormsModule,
     MatGridListModule,
     MatInputModule,
     MatSelectModule,
