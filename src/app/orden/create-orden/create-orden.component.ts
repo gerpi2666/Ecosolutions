@@ -2,8 +2,10 @@ import { Component,OnInit } from '@angular/core';
 import { GenericService } from 'src/app/share/generic.service';
 import { Subject, takeUntil } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import {OrderService,OrdeDetail} from 'src/app/share/orderDetail.service'
+import { NotificacionService,TipoMessage } from '../../share/notification.service';
 @Component({
   selector: 'app-create-orden',
   templateUrl: './create-orden.component.html',
@@ -20,6 +22,13 @@ export class CreateOrdenComponent implements OnInit {
     Phone:any
   
   }
+  Orden:{
+    IdUser:number,
+    IdCenter:number,
+    Date: any,
+    Total:number
+    OrdenDetail:any
+  }
   displayedColumns: string[] = ['Material', 'Precio', 'Cantidad', 'Subtotal','Acciones'];
   Date:any
   centerName: string;
@@ -29,13 +38,20 @@ export class CreateOrdenComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
 
 
-  constructor(private gService: GenericService, private orderservice: OrderService,) {
+  constructor(private gService: GenericService, private orderservice: OrderService,private notify: NotificacionService, private router: Router,) {
     this.User = {
       Identification: null,
       Id:null,
       Name: null,
       Email: null,
       Phone: null
+    };
+    this.Orden={
+      IdUser:0,
+      IdCenter:0,
+      Date: null,
+      Total:0 ,
+      OrdenDetail:null
     };
     this.Date = this.formatDate(Date.now());
     this.listarUsuarios();
@@ -53,7 +69,6 @@ export class CreateOrdenComponent implements OnInit {
 
   //#region datos encabezado
   onUsuarioChange(userId: number) {
-    console.log('ID cambiante', userId);
     this.findUser(userId);
   }
 
@@ -62,7 +77,6 @@ export class CreateOrdenComponent implements OnInit {
     this.gService.get('user',Id)
     .pipe(takeUntil(this.destroy$))
     .subscribe((response:any)=>{
-      console.log('DATA RESPONSE', response.Data)
        this.User.Id=response.Data.Id
        this.User.Identification=response.Data.Identification
        this.User.Email= response.Data.Email
@@ -75,7 +89,7 @@ export class CreateOrdenComponent implements OnInit {
 
   getCenter() {
     this.gService
-      .get('center/user', 11)
+      .get('center/user', 8)
       .pipe(takeUntil(this.destroy$))
       .subscribe((response: any) => {
         this.dataCenter = response.Data;
@@ -106,7 +120,7 @@ export class CreateOrdenComponent implements OnInit {
   }
   //#endregion
   
- //#region detalle orden
+  //#region detalle orden
   canjear(id:number,price:number,Name:string){
     let detail= new OrdeDetail()
     detail.Name= Name;
@@ -128,7 +142,43 @@ export class CreateOrdenComponent implements OnInit {
     this.orderservice.removeFromOrder(item)
     this.total=this.orderservice.getTotal()
   }
-//endregion
+//#endregion
+
+submitM(){
+    let details=this.orderservice.getItems;
+
+    let detail=details.map(
+      x=>({
+        ['MaterialId']: x.MaterialId,
+        ['Subtotal']: x.Subtotal,
+        ['Cantidad']: x.Cantidad
+      })
+    )
+  
+    this.Orden.Date= new Date().toISOString();
+    this.Orden.IdCenter= this.dataCenter.Id
+    this.Orden.IdUser= this.User.Id
+    this.Orden.Total= this.orderservice.getTotal()
+    this.Orden.OrdenDetail= detail;
+
+    console.log('DATA PRE POST ORDEN',this.Orden)
+
+    this.gService
+        .update('material',  this.Orden)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data: any) => {
+          //Obtener respuesta
+         
+          console.log('CALLBACK API', data);
+          this.notify.mensajeRedirect(
+            'Actualizar Material',
+            `Orden creada`,
+            TipoMessage.success,
+            '/Dash/orden'
+          );
+         
+        });
+  }
 
 
 }
