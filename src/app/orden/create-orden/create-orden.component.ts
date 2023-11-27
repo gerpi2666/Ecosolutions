@@ -13,6 +13,7 @@ export class CreateOrdenComponent implements OnInit {
   materials: any;
   total=0
   User:{
+    Id:number,
     Identification:any,
     Name:any,
     Email:any,
@@ -31,6 +32,7 @@ export class CreateOrdenComponent implements OnInit {
   constructor(private gService: GenericService, private orderservice: OrderService,) {
     this.User = {
       Identification: null,
+      Id:null,
       Name: null,
       Email: null,
       Phone: null
@@ -61,7 +63,7 @@ export class CreateOrdenComponent implements OnInit {
     .pipe(takeUntil(this.destroy$))
     .subscribe((response:any)=>{
       console.log('DATA RESPONSE', response.Data)
-
+       this.User.Id=response.Data.Id
        this.User.Identification=response.Data.Identification
        this.User.Email= response.Data.Email
        this.User.Name=response.Data.Name
@@ -104,8 +106,7 @@ export class CreateOrdenComponent implements OnInit {
   }
   //#endregion
   
-
-
+ //#region detalle orden
   canjear(id:number,price:number,Name:string){
     let detail= new OrdeDetail()
     detail.Name= Name;
@@ -127,5 +128,7 @@ export class CreateOrdenComponent implements OnInit {
     this.orderservice.removeFromOrder(item)
     this.total=this.orderservice.getTotal()
   }
+//endregion
+
 
 }
