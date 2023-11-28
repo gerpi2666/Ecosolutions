@@ -8,33 +8,51 @@ import { GenericService } from 'src/app/share/generic.service';
   styleUrls: ['./index-cupon.component.css'],
 })
 export class IndexCuponComponent implements OnInit {
+
   destroy$: Subject<boolean> = new Subject<boolean>();
   categorys: any;
-  datos:any
+  datos: any;
+
   constructor(private gService: GenericService) {
     this.listCategorys();
   }
 
   ngOnInit(): void {}
 
-  cuponChange(category: number){
-    console.log('DATA CAMBIANTE', category)
-  
-    this.findCupon(category)
-   
+  cuponChange(category: number) {
+    console.log('DATA CAMBIANTE', category);
+
+    this.findCupon(category);
   }
 
-findCupon(category:number){
-  this.gService
-      .get('cupon/category',category)
+  getImage(Name: string) {
+    let data;
+
+    this.gService
+      .get('img', `${Name}.png`)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
-        console.log('Call api', data)
+        const cupon = this.datos.find((mat: any) => mat.Name === Name);
+        if (cupon) {
+          cupon.image = `data:image/png;base64,${data.Data}`; // Asignar la imagen al material
+          console.log('Imagen asignada a', Name);
+        }
+      });
+  }
+
+  findCupon(category: number) {
+    this.gService
+      .get('cupon/category', category)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {
+        console.log('Call api', data);
 
         this.datos = data.Data;
+        this.datos.forEach((material: any) => {
+          this.getImage(material.Name); // Llamada para obtener la imagen
+        });
       });
-}
-
+  }
 
   listCategorys() {
     this.gService
@@ -44,4 +62,6 @@ findCupon(category:number){
         this.categorys = data.Data;
       });
   }
+
+
 }

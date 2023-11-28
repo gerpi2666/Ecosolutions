@@ -89,7 +89,7 @@ export class CreateOrdenComponent implements OnInit {
 
   getCenter() {
     this.gService
-      .get('center/user', 8)
+      .get('center/user', 11)
       .pipe(takeUntil(this.destroy$))
       .subscribe((response: any) => {
         this.dataCenter = response.Data;
@@ -164,7 +164,7 @@ submitM(){
     console.log('DATA PRE POST ORDEN',this.Orden)
 
     this.gService
-        .update('material',  this.Orden)
+        .create('orden',  this.Orden)
         .pipe(takeUntil(this.destroy$))
         .subscribe((data: any) => {
           //Obtener respuesta
