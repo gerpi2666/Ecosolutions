@@ -1,22 +1,36 @@
 <div style="height: 100%; width: 100%;">
-    <app-header></app-header>
-<mat-drawer-container autosize  style="min-height: 93.1vh; width: 100%;">
-    
+  <app-header></app-header>
+  <mat-drawer-container autosize style="min-height: 93.1vh; width: 100%;">
+
     <mat-drawer #drawer opened="true" mode="side" position="start">
-    <mat-nav-list>
+      <mat-nav-list>
         <mat-list-item>
-            <button  mat-button><mat-icon>dashboard</mat-icon> Dashboard</button>
+          <button mat-button>
+            <mat-icon>dashboard</mat-icon> Dashboard
+          </button>
         </mat-list-item>
         <mat-list-item>
-            <button mat-button><mat-icon>account_balance_wallet</mat-icon>Balance y transacciones</button>
-       </mat-list-item>
-    </mat-nav-list>
+          <button mat-button routerLink="/Dash/orden">
+            <mat-icon>assignment_turned_in</mat-icon>Ordenes
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="/Dash/cupon">
+            <mat-icon>receipt</mat-icon>Cupones
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button routerLink="/Dash/user/dashboard">
+            <mat-icon>account_circle</mat-icon>Usuarios
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content>
-        <div style="text-align: center;min-height: 600px;">
+      <div style="text-align: center;min-height: 600px;">
 
-            <router-outlet></router-outlet>
-        </div>
+        <router-outlet></router-outlet>
+      </div>
     </mat-drawer-content>
-</mat-drawer-container>
+  </mat-drawer-container>
 </div>

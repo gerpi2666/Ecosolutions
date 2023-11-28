@@ -3,26 +3,27 @@
 
 
 <div class="container">
-    <h1>Cupones para canjear</h1>
+    <h1 style="margin: 25px; margin-top: 30px;">Cupones para canjear</h1>
 
-    <div class="container">
-        <h3>Categorias</h3>
-        <mat-select style="width: 500px;" placeholder="User" formControlName="User" (selectionChange)="cuponChange($event.value)">
+    <div class="container" style=" justify-items: start;">
+        <h3 style="margin-top: 30px;">Seleccione una categoria</h3>
+        <mat-select style="width: 500px; border: solid 1px; margin-top: 30px; margin-bottom: 30px;" placeholder="Categoria" formControlName="User" (selectionChange)="cuponChange($event.value)">
             <mat-option *ngFor="let item of categorys" [value]="item.Id">
                 {{item.Name}}
             </mat-option>
         </mat-select>
     </div>
 
-    <div class="container py-4"*ngFor="let item of datos" >
-        <div class="card" style="max-width: 33vw ; border: solid 2px; color: aliceblue; max-height: 30vh;"[ngStyle]="{ 'background-color': '#303030' }" >
+   <div class="row">
+    <div class="container col-6 py-4"*ngFor="let item of datos" id="CardContend" >
+        <div class="card" style="max-width: 50vw ; border: solid 2px; color: aliceblue; max-height: 30vh;"[ngStyle]="{ 'background-color': '#303030' }" >
             <div class="row g-0">
                 <div class="col-4" style="border-right: solid 1px;">
                     <img class="img-fluid rounded-start" style="width: 100vw; height: 100%;" src={{item.image}}>
                 </div>
                 <div class="col-8">
                     <div class="card-body" id="contendCard">
-                        <h2 class="card-title">Titulo</h2>
+                        <h2 class="card-title">{{item.Name}}</h2>
                         
                         <p>{{item .Description}}</p>
                         <button href="" class="card-link " mat-raised-button color="accent">Canjear: ${{item.Price}}</button>
@@ -32,4 +33,5 @@
             </div>
         </div>
     </div>
+   </div>
 </div>
