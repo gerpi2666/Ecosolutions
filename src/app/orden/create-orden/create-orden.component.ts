@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { OrderService, OrdeDetail } from 'src/app/share/orderDetail.service';
+import { MiscService } from '../../share/misc.service';
 import {
   NotificacionService,
   TipoMessage,
@@ -49,7 +50,8 @@ export class CreateOrdenComponent implements OnInit {
     private gService: GenericService,
     private orderservice: OrderService,
     private notify: NotificacionService,
-    private router: Router
+    private router: Router,
+    private miscService: MiscService
   ) {
     this.User = {
       Identification: null,
@@ -65,7 +67,7 @@ export class CreateOrdenComponent implements OnInit {
       Total: 0,
       OrdenDetail: null,
     };
-    this.Date = this.formatDate(Date.now());
+    this.Date = this.miscService.formatDate(Date.now());
     this.listarUsuarios();
     this.getCenter();
   }
@@ -117,16 +119,7 @@ export class CreateOrdenComponent implements OnInit {
       });
   }
 
-  formatDate(timestamp: number): string {
-    const date = new Date(timestamp);
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear().toString();
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-
-    return `${day}/${month}/${year} ${hours}:${minutes}`;
-  }
+ 
   //#endregion
 
   //#region detalle orden
