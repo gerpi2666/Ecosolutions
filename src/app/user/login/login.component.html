@@ -15,19 +15,29 @@
                     <h2>Iniciar Sesión </h2>
                     
                    
-                    <form class="example-form row" >
+                    <form class="example-form row" [formGroup]="formulario"  novalidate >
                         <mat-form-field class="example-full-width col-12">
                           <mat-label>Correo electronico</mat-label>
-                          <input matInput type="email" value="Sushi">
+                     
+                          <input matInput type="text" placeholder="Email usuario" formControlName="email" />
+                         <mat-error *ngIf="errorHandling('email', 'required')">
+                            Email es <strong>requerido</strong>
+                          </mat-error>
+                          <mat-error *ngIf="errorHandling('email','email')">
+                            Verifique el <strong>formato</strong> del email
+                          </mat-error>
                         </mat-form-field>
                       
                         <mat-form-field class="example-full-width col-12">
                           <mat-label>Contraseña</mat-label>
-                          <input matInput placeholder="Ex. Pizza" type="password" value="Sushi">
+                          <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password usuario" formControlName="password" />
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
             
                         </mat-form-field>
+                        <button mat-raised-button style="width: 200px;" mat-raised-button color="accent" (click)="submitForm()">Iniciar sesion</button>
 
-                        <button style="width: 200px;" mat-raised-button color="accent"  >Iniciar sesion</button>
                       </form>
                 </div>
             </div>

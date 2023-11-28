@@ -26,8 +26,6 @@ export class IndexComponent {
 
   dataSource = new MatTableDataSource<any>();
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['nombre', 'precio','acciones'];
 
   constructor(private gService: GenericService,
     private dialog:MatDialog, 

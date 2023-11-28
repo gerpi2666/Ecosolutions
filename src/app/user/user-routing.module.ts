@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TemplateComponent } from '../core/template/template.component';
 import { DashUsersComponent } from './dash-users/dash-users.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from '../share/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,11 +14,18 @@ const routes: Routes = [
       {
         path: 'user/dashboard',
         component: DashUsersComponent,
+        
       },
       {
         path:'user/profile',
         component: ProfileComponent
       },
+      {path: 'login',
+      component:  LoginComponent,
+      canActivate:[authGuard],
+      data:{
+        roles:['Administrador']
+      }}
     ],
   },
 ];

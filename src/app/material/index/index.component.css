@@ -8,12 +8,13 @@
 }
 
 .custom-button:hover {
-  color: #ffffff;
-  background-color: #3E8C76 
+  color: #1B1C26;
+  background-color: #4AD9A4;
 }
   .example-card {
     max-width: 300vh;
     margin: 90px;
+    background-color:  #1B1C26;
   }
 
   .card img {

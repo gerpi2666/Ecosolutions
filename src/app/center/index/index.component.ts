@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { MatCardModule } from '@angular/material/card';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import {  MatTableDataSource } from '@angular/material/table';
 import { GenericService } from 'src/app/share/generic.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogCenterComponent } from '../dialog-center/dialog-center.component';
@@ -23,8 +21,7 @@ export class IndexCenterComponent {
   dataSource = new MatTableDataSource<any>();
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['nombre', 'precio','acciones'];
-
+ 
   constructor(private gService: GenericService,
     private dialog:MatDialog, 
     private router: Router,

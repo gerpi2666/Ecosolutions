@@ -1,0 +1,225 @@
+.cover-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cover-image {
+    flex-shrink: 0;
+    margin-right: 50%;
+    margin-left:50%;
+
+  }
+  
+  .cover-image__img {
+    width: 1000px; /* Tamaño fijo para la imagen */
+    height: 1000px; /* Mantiene la proporción original de la imagen */
+  }
+
+
+.text-overlay {
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    /* Fondo blanco transparente */
+    color: #000;
+    /* Color de texto negro */
+    padding: 20px;
+    /* Ajusta según tus necesidades */
+    box-sizing: border-box;
+    /* Para incluir el relleno en el cálculo del tamaño */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Sombreado en los bordes */
+}
+
+
+.text-large {
+    font-size: 24px;
+    /* Tamaño grande para el primer párrafo */
+    margin-top: 20px;
+    /* Margen superior mayor */
+}
+
+.text-medium {
+    font-size: 18px;
+    /* Tamaño mediano para el segundo párrafo */
+    margin-top: 15px;
+    /* Margen superior mediano */
+}
+
+.text-small {
+    font-size: 14px;
+    /* Tamaño pequeño para el tercer párrafo */
+    margin-top: 10px;
+    /* Margen superior más pequeño */
+}
+
+
+.text {
+    margin-bottom: 20px;
+    /* Ajusta el margen entre párrafos según tus necesidades */
+    line-height: 1.5;
+    /* Ajusta el interlineado según tus necesidades */
+    text-align: justify;
+    /* Justifica el texto */
+}
+
+
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    flex-shrink: 0;
+    /* Evita que la imagen se reduzca */
+    margin-right: 20px;
+    /* Espacio entre la imagen y el texto, ajusta según tus necesidades */
+}
+
+.content-container2 {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.image-container2 {
+    flex-shrink: 0;
+    /* Evita que la imagen se reduzca */
+    margin-right: 20px;
+    /* Espacio entre la imagen y el texto, ajusta según tus necesidades */
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+.text-container {
+    flex-grow: 1;
+    /* Permite que el contenedor de texto ocupe el espacio restante */
+}
+
+
+.cover-image__image {
+    max-width: 100%;
+    /* La imagen no será más ancha que el contenedor */
+
+    max-height: 400px;
+    /* Ajusta según tus necesidades para limitar la altura */
+
+    border-radius: 50%;
+    /* Hace que la imagen sea redonda */
+    overflow: hidden;
+}
+
+    .example-card {
+      max-width: 300vh;
+      margin: 90px;
+      background-color: #1B1C26;
+    }
+  
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .contenedorCard{
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .title-container {
+    
+      color: #ffffff; /* Color del texto del título (ajusta el valor según tus preferencias) */
+      text-align: center;
+      padding: 15px; /* Ajusta el relleno según tus necesidades */
+      margin: 10px;
+    }
+    
+    h1 {
+      margin: 0;
+      width: 100%;
+    }
+  
+    .custom-center {
+      color:  #4AD9A4; 
+      text-align: center;
+      width: 100%; /* Opcional: para asegurarse de que ocupe el 100% del ancho */
+      margin: 0;
+  
+    }
+    
+    .custom-card-header{
+      height: 1px;
+    }
+
+
+    
+
+
+
+
+
+
+
+/*cENTER */
+    
+
+.center-text {
+  /* Color del texto del título (ajusta el valor según tus preferencias) */
+    text-align: center;/* Ajusta el relleno según tus necesidades */
+   
+   /* Ajusta el valor según tus necesidades */
+}
+
+.left-align {
+  text-align: left;
+}
+
+.padding-content {
+  padding: 20px;
+  padding-bottom: 70px;
+
+}
+
+.padding-actions {
+  padding: 10px; 
+  /* Ajusta el valor según tus necesidades */
+}
+
+.absolute-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+.custom-card-header2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; 
+  padding: 10px; 
+  color:  #4AD9A4;
+}
+
+
+
+.custom-button:hover {
+  color: #1B1C26;
+  background-color: #41414159;
+}
+
+
+.white-text {
+  color: white;
+  font-size: 1em; 
+}
+
+
+
