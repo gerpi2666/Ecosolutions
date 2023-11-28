@@ -26,12 +26,14 @@ import {MatRadioModule} from "@angular/material/radio"
 import {MatCheckboxModule} from "@angular/material/checkbox"
 import { MatGridListModule } from '@angular/material/grid-list'; 
 import {MatDialogModule} from "@angular/material/dialog";
+import { DialogChangeComponent } from './dialog-change/dialog-change.component';
 
 
 @NgModule({
   declarations: [
     CreateCuponComponent,
-    IndexCuponComponent
+    IndexCuponComponent,
+    DialogChangeComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+  <mat-icon>info</mat-icon> Cambiar Cupon
+</h1>
+<div mat-dialog-content>
+  <p *ngIf="datosDialog.Valido; else invalidoText" style="color: green;">Desear canjear el cupon: {{datosDialog.Name}}?
+  </p>
+  <ng-template #invalidoText>
+    <p style="color: red;">Su saldo es insuficiente</p>
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close color="warn">No</button>
+  <button mat-button mat-dialog-close color="accent" [disabled]="!datosDialog.Valido" cdkFocusInitial (click)="canjear()">Ok</button>
+
+</div>
