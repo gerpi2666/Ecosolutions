@@ -69,7 +69,7 @@ export class IndexOrdenComponent {
 
 
 detailCanje(Id:number){
-  this.router.navigate(['orden/', Id]);
+  this.router.navigate(['Dash/orden/', Id]);
   console.log(Id)
 }
 

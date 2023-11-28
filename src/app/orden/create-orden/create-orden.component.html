@@ -1,1 +1,99 @@
-<p>create-orden works!</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+<div class="container" id="mainC">
+
+    <div class="row" id="headerCenter">
+        <h1>{{centerName}}</h1>
+        <div class="col-12">
+            <h3>Materiales</h3>
+            <div class="row">
+                <ng-container *ngFor="let item of materials">
+                    <div class="col">
+                        <button mat-button color="accent" (click)="canjear(item.Id,item.Price,item.Name)">{{item.Name}}</button>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="col-12">
+            <h3>Clientes</h3>
+            <mat-select placeholder="User" formControlName="User" (selectionChange)="onUsuarioChange($event.value)">
+                <mat-option *ngFor="let item of dataCustomer" [value]="item.Id">
+                    {{item.Name}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </div>
+
+    <div class="row" id="headerClient">
+        <div class="col-12">
+            <ul style="text-decoration: none;">
+                <li> <strong>Fecha del canje: </strong>   {{Date}}</li>
+                <li> <strong>Identificacion: </strong>    {{User.Identification}}</li>
+                <li> <strong>Nombre del cliente: </strong>     {{User.Name}} </li>
+                <li> <strong>Correo electronica: </strong>    {{User.Email}}</li>
+                <li> <strong>Numero de telefono: </strong>    {{User.Phone}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row" id="Table">
+        <h1>Detalle</h1>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+       
+            <ng-container matColumnDef="Material">
+              <mat-header-cell *matHeaderCellDef> Material </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.Name}}
+              </mat-cell>
+              
+              <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="Precio">
+              <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.Price | currency}} </mat-cell>
+              <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="Cantidad">
+              <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <mat-form-field appearance="fill">
+                    <input matInput id="Cantidad " type="number" class="form-control mb-2" 
+                    [ngStyle]="{ 'background-color': '#575757' }"
+                    [(ngModel)]="element.Cantidad"
+                    (change)="actualizarCantidad(element)"
+                    > 
+                </mat-form-field> 
+                
+            </mat-cell>
+            <mat-footer-cell *matFooterCellDef class="footer-total">Total </mat-footer-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="Subtotal">
+              <mat-header-cell *matHeaderCellDef> Subtotal </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.Subtotal | currency}} </mat-cell>
+              <mat-footer-cell *matFooterCellDef class="footer-total">{{total | currency}} </mat-footer-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="Acciones">
+                <mat-header-cell *matHeaderCellDef> Acciones</mat-header-cell>
+                <mat-cell *matCellDef="let element"> 
+                    <button mat-icon-button (click)="eliminarItem(element)">
+                    <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+                <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+              </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns" class="header"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            <mat-footer-row *matFooterRowDef="displayedColumns" class="footer-row"></mat-footer-row>
+          </mat-table>
+    </div>
+
+    <div class="row">
+        <button style="width:400px;" mat-raised-button color="accent" (click)="submitM()" >Guardar</button>
+    </div>
+</div>
