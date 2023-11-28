@@ -27,6 +27,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox"
 import { MatGridListModule } from '@angular/material/grid-list'; 
 import {MatDialogModule} from "@angular/material/dialog";
 import { DialogChangeComponent } from './dialog-change/dialog-change.component';
+import { CuponUserIndexComponent } from './cupon-user-index/cupon-user-index.component';
+import { DialogDetailCuponComponent } from './dialog-detail-cupon/dialog-detail-cupon.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { DialogChangeComponent } from './dialog-change/dialog-change.component';
     CreateCuponComponent,
     IndexCuponComponent,
     DialogChangeComponent,
+    CuponUserIndexComponent,
+    DialogDetailCuponComponent,
   ],
   imports: [
     CommonModule,

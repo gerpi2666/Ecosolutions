@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
 import { GenericService } from 'src/app/share/generic.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-change',
@@ -16,7 +17,8 @@ export class DialogChangeComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) data,
     private dialogRef: MatDialogRef<DialogChangeComponent>,
-    private gService: GenericService
+    private gService: GenericService,
+    private router: Router,
   ) {
     this.datosDialog = data;
     console.log('DIALOG INFO', this.datosDialog);
@@ -24,19 +26,18 @@ export class DialogChangeComponent {
 
   canjear() {
     let transac = {
-      IdCupon:this.datosDialog.IdCupon,
-      IdUser:this.datosDialog.IdUser,
+      IdCupon: this.datosDialog.IdCupon,
+      IdUser: this.datosDialog.IdUser,
       IdWallet: this.datosDialog.IdWallet,
       Price: this.datosDialog.Price,
     };
- console.log('DTA PRE POST',transac)
-   /*  this.gService
+    console.log('DTA PRE POST', transac);
+    this.gService
       .create('cupon/change', transac)
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: any) => {
-        console.log('CALL API', data)
-      }); */
-
-     
+        console.log('CALL API', data);
+      });
+      this.router.navigate(['/Dash/cupon/mycupons']);
   }
 }
