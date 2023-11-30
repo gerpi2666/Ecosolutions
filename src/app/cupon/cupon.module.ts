@@ -26,15 +26,23 @@ import {MatRadioModule} from "@angular/material/radio"
 import {MatCheckboxModule} from "@angular/material/checkbox"
 import { MatGridListModule } from '@angular/material/grid-list'; 
 import {MatDialogModule} from "@angular/material/dialog";
+import { DialogChangeComponent } from './dialog-change/dialog-change.component';
+import { CuponUserIndexComponent } from './cupon-user-index/cupon-user-index.component';
+import { DialogDetailCuponComponent } from './dialog-detail-cupon/dialog-detail-cupon.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     CreateCuponComponent,
-    IndexCuponComponent
+    IndexCuponComponent,
+    DialogChangeComponent,
+    CuponUserIndexComponent,
+    DialogDetailCuponComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     CuponRoutingModule,
     MatGridListModule,
     MatInputModule,

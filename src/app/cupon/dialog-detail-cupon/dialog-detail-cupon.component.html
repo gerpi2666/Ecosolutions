@@ -1,0 +1,37 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="primary">close</mat-icon>
+  </button>
+ <div class="container">
+    <div *ngIf="datos" class="info">
+    
+  
+        <mat-dialog-content >
+            
+            <div class=" diagCon">
+                
+               
+                
+                <div class="col-6 info">
+                    <h2 mat-dialog-title color="primary" style="font-size: 50px; margin: 0px; padding: 1rem 0;" [style.color]="datos.Color">{{ datos.Name }}</h2>
+                    <img id="imgDia" style="width: 10vw; height: 20vh;" src={{datos.Qr.Qr}}>
+                </div>
+                <div class="col-6  info " >
+                   
+                    <ul>
+                        <li><strong>Descripcion</strong>:{{ datos.Description }}</li>
+                        <li><strong>Precio</strong>: {{ datos.Price | currency : "USD" }}</li>
+                        <li><strong>Valido hasta: </strong>{{datos.ValiteDate}}</li>
+                        
+                      </ul>
+                </div>
+                
+            </div>
+           
+            
+           
+    
+        </mat-dialog-content>
+      
+        <mat-dialog-actions> </mat-dialog-actions>
+      </div>
+ </div>

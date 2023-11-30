@@ -26,7 +26,7 @@
                         <h2 class="card-title">{{item.Name}}</h2>
                         
                         <p>{{item .Description}}</p>
-                        <button href="" class="card-link " mat-raised-button color="accent">Canjear: ${{item.Price}}</button>
+                        <button href="" class="card-link " mat-raised-button color="accent" (click)="change(item.Id,item.Price,item.Name)">Canjear: ${{item.Price}}</button>
                        
                     </div>
                 </div>

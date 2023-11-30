@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TemplateComponent } from '../core/template/template.component';
 import { IndexCuponComponent } from './index-cupon/index-cupon.component';
 import { CreateCuponComponent } from './create-cupon/create-cupon.component';
+import { CuponUserIndexComponent } from './cupon-user-index/cupon-user-index.component';
 
 const routes: Routes = [
 {
@@ -10,6 +11,9 @@ const routes: Routes = [
   children:[
     {
       path:'cupon', component: IndexCuponComponent
+    },
+    {
+      path:'cupon/mycupons', component: CuponUserIndexComponent
     },
     {
       path:'cupon/create', component:CreateCuponComponent

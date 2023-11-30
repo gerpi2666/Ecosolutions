@@ -6,9 +6,7 @@
     <mat-card-content>
       <mat-label>Filtrar por usuario</mat-label>
 
-      <mat-label>
-        <p> </p>
-      </mat-label>
+     
       <select id="usuarios" class="mi-combobox" (change)=" onUsuarioChange($event)">
         <option value="" disabled selected></option>
         <ng-container *ngFor="let item of datosUsuario">
@@ -17,6 +15,8 @@
           </ng-container>
         </ng-container>
       </select>
+
+      <button mat-raised-button color="accent" routerLink="/Dash/orden/create">Crear</button>
     </mat-card-content>
   </mat-card>
 </div>
