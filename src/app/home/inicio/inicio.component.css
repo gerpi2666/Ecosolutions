@@ -180,7 +180,7 @@
 }
 
 .padding-content {
-  padding: 20px;
+  padding: 30px;
   padding-bottom: 70px;
 
 }
@@ -208,11 +208,17 @@
   color:  #4AD9A4;
 }
 
+.custom-button2 {
+  color:  #4AD9A4; 
+  border: none; 
+  padding: 10px;
+  cursor: pointer; 
+  border-radius: 5px; 
+}
 
-
-.custom-button:hover {
+.custom-button2:hover {
   color: #1B1C26;
-  background-color: #41414159;
+  background-color: #3E8C76 
 }
 
 
@@ -222,4 +228,6 @@
 }
 
 
-
+.tittle{
+  color: #000;
+}

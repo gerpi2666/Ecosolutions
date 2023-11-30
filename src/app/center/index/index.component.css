@@ -12,7 +12,7 @@
 }
 
 .padding-content {
-  padding: 30px;
+  padding: 20px;
   padding-bottom: 70px;
 
 }
@@ -49,6 +49,14 @@
 }
 
 .custom-button:hover {
-  color: #ffffff;
+  color: #1B1C26;
   background-color: #3E8C76 
 }
+
+
+.example-card {
+  max-width: 500vh;
+  margin: 90px;
+  background-color: #1B1C26;
+}
+
