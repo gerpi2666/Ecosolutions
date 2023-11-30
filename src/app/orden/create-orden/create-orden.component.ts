@@ -101,7 +101,7 @@ export class CreateOrdenComponent implements OnInit {
 
   getCenter() {
     this.gService
-      .get('center/user', 12)
+      .get('center/user', 11)
       .pipe(takeUntil(this.destroy$))
       .subscribe((response: any) => {
         this.dataCenter = response.Data;
