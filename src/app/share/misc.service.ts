@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as qrcode from 'qrcode';
 
 
 @Injectable({
@@ -20,14 +19,6 @@ export class MiscService {
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
 
-   generateQRBase64 = async (text:any) => {
-    try {
-      const qrCodeDataURL = await qrcode.toDataURL(text);
-      return qrCodeDataURL.replace(/^data:image\/(png|jpg|jpeg);base64,/, '');
-    } catch (error) {
-      console.error("Error al generar el código QR:", error);
-      return "";
-    }
-  };
+  
 
 }

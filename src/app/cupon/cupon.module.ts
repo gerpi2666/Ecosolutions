@@ -29,6 +29,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { DialogChangeComponent } from './dialog-change/dialog-change.component';
 import { CuponUserIndexComponent } from './cupon-user-index/cupon-user-index.component';
 import { DialogDetailCuponComponent } from './dialog-detail-cupon/dialog-detail-cupon.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DialogDetailCuponComponent } from './dialog-detail-cupon/dialog-detail-
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     CuponRoutingModule,
     MatGridListModule,
     MatInputModule,
