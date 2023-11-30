@@ -1,21 +1,41 @@
 <mat-grid-list cols="4" class="" style="min-height: 93.1vh;">
-  <mat-card-header><h1 >Centros de acopio</h1></mat-card-header>
-  <mat-grid-tile *ngFor="let item of datos" > 
-    <mat-card class="example-card" >
-      <mat-card-header class="custom-card-header center-text" >
-        <h1 mat-raised-button> {{item.Name}}</h1>
+            
+  <mat-grid-tile *ngFor="let item of datos">
+    <mat-card class="example-card">
+      <mat-card-header class="custom-card-header2 center-text">
+        <div>
+          <h1 >{{item.Name}}</h1>
+        </div>
       </mat-card-header>
-      <mat-card-content class="left-align padding-content">
-        <p>Direccion: {{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</p>
-        <p>Horario: {{item.Schecudale}}</p>
-        <p>Numero: {{item.Numero}}</p>
-      </mat-card-content>
-      
-      <mat-card-actions class="absolute-bottom-right padding-actions">
-        <button class="custom-button"  mat-button (click)="detailCenter(item.Id)"><mat-icon  >informacion</mat-icon></button>
-      </mat-card-actions>    
+      <div class="content-container">
+        <mat-card-content class="left-align padding-content">
+          <div class="">
+            <h2 class="white-text">
+              <mat-icon>directions</mat-icon>
+              Dirección:
+              <h4 style="color: white;">{{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</h4>
+            </h2>
+  
+            <h2 class="white-text">
+              <mat-icon>timelapse</mat-icon>
+              Horario de atención:
+              <h4 style="color: white;">{{item.Schecudale}}</h4>
+            </h2>
+  
+            <h2 class="white-text">
+              <mat-icon>contact_phone</mat-icon>
+              Número:
+              <h4 style="color: white;">{{item.Numero}}</h4>
+            </h2>
+          </div>
+        </mat-card-content>
+      </div>
+      <mat-card-actions class=" flex-end padding-actions">
+        <button class="custom-button" mat-button (click)="detailCenter(item.Id)">
+          <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon>
+        </button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
-</mat-grid-list>
-
-
+  
+  </mat-grid-list>

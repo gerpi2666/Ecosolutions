@@ -20,12 +20,7 @@ const routes: Routes = [
         path:'user/profile',
         component: ProfileComponent
       },
-      {path: 'login',
-      component:  LoginComponent,
-      canActivate:[authGuard],
-      data:{
-        roles:['Administrador']
-      }}
+     
     ],
   },
 ];

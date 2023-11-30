@@ -1,8 +1,11 @@
+
+<app-header></app-header>
+
 <div class="content-container">
 
     <div class="text-container">
         <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Quienes Somos? </p>
-        <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"> Somos una empresa comprometida con
+        <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"><mat-icon>question_answer</mat-icon> Somos una empresa comprometida con
             el medio ambiente que promueve la sostenibilidad
             y el
             reciclaje.
@@ -11,7 +14,7 @@
 
         <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Como lo hacemos? </p>
 
-        <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Se realiza el canje de materiales
+        <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"> <mat-icon>question_answer</mat-icon> Se realiza el canje de materiales
             reciclables por cupones, con los cuales obtendras ecomonedas,  que se pueden utilizar para comprar productos en locales seleccionados,
             contestar a la pregunta</p>
 
@@ -27,8 +30,11 @@
 </div>
 
 
-<mat-tab-group>
-    <mat-tab label="Como funciona?" >
+   <div style="border-top: 1px solid gray; border-bottom: 1px solid gray; padding-top: 10px; padding-bottom: 30px;"  >
+
+    <p class="text text-large" style="margin-left: 40px; margin-right: 40px;">	<mat-icon>work</mat-icon> Como funciona? </p>
+ 
+     
         <div class="content-container" id="Funciona">
 
             <div class="image-container2">
@@ -46,16 +52,21 @@
 
                 <p class="text text-large " style=" margin-left: 40px; margin-right: 40px;">Uso de Ecomonedas:</p>
                 
-                <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Las ecomonedas son versátiles y pueden ser utilizadas para comprar productos locales seleccionados. Colaboramos con empresas comprometidas con la sostenibilidad, lo que te permite elegir entre una variedad de opciones amigables con el medio ambiente.</p>
+                <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Las ecomonedas son versátiles y pueden ser utilizadas para comprar productos en locales seleccionados. Colaboramos con empresas comprometidas con la sostenibilidad, lo que te permite elegir entre una variedad de opciones amigables con el medio ambiente.</p>
 
             </div>
-
-          
-
         </div>
-    </mat-tab>
-    <mat-tab label="Materiales con los que trabajamos" >
-        <mat-grid-list cols="3" style="min-height: 84.15vh; " id="Materiales">
+    </div>
+
+
+    <div  style="border-top: 1px solid gray; border-bottom: 1px solid gray; padding-top: 10px;  padding-bottom: 50px;">
+   
+      <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> 	<mat-icon>flip_to_front</mat-icon> Descubre la variedad de materiales con los que trabajamos</p>
+
+      <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">En esta sección, te invitamos a explorar la diversidad de materiales que aceptamos y gestionamos en nuestro centro de acopio. Desde plásticos hasta papel, vidrio, metales y más, cada material tiene un papel fundamental en nuestra misión de promover la economía circular y reducir la huella ambiental.</p>
+
+
+        <mat-grid-list cols="4"   id="Materiales">
             <mat-grid-tile *ngFor="let item of datos">
               <div class="card">
               <mat-card class="example-card">
@@ -72,45 +83,83 @@
                
                 <img  mat-card-image src={{item.image}} alt="Photo of a Shiba Inu">
                 <mat-card-content style="margin: 25px 0px 50px 0px; text-align: left;">
-                  <p class=" white-text">
-                    Descripcion: {{item.Description}}
-                  </p>
-                  <p class=" white-text"> Precio: {{item.Price}} $</p>
-                </mat-card-content>
-                <mat-card-actions style="padding-top: 100px;"  class="absolute-bottom-right ">
-                  <button class="custom-button" mat-button (click)="detailMaterial(item.Id)"><mat-icon style="  color:  #4AD9A4; " >informaation</mat-icon></button>
+                  <div class="info-container">
+                    <h2 class="white-text">
+                      <mat-icon>description</mat-icon>
+                      Descripción:
+                      <h4 style="color: white;">{{item.Description}}</h4>
+                    </h2>
                 
+                    <h2 class="white-text">
+                      <mat-icon>monetization_on</mat-icon>
+                      Precio:
+                      <h4 style="color: white;">{{item.Price}} ecomonedas</h4>
+                    </h2>
+                  </div>
+                </mat-card-content>
+                
+                <mat-card-actions style="padding-top: 100px;" class="absolute-bottom-right">
+                  <button class="custom-button" mat-button (click)="detailMaterial(item.Id)">
+                    <mat-icon style="color: #4AD9A4;">information</mat-icon>
+                  </button>
                 </mat-card-actions>
+                
               </mat-card>
             </div>
             </mat-grid-tile>
           </mat-grid-list>
     
-    </mat-tab>
-    <mat-tab label="Centros de acopio" class="tittle" id="Centros"> 
-        
+    </div>
+    <div > 
+      <p class="text text-large" style="margin-left: 40px; margin-right: 40px; padding-top: 10px;"> 	<mat-icon>center_focus_strong</mat-icon> Centros de acopio </p>
 
-        <mat-grid-list cols="4" class="" style="min-height: 93.1vh;">
+      
+      <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Creemos en el poder de la comunidad para generar un impacto positivo en el entorno que compartimos. Al establecer Centros de Acopio accesibles y participativos, buscamos involucrar a las comunidades en el proceso de reciclaje, fomentando la conciencia ambiental y proporcionando un espacio donde cada acción cuenta.</p>
+
+
+        <mat-grid-list cols="4" class="" >
             
-            <mat-grid-tile *ngFor="let item of datos2" > 
-              <mat-card class="example-card" >
-                <mat-card-header class="custom-card-header2 center-text" >
-                  <h1 mat-raised-button> {{item.Name}}</h1>
-                </mat-card-header>
+          <mat-grid-tile *ngFor="let item of datos2">
+            <mat-card class="example-card">
+              <mat-card-header class="custom-card-header2 center-text">
+                <div class="border-container">
+                  <h1 mat-raised-button>{{item.Name}}</h1>
+                </div>
+              </mat-card-header>
+              <div class="content-container">
                 <mat-card-content class="left-align padding-content">
-                  <p class=" white-text" >Direccion: {{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</p>
-                  <p class=" white-text" >Horario de atencion: {{item.Schecudale}}</p>
-                  <p class=" white-text" >Numero: {{item.Numero}}</p>
+                  <div class="">
+                    <h2 class="white-text">
+                      <mat-icon>directions</mat-icon>
+                      Dirección:
+                      <h4 style="color: white;">{{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</h4>
+                    </h2>
+          
+                    <h2 class="white-text">
+                      <mat-icon>timelapse</mat-icon>
+                      Horario de atención:
+                      <h4 style="color: white;">{{item.Schecudale}}</h4>
+                    </h2>
+          
+                    <h2 class="white-text">
+                      <mat-icon>contact_phone</mat-icon>
+                      Número:
+                      <h4 style="color: white;">{{item.Numero}}</h4>
+                    </h2>
+                  </div>
                 </mat-card-content>
-                
-                <mat-card-actions class="absolute-bottom-right padding-actions">
-                  <button class="custom-button"  mat-button (click)="detailCenter(item.Id)"><mat-icon class="icon"  style="  color:  #4AD9A4; " >informacion</mat-icon></button>
-                </mat-card-actions>    
-              </mat-card>
-            </mat-grid-tile>
+              </div>
+              <mat-card-actions class=" flex-end padding-actions">
+                <button class="custom-button" mat-button (click)="detailCenter(item.Id)">
+                  <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon>
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+          
           </mat-grid-list>
-          
-          
-          
-    </mat-tab>
-</mat-tab-group>
+              
+    </div>
+
+
+
