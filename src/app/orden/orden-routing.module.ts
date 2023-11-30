@@ -16,12 +16,13 @@ const routes: Routes = [
         component: IndexOrdenComponent,
       },
       {
+        path:'orden/create', component: CreateOrdenComponent
+      },
+      {
          path: 'orden/:id', 
         component: DetailComponent,
       },
-      {
-        path:'orden/create', component: CreateOrdenComponent
-      },
+     
       {
         path: 'orden/center/:id', 
        component:  OrdenCenterComponent,

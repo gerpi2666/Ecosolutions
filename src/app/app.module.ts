@@ -13,6 +13,7 @@ import { OrdenModule } from './orden/orden.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LandingModule } from './landing/landing.module';
 import { UserModule } from './user/user.module';
+import { CuponModule } from './cupon/cupon.module';
 
   @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { UserModule } from './user/user.module';
       UserModule,
       MaterialModule,
       //modulos
+      CuponModule,
       CoreModule,
       ShareModule,
       HomeModule,

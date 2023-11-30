@@ -20,17 +20,20 @@
                             <thead>
                                 <tr>
                                     
-                                    <td>Material</td>
-                                    <td>Subtotal</td>
                                     <td>Cantidad</td>
+                                    <td>Material</td>
+                                    <td>Precio</td>
+                                    <td>Subtotal</td>
+                                   
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of datosDetail">
-                                  
-                                    <td><strong>{{ item.Material.Name}}</strong></td>
-                                    <td><span>{{ item.Subtotal}}</span></td>
                                     <td>{{ item.Cantidad }}</td>
+                                    <td><strong>{{ item.Material.Name}}</strong></td>
+                                    <td>{{item.Material.Price}}</td>
+                                    <td><span>{{ item.Subtotal}}</span></td>
+                                   
                                 </tr>
                             </tbody>
                         </table>                 
@@ -44,7 +47,7 @@
         <div class="container-fluid card w-100" style="width: 18rem;">
             <div class="card-body">              
                 <div class="card-text">
-                    <h1>Total : {{ datos.Total }} eco$</h1>
+                    <h1>Total : eco${{ datos.Total }} </h1>
                 </div>
             </div>
         </div>

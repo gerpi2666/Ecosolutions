@@ -1,0 +1,38 @@
+
+.row{
+    width: 70vw;
+}
+
+#mainC{
+    padding: 12px;
+}
+
+#headerCenter {
+    text-align: left; /* Alinea el texto a la izquierda */
+    border: solid 1px;
+    margin: 20px;
+    padding: 20px;
+}
+
+#headerClient{
+    text-align: left;
+    border: solid 1px;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+#Table{
+    border: solid 1px;
+    margin: 20px;
+    padding: 20px;
+}
+
+
+#headerCenter .col-12 {
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+#butones{
+    display: block;
+}

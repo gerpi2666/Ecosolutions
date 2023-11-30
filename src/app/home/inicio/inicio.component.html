@@ -28,8 +28,8 @@
 
 
 <mat-tab-group>
-    <mat-tab label="Como funciona?">
-        <div class="content-container">
+    <mat-tab label="Como funciona?" >
+        <div class="content-container" id="Funciona">
 
             <div class="image-container2">
                 <img src="../../../assets/img/_62cf8271-8ee4-4b82-a027-2b031f5ea2e6.jpeg" alt="Portada" class="cover-image__image" />
@@ -55,7 +55,7 @@
         </div>
     </mat-tab>
     <mat-tab label="Materiales con los que trabajamos" >
-        <mat-grid-list cols="3" style="min-height: 84.15vh; ">
+        <mat-grid-list cols="3" style="min-height: 84.15vh; " id="Materiales">
             <mat-grid-tile *ngFor="let item of datos">
               <div class="card">
               <mat-card class="example-card">
@@ -87,7 +87,7 @@
           </mat-grid-list>
     
     </mat-tab>
-    <mat-tab label="Centros de acopio" class="tittle"> 
+    <mat-tab label="Centros de acopio" class="tittle" id="Centros"> 
         
 
         <mat-grid-list cols="4" class="" style="min-height: 93.1vh;">

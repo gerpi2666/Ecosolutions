@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { OrdenRoutingModule } from './orden-routing.module';
-import { IndexOrdenComponent } from './index-orden/index-orden.component';
-import { DetailComponent } from './detail/detail.component';
+import { CuponRoutingModule } from './cupon-routing.module';
+import { CreateCuponComponent } from './create-cupon/create-cupon.component';
+import { IndexCuponComponent } from './index-cupon/index-cupon.component';
 
 import {MatInputModule} from "@angular/material/input"
 import {MatSelectModule} from "@angular/material/select"
@@ -27,23 +27,15 @@ import {MatCheckboxModule} from "@angular/material/checkbox"
 import { MatGridListModule } from '@angular/material/grid-list'; 
 import {MatDialogModule} from "@angular/material/dialog";
 
-import { OrdenCenterComponent } from './orden-center/orden-center.component';
-import { CreateOrdenComponent } from './create-orden/create-orden.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
-    IndexOrdenComponent,
-    DetailComponent,
-    OrdenCenterComponent,
-    CreateOrdenComponent,
-    
+    CreateCuponComponent,
+    IndexCuponComponent
   ],
   imports: [
     CommonModule,
-    OrdenRoutingModule,
-    FormsModule,ReactiveFormsModule,
+    CuponRoutingModule,
     MatGridListModule,
     MatInputModule,
     MatSelectModule,
@@ -65,7 +57,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatRadioModule,
     MatCheckboxModule,
     MatDialogModule,
-    
   ]
 })
-export class OrdenModule { }
+export class CuponModule { }

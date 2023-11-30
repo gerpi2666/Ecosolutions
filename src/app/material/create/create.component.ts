@@ -119,8 +119,10 @@ export class CreateComponent implements OnInit {
     /* let centerFormat: any= this.MaterialForm.get("Center").value.map((x:any)=>({['Id']:x}))
     this.MaterialForm.patchValue({Center:centerFormat}) */
     console.log('FORM DATA', this.MaterialForm.value);
+    let cupon= false
 
     const formData = new FormData();
+    formData.append('Cupon',cupon.toString())
     formData.append('Name', this.MaterialForm.value.Name);
     formData.append('Image', this.previewImage);
 
