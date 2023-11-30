@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { GenericService } from 'src/app/share/generic.service';
 import { NotificacionService, TipoMessage } from 'src/app/share/notification.service';
+import { UserGuard } from '../../share/auth.guard';
 
 
 @Component({
@@ -18,11 +19,13 @@ export class CreateCenterComponent implements OnInit{
   MateList: any;
   UserList:any
   centerInfo:any;
+  userAdminCenterCurrent
   callCent: any;
   Submitted: false;
   CenterForm: FormGroup;
   IdMaterial: number =0;
   IsCreate: boolean=true;
+  User
   expreRegula=  /^-?\d*[.,]?\d{0,2}$/;
 
   constructor(
@@ -36,25 +39,34 @@ export class CreateCenterComponent implements OnInit{
   ){
     this.reactiveForm()
     this.listMaterials()
-    this.listUser()
+    //this.listUser()
   }
 
   ngOnInit(): void {
+    this.listUser()
     this.activeRouter.params.subscribe((params: Params)=>{
       this.IdMaterial=params['Id'];
       if(this.IdMaterial != undefined && !isNaN(Number(this.IdMaterial))){
           this.IsCreate=false;
+         
           this.TitleForm= 'Actualizar Material';
           //call al api
+          this.listUser()
+         
           this.gService
           .get('center', this.IdMaterial)
           .pipe(takeUntil(this.destroy$))
           .subscribe((data: any)=>{
             this.centerInfo=data.Data;
+           
             console.log('Api return data',this.centerInfo)
-            console.log('DATA COMBO',this.centerInfo.Materials.map(({Id})=>Id))
+            this.userAdminCenterCurrent= this.centerInfo.User
+
             //Precargar los datos en el formulario
+            this.UserList.find(user => user.Id === this.centerInfo.UserAdmin);
+            console.log('lISTA DE USUSARIOS', this.UserList)
             this.CenterForm.setValue({
+              UsuarioCurrent:this.userAdminCenterCurrent.Name,
               id:this.centerInfo.Id,
               Name:this.centerInfo.Name,
               Provincia:this.centerInfo.Provincia,
@@ -64,9 +76,12 @@ export class CreateCenterComponent implements OnInit{
               Email:this.centerInfo.Email,
               Schecudale:this.centerInfo.Schecudale,
               Materials: this.centerInfo.Materials.map(({Id})=>Id),
-              User: this.centerInfo.User,          
+              User: this.centerInfo.User.Id,
           })
+          console.log('USER CURRENT', this.userAdminCenterCurrent)
          })
+
+       
       }
     })
   
@@ -84,19 +99,21 @@ export class CreateCenterComponent implements OnInit{
     Email:[null,Validators.compose([Validators.required,])],
     Schecudale:[null,Validators.compose([Validators.required])],
     Materials:[null,Validators.compose([Validators.required])],
-    User:[null,Validators.compose([Validators.required])]
+    User:[null,Validators.compose([Validators.required])],
+    UsuarioCurrent: { value: null, disabled: true }
     //Center:[null,Validators.required]
     })
 
   }
 
   submitM(): void{
+    
     let MaterialFormat: any= this.CenterForm.get("Materials").value.map((x:any)=>({['Id']:x}))
     this.CenterForm.patchValue({Materials:MaterialFormat})
     
 
     const formData = { ...this.CenterForm.value };
-    formData.UserAdmin= formData.User
+    formData.UserAdmin= formData.User==this.centerInfo.User.Id? this.userAdminCenterCurrent.Id: formData.User ;//
     formData.Enabled=true;
     console.log('FORM DATA',formData);
     
@@ -109,11 +126,8 @@ export class CreateCenterComponent implements OnInit{
           //Obtener respuesta
           this.callCent=data;
           console.log('CALLBACK API', this.callCent);
-          /* this.notify.mensajeRedirect('Crear Centro',
-              `Centro creado: ${data.Data.Name}`,
-              TipoMessage.success,
-              '/videojuego/all');
-          this.router.navigate(['/videojuego/all'])  */
+          this.notify.mensaje('Crear Centro',`Centro creado: ${data.Data.Name}`,TipoMessage.success);
+          this.router.navigate(['/Dash/center'])  
         }) 
       }else{
         console.log('Form data update',formData)
@@ -125,12 +139,9 @@ export class CreateCenterComponent implements OnInit{
         //Obtener respuesta
         this.callCent=data;
         console.log('CALLBACK API', this.callCent);
-
-         /* this.notify.mensajeRedirect('Actualizar Videojuego',
-            `Videojuego actualizado: ${data.nombre}`,
-            TipoMessage.success,
-            '/videojuego/all');
-        this.router.navigate(['/videojuego/all'])  */
+        this.notify.mensaje('Actualizacion',`Centro Actualizado: ${data.Data.Name}`,TipoMessage.success);
+        this.router.navigate(['/Dash/center'])  
+        
       })
       } 
 
