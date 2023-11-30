@@ -25,7 +25,7 @@
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="col-4" >
-                    <input matInput formControlName="Email" maxlength="20" placeholder="Email">
+                    <input matInput formControlName="Email" maxlength="800" placeholder="Email">
                     <mat-error *ngIf="errorHandling('Email','required')">
                         El correo es <strong>requerido</strong>
                     </mat-error>
@@ -46,7 +46,7 @@
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="col-4" >
-                    <input matInput formControlName="Distrito" maxlength="20" placeholder="Distrito">
+                    <input matInput formControlName="Distrito" maxlength="80" placeholder="Distrito">
                     <mat-error *ngIf="errorHandling('Distrito','required')">
                         El Distrito<strong>requerido</strong>
                     </mat-error>
@@ -55,7 +55,7 @@
             <div class="row">
                
                 <mat-form-field class="col-12" >
-                    <input matInput formControlName="Schecudale" maxlength="20" placeholder="Horario">
+                    <input matInput formControlName="Schecudale" maxlength="2000" placeholder="Horario">
                     <mat-error *ngIf="errorHandling('Schecudale','required')">
                         El horario es <strong>requerido</strong>
                     </mat-error>
@@ -73,6 +73,13 @@
                         Los Materiales son <strong>requeridos</strong>
                     </mat-error>  
                 </mat-form-field>
+
+                <mat-form-field class="col-12" *ngIf="userAdminCenterCurrent">
+                    <mat-label>Administrador actual</mat-label>
+                    <input matInput formControlName="UsuarioCurrent" maxlength="2000" value={{userAdminCenterCurrent.Name}} [disabled]="true">
+                   
+                </mat-form-field>
+
                 <mat-form-field class="col=6">
                     <mat-select placeholder="User" formControlName="User" >
                         <mat-option *ngFor="let item of UserList" [value]="item.Id">

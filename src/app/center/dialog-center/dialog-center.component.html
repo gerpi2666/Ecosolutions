@@ -1,3 +1,7 @@
+
+
+<div class="example-card">
+
 <button mat-icon-button class="close-button" [mat-dialog-close]="true">
   <mat-icon class="close-icon" color="primary">close</mat-icon>
 </button>
@@ -12,7 +16,7 @@
           <li><strong>Direccion: </strong>{{ datos.Provincia }}, {{ datos.Canton }},{{datos.Distrito}}</li>
           <li><strong>Horario de atencion: </strong>{{datos.Schecudale}} </li>
           <li><strong>Numero: </strong>{{datos.Numero}} </li>
-          <li><strong>Email: </strong>{{datos.Email}} </li>
+          <li><strong>Correo: </strong>{{datos.Email}} </li>
 
           <ng-container *ngIf="datos.Materials[0].Name!=null">
             <li ><strong>Materiales del centro:</strong>
@@ -25,11 +29,7 @@
       </div>
 
     </div>
-
-
-
-
   </mat-dialog-content>
-
   <mat-dialog-actions> </mat-dialog-actions>
+</div>
 </div>

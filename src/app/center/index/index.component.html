@@ -1,7 +1,7 @@
 <mat-grid-list cols="4" class="" style="min-height: 93.1vh;">
   <mat-card-header><h1 >Centros de acopio</h1></mat-card-header>
   <mat-grid-tile *ngFor="let item of datos" > 
-    <mat-card >
+    <mat-card class="example-card" >
       <mat-card-header class="custom-card-header center-text" >
         <h1 mat-raised-button> {{item.Name}}</h1>
       </mat-card-header>
@@ -12,7 +12,7 @@
       </mat-card-content>
       
       <mat-card-actions class="absolute-bottom-right padding-actions">
-        <button class="custom-button"  mat-button (click)="detailCenter(item.Id)"><mat-icon>informacion</mat-icon></button>
+        <button class="custom-button"  mat-button (click)="detailCenter(item.Id)"><mat-icon  >informacion</mat-icon></button>
       </mat-card-actions>    
     </mat-card>
   </mat-grid-tile>
