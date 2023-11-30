@@ -1,3 +1,4 @@
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,6 +22,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 
+import { CoreModule } from '../core/core.module';
+
+
 
 
 @NgModule({
@@ -31,6 +35,7 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [
     CommonModule,
     HomeRoutingModule,
+    CoreModule,
     MatTabsModule,
     MatGridListModule,
     MatCardModule,

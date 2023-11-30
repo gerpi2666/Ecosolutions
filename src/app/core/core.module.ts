@@ -29,6 +29,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox"
 import {MatDialogModule} from "@angular/material/dialog";
 import { TemplateComponent } from './template/template.component';
 import { FooterComponent } from './footer/footer.component'
+import { UserModule } from '../user/user.module';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { FooterComponent } from './footer/footer.component'
   imports: [
     CommonModule,
     CoreRoutingModule,
+    UserModule,
     MatInputModule,
     MatSelectModule,
     MatAutocompleteModule,
@@ -62,7 +64,7 @@ import { FooterComponent } from './footer/footer.component'
     MatCheckboxModule,
     MatDialogModule
   ],exports:[
-    TemplateComponent
+    TemplateComponent,   HeaderComponent
   ]
 })
 export class CoreModule { }

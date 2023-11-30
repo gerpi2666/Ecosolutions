@@ -1,6 +1,7 @@
 import { DialogComponent } from './../../material/dialog/dialog.component';
-import {Component} from '@angular/core';
-import {MatTabsModule} from '@angular/material/tabs';
+
+import { Component } from '@angular/core';
+
 
 import { Subject, takeUntil } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';

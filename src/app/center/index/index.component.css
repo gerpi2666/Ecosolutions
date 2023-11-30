@@ -60,3 +60,30 @@
   background-color: #1B1C26;
 }
 
+.content-container {
+  border-top: 1px solid #ffffff; /* Border above mat-card-content */
+  border-bottom: 1px solid  #ffffff; /* Border below mat-card-content */
+  padding: 10px; /* Optional: Add padding for better visual separation */
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.border-container {
+  text-align: center; /* Center the content horizontally */
+}
+
+.custom-card-header2 {
+  color:  #4AD9A4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  text-align: center;
+
+}
+

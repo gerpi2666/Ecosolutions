@@ -1,16 +1,4 @@
-#Funciona{
-  background-image: url('../../../assets/img/Arbol.jpg');
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-size: cover;
-}
 
-#Materiales{
-  background-image: url('../../../assets/img/Materiales.jpg');
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-size: cover;
-    overflow: hidden;
-    flex-shrink: 0;
-}
 
 .cover-container {
   position: relative;
@@ -133,8 +121,10 @@
 }
 
 .example-card {
-  max-width: 300vh;
-  margin: 90px;
+  max-width: 200vh;
+  margin: 100px;
+  margin-bottom: 120px;
+  padding-bottom: 0px;
   background-color: #1B1C26;
 }
 
@@ -173,7 +163,7 @@ h1 {
 }
 
 .custom-card-header {
-  height: 1px;
+  height: 0.5px;
 }
 
 
@@ -253,10 +243,32 @@ h1 {
 
 .white-text {
   color: white;
-  font-size: 1em;
+ 
 }
 
 
 .tittle{
   color: #000;
 }
+
+
+
+
+.content-container {
+  border-top: 1px solid #ffffff; /* Border above mat-card-content */
+  border-bottom: 1px solid  #ffffff; /* Border below mat-card-content */
+  padding: 10px; /* Optional: Add padding for better visual separation */
+}
+
+.info-container {
+  border-bottom: 1px solid #ccc; /* Border between icon and information */
+  padding-bottom: 10px; /* Optional: Add padding for better spacing */
+}
+
+/* Add additional styles if needed */
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
