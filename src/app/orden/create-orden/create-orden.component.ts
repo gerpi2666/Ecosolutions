@@ -75,6 +75,7 @@ export class CreateOrdenComponent implements OnInit {
   ngOnInit(): void {
     this.orderservice.currentDataOrden$.subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.total= this.orderservice.getTotal()
     });
     this.total = this.orderservice.getTotal();
     //this.orderservice.deleteCart()
@@ -100,7 +101,7 @@ export class CreateOrdenComponent implements OnInit {
 
   getCenter() {
     this.gService
-      .get('center/user', 11)
+      .get('center/user', 12)
       .pipe(takeUntil(this.destroy$))
       .subscribe((response: any) => {
         this.dataCenter = response.Data;
@@ -169,14 +170,12 @@ export class CreateOrdenComponent implements OnInit {
         //Obtener respuesta
 
         console.log('CALLBACK API', data);
-        this.notify.mensajeRedirect(
-          'Actualizar Material',
-          `Orden creada`,
-          TipoMessage.success,
-          '/Dash/orden'
-        );
+        this.notify.mensaje(  'Actualizar Material', `Orden creada`,TipoMessage.success);
+        this.router.navigate(['/Dash/orden'])
       });
 
+    
+      
     this.orderservice.deleteCart();
   }
 }
