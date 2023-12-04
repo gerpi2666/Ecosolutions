@@ -53,9 +53,12 @@ this.authService.loginUser(this.formulario.value)
       this.noti.mensajeRedirect(
         'Usuario', 'Usuario logueado: ', 
         TipoMessage.success,'Dash')
+        console.log('Antes de navegar a Dash');
       this.router.navigate(['Dash'])
     
-    })
+    },
+   
+    )
   }
   /* Manejar errores de formulario en Angular */
 

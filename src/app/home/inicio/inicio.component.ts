@@ -1,14 +1,7 @@
 import { DialogComponent } from './../../material/dialog/dialog.component';
-
 import { Component } from '@angular/core';
-
-
 import { Subject, takeUntil } from 'rxjs';
-import { MatCardModule } from '@angular/material/card';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { GenericService } from 'src/app/share/generic.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogCenterComponent } from 'src/app/center/dialog-center/dialog-center.component';
@@ -21,6 +14,17 @@ import { DialogCenterComponent } from 'src/app/center/dialog-center/dialog-cente
 
 })
 export class InicioComponent {
+
+  hovered: boolean = false;
+
+  onMouseEnter() {
+    this.hovered = true;
+  }
+
+  onMouseLeave() {
+    this.hovered = false;
+  }
+
 
   datos:any; //Respuesta del API
   filterDatos: any;
