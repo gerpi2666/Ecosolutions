@@ -3,18 +3,20 @@
     <mat-card-header>
       <h1>Historial de canjes</h1>
     </mat-card-header>
-    <mat-card-content>
-      <mat-label>Filtrar por usuario</mat-label>
+    <mat-card-content id="menu">
+      <div>
+        <mat-label>Filtrar por usuario</mat-label>
 
-     
-      <select id="usuarios" class="mi-combobox" (change)=" onUsuarioChange($event)">
-        <option value="" disabled selected></option>
-        <ng-container *ngFor="let item of datosUsuario">
-          <ng-container *ngIf="item.Name !== 'Admin'">
-            <option [value]="item.Id">{{ item.Name }}</option>
+
+        <select id="usuarios" class="mi-combobox" (change)=" onUsuarioChange($event)">
+          <option value="" disabled selected></option>
+          <ng-container *ngFor="let item of datosUsuario">
+            <ng-container *ngIf="item.Name !== 'Admin'">
+              <option [value]="item.Id">{{ item.Name }}</option>
+            </ng-container>
           </ng-container>
-        </ng-container>
-      </select>
+        </select>
+      </div>
 
       <button mat-raised-button color="accent" routerLink="/Dash/orden/create">Crear</button>
     </mat-card-content>

@@ -1,165 +1,132 @@
-
 <app-header></app-header>
 
 <div class="content-container">
 
-    <div class="text-container">
-        <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Quienes Somos? </p>
-        <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"><mat-icon>question_answer</mat-icon> Somos una empresa comprometida con
-            el medio ambiente que promueve la sostenibilidad
-            y el
-            reciclaje.
-            Nos esforzamos por fomentar la adecuada administración de los residuos reciclables y promover una economía
-            circular y solidaria.</p>
+  <div class="text-container">
+    <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Quienes Somos? </p>
+    <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"><mat-icon>question_answer</mat-icon>
+      Somos una empresa comprometida con
+      el medio ambiente que promueve la sostenibilidad
+      y el
+      reciclaje.
+      Nos esforzamos por fomentar la adecuada administración de los residuos reciclables y promover una economía
+      circular y solidaria.</p>
 
-        <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Como lo hacemos? </p>
+    <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Como lo hacemos? </p>
 
-        <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"> <mat-icon>question_answer</mat-icon> Se realiza el canje de materiales
-            reciclables por cupones, con los cuales obtendras ecomonedas,  que se pueden utilizar para comprar productos en locales seleccionados,
-            contestar a la pregunta</p>
+    <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"> <mat-icon>question_answer</mat-icon> Se
+      realiza el canje de materiales
+      reciclables por cupones, con los cuales obtendras ecomonedas, que se pueden utilizar para comprar productos en
+      locales seleccionados,
+      contestar a la pregunta</p>
 
-        <p class="text text-large " style="margin-top:  60px; margin-left: 40px; margin-right: 40px;">Te invitamos a ser
-            parte de nuestra misión. Únete a nosotros y juntos hagamos
-            del mundo un lugar más verde y saludable para las generaciones futuras.</p>
-    </div>
+    <p class="text text-large " style="margin-top:  60px; margin-left: 40px; margin-right: 40px;">Te invitamos a ser
+      parte de nuestra misión. Únete a nosotros y juntos hagamos
+      del mundo un lugar más verde y saludable para las generaciones futuras.</p>
+  </div>
 
-    <div class="image-container">
-        <img src="../../../assets/img/Logo1.jpg" alt="Portada" class="cover-image__image" />
-    </div>
+  <div class="image-container">
+    <img src="../../../assets/img/Logo1.jpg" alt="Portada" class="cover-image__image" />
+  </div>
 
 </div>
 
 
-   <div style="border-top: 1px solid gray; border-bottom: 1px solid gray; padding-top: 10px; padding-bottom: 30px;"  >
 
-    <p class="text text-large" style="margin-left: 40px; margin-right: 40px;">	<mat-icon>work</mat-icon> Como funciona? </p>
- 
-     
-        <div class="content-container" id="Funciona">
 
-            <div class="image-container2">
-                <img src="../../../assets/img/_62cf8271-8ee4-4b82-a027-2b031f5ea2e6.jpeg" alt="Portada" class="cover-image__image" />
-            </div>
 
-            <div class="text-container">
-                <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Entrega de Materiales: </p>
+<div style="border-top: 1px solid gray; border-bottom: 1px solid gray; padding-top: 10px;  padding-bottom: 50px;">
 
-                <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;"> Puedes entregar tus materiales reciclables en nuestros puntos de recolección designados.</p>
+  <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> <mat-icon>flip_to_front</mat-icon> Descubre
+    la variedad de materiales con los que trabajamos</p>
 
-                <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> Cupones y Ecomonedas: </p>
+  <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">En esta sección, te invitamos a explorar la
+    diversidad de materiales que aceptamos y gestionamos en nuestro centro de acopio. Desde plásticos hasta papel,
+    vidrio, metales y más, cada material tiene un papel fundamental en nuestra misión de promover la economía circular y
+    reducir la huella ambiental.</p>
 
-                <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">A cambio de tus materiales, recibirás cupones. Estos cupones te permitirán adquirir ecomonedas, nuestra moneda virtual.</p>
 
-                <p class="text text-large " style=" margin-left: 40px; margin-right: 40px;">Uso de Ecomonedas:</p>
-                
-                <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Las ecomonedas son versátiles y pueden ser utilizadas para comprar productos en locales seleccionados. Colaboramos con empresas comprometidas con la sostenibilidad, lo que te permite elegir entre una variedad de opciones amigables con el medio ambiente.</p>
-
-            </div>
+  <mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let item of datos">
+      <mat-card class="example-card">
+        <mat-card-content class="custom-center">
+          <h4 style="text-transform: uppercase;">{{item.Name}}</h4>
+        </mat-card-content>
+        <mat-card-header *ngIf="item.Color" [style.background-color]="item.Color" class="custom-card-header">s
+        </mat-card-header>
+        <mat-card style="text-align: center; width: 100%; margin: 0 auto;">
+          <img width="100%" src={{item.image}} alt="Photo of a Shiba Inu">
+        </mat-card>
+        <div style="margin-top: 10px; margin-left: 10px;  text-align: left; "  >
+          <div class="white-text" style="margin-right: 10px;">
+          <h4> Descripción: <label> {{item.Description}} </label>  </h4> 
+          <h4 style="display: flex; align-items: center;">
+            Valor: {{item.Price}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg" alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
+          </h4>
+          </div>
+         
         </div>
-    </div>
+        <mat-card-actions style="padding-top: 100px;" class="absolute-bottom-right">
+          <button class="custom-button" mat-button (click)="detailMaterial(item.Id)">
+            <mat-icon style="color: #4AD9A4;">information</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+<div>
+  <p class="text text-large" style="margin-left: 40px; margin-right: 40px; padding-top: 10px;">
+    <mat-icon>center_focus_strong</mat-icon> Centros de acopio
+  </p>
 
 
-    <div  style="border-top: 1px solid gray; border-bottom: 1px solid gray; padding-top: 10px;  padding-bottom: 50px;">
-   
-      <p class="text text-large" style="margin-left: 40px; margin-right: 40px;"> 	<mat-icon>flip_to_front</mat-icon> Descubre la variedad de materiales con los que trabajamos</p>
-
-      <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">En esta sección, te invitamos a explorar la diversidad de materiales que aceptamos y gestionamos en nuestro centro de acopio. Desde plásticos hasta papel, vidrio, metales y más, cada material tiene un papel fundamental en nuestra misión de promover la economía circular y reducir la huella ambiental.</p>
-
-
-        <mat-grid-list cols="4"   id="Materiales">
-            <mat-grid-tile *ngFor="let item of datos">
-              <div class="card">
-              <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-content style=" height: 15px; margin-bottom: 8px;" class="custom-center" >
-                    <h3 style="text-transform: uppercase;">{{item.Name}}</h3></mat-card-content>
-                </mat-card-header>
-                
-                <mat-card-header *ngIf="item.Color" [style.background-color]="item.Color" class="custom-card-header">
-                  <mat-card-header>
-                    
-                  </mat-card-header>
-                </mat-card-header>
-               
-                <img  mat-card-image src={{item.image}} alt="Photo of a Shiba Inu">
-                <mat-card-content style="margin: 25px 0px 50px 0px; text-align: left;">
-                  <div class="info-container">
-                    <h2 class="white-text">
-                      <mat-icon>description</mat-icon>
-                      Descripción:
-                      <h4 style="color: white;">{{item.Description}}</h4>
-                    </h2>
-                
-                    <h2 class="white-text">
-                      <mat-icon>monetization_on</mat-icon>
-                      Precio:
-                      <h4 style="color: white;">{{item.Price}} ecomonedas</h4>
-                    </h2>
-                  </div>
-                </mat-card-content>
-                
-                <mat-card-actions style="padding-top: 100px;" class="absolute-bottom-right">
-                  <button class="custom-button" mat-button (click)="detailMaterial(item.Id)">
-                    <mat-icon style="color: #4AD9A4;">information</mat-icon>
-                  </button>
-                </mat-card-actions>
-                
-              </mat-card>
-            </div>
-            </mat-grid-tile>
-          </mat-grid-list>
-    
-    </div>
-    <div > 
-      <p class="text text-large" style="margin-left: 40px; margin-right: 40px; padding-top: 10px;"> 	<mat-icon>center_focus_strong</mat-icon> Centros de acopio </p>
-
-      
-      <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Creemos en el poder de la comunidad para generar un impacto positivo en el entorno que compartimos. Al establecer Centros de Acopio accesibles y participativos, buscamos involucrar a las comunidades en el proceso de reciclaje, fomentando la conciencia ambiental y proporcionando un espacio donde cada acción cuenta.</p>
+  <p class="text text-medium" style="margin-left: 40px; margin-right: 40px;">Creemos en el poder de la comunidad para
+    generar un impacto positivo en el entorno que compartimos. Al establecer Centros de Acopio accesibles y
+    participativos, buscamos involucrar a las comunidades en el proceso de reciclaje, fomentando la conciencia ambiental
+    y proporcionando un espacio donde cada acción cuenta.</p>
 
 
-        <mat-grid-list cols="4" class="" >
-            
-          <mat-grid-tile *ngFor="let item of datos2">
-            <mat-card class="example-card">
-              <mat-card-header class="custom-card-header2 center-text">
-                <div class="border-container">
-                  <h1 mat-raised-button>{{item.Name}}</h1>
-                </div>
-              </mat-card-header>
-              <div class="content-container">
-                <mat-card-content class="left-align padding-content">
-                  <div class="">
-                    <h2 class="white-text">
-                      <mat-icon>directions</mat-icon>
-                      Dirección:
-                      <h4 style="color: white;">{{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</h4>
-                    </h2>
-          
-                    <h2 class="white-text">
-                      <mat-icon>timelapse</mat-icon>
-                      Horario de atención:
-                      <h4 style="color: white;">{{item.Schecudale}}</h4>
-                    </h2>
-          
-                    <h2 class="white-text">
-                      <mat-icon>contact_phone</mat-icon>
-                      Número:
-                      <h4 style="color: white;">{{item.Numero}}</h4>
-                    </h2>
-                  </div>
-                </mat-card-content>
+  <mat-grid-list cols="4" class="">
+    <mat-grid-tile *ngFor="let item of datos2">
+      <mat-card class="example-card">
+        <mat-card-header class="custom-card-header2 center-text">
+          <div>
+            <h2 mat-raised-button>{{item.Name}}</h2>
+          </div>
+        </mat-card-header>
+        <div class="content-container">
+          <mat-card-content class="left-align padding-content">
+            <div class="">
+              <div class="white-text">
+                <mat-icon>directions</mat-icon>
+                Dirección:
+                <p style="color: white;">{{item.Provincia}}, {{item.Canton}}, {{item.Distrito}}</p>
               </div>
-              <mat-card-actions class=" flex-end padding-actions">
-                <button class="custom-button" mat-button (click)="detailCenter(item.Id)">
-                  <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon>
-                </button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-grid-tile>
-          
-          </mat-grid-list>
-              
-    </div>
 
+              <div class="white-text">
+                <mat-icon>timelapse</mat-icon>
+                Horario de atención:
+                <p style="color: white;">{{item.Schecudale}}</p>
+              </div>
 
+              <div class="white-text">
+                <mat-icon>contact_phone</mat-icon>
+                Número:
+                <p style="color: white;">{{item.Numero}}</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </div>
+        <mat-card-actions class=" flex-end padding-actions">
+          <button class="custom-button" mat-button (click)="detailCenter(item.Id)">
+            <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
 
+  </mat-grid-list>
+
+</div>

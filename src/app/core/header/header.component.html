@@ -8,9 +8,18 @@
     <img style="border-radius: 100%; margin: 10px;" width="55px" height="55px" src="assets/img/Logo1.jpg" alt="">
     <span>Ecosolucions O&P</span>
     <span class="example-spacer"></span>
-    <button mat-button>Inicio</button>
-
-    <button mat-button [routerLink]="'/login'"> Iniciar sesión</button>
+       <button mat-button [routerLink]="'/inicio'">Inicio</button>
+    <button mat-button [routerLink]="'/login'">Iniciar sesión</button>
+    <mat-menu >
+        <a mat-menu-item *ngIf="!(isAutenticated)" (click)="login()">
+          <mat-icon>person_add</mat-icon>
+          <span>Login</span>
+        </a>
+        <a mat-menu-item *ngIf="isAutenticated" (click)="logout()">
+          <mat-icon>person_remove</mat-icon>
+          <span>Logout</span>
+        </a>
+      </mat-menu>
 
     
 </mat-toolbar>

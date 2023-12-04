@@ -19,13 +19,15 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from "@angular/material/dialog";
 
 import { LayoutModule } from '@angular/cdk/layout';
+import { IndexComponent } from './index/index.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashUsersComponent,
-    ProfileComponent
+    ProfileComponent,
+    IndexComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    IndexComponent
   ]
 })
 export class UserModule { }

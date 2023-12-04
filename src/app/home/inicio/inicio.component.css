@@ -6,19 +6,6 @@
   align-items: center;
 }
 
-.cover-image {
-  flex-shrink: 0;
-  margin-right: 50%;
-  margin-left: 50%;
-
-}
-
-.cover-image__img {
-  width: 1000px;
-  /* Tamaño fijo para la imagen */
-  height: 1000px;
-  /* Mantiene la proporción original de la imagen */
-}
 
 
 .text-overlay {
@@ -44,36 +31,18 @@
 
 
 .text-large {
-  font-size: 24px;
+  font-size: 14px;
   /* Tamaño grande para el primer párrafo */
   margin-top: 20px;
   /* Margen superior mayor */
 }
 
 .text-medium {
-  font-size: 18px;
+  font-size: 12px;
   /* Tamaño mediano para el segundo párrafo */
   margin-top: 15px;
   /* Margen superior mediano */
 }
-
-.text-small {
-  font-size: 14px;
-  /* Tamaño pequeño para el tercer párrafo */
-  margin-top: 10px;
-  /* Margen superior más pequeño */
-}
-
-
-.text {
-  margin-bottom: 20px;
-  /* Ajusta el margen entre párrafos según tus necesidades */
-  line-height: 1.5;
-  /* Ajusta el interlineado según tus necesidades */
-  text-align: justify;
-  /* Justifica el texto */
-}
-
 
 .content-container {
   display: flex;
@@ -82,37 +51,31 @@
 
 .image-container {
   flex-shrink: 0;
-  /* Evita que la imagen se reduzca */
-  margin-right: 20px;
-  /* Espacio entre la imagen y el texto, ajusta según tus necesidades */
 }
 
 .content-container2 {
   display: flex;
   align-items: center;
-  margin-top: 40px;
 }
 
 .image-container2 {
   flex-shrink: 0;
-  /* Evita que la imagen se reduzca */
   margin-right: 20px;
-  /* Espacio entre la imagen y el texto, ajusta según tus necesidades */
-  margin-top: 50px;
-  margin-left: 20px;
+
 }
 
-.text-container {
-  flex-grow: 1;
-  /* Permite que el contenedor de texto ocupe el espacio restante */
-}
+.image-container3 {
+  width: 20px;
+  flex-shrink: 0;
+  border-radius: 20px;
 
+}
 
 .cover-image__image {
   max-width: 100%;
   /* La imagen no será más ancha que el contenedor */
 
-  max-height: 400px;
+  max-height: 200px;
   /* Ajusta según tus necesidades para limitar la altura */
 
   border-radius: 50%;
@@ -120,17 +83,31 @@
   overflow: hidden;
 }
 
+
+.cover-image__image2 {
+  max-width: 20px;
+  /* La imagen no será más ancha que el contenedor */
+
+  max-height: 20px;
+  /* Ajusta según tus necesidades para limitar la altura */
+
+  border-radius: 50%;
+  /* Hace que la imagen sea redonda */
+  overflow: hidden;
+}
+
+
+
 .example-card {
-  max-width: 200vh;
-  margin: 100px;
-  margin-bottom: 120px;
-  padding-bottom: 0px;
+  max-width: 40vh;
+  max-height: 50vh;
   background-color: #1B1C26;
 }
 
 .card img {
   width: 100%;
-  height: auto;
+ height: 10%;
+ 
 }
 
 .contenedorCard {
@@ -165,7 +142,6 @@ h1 {
 .custom-card-header {
   height: 0.5px;
 }
-
 
 
 
@@ -251,18 +227,15 @@ h1 {
   color: #000;
 }
 
-
-
-
 .content-container {
   border-top: 1px solid #ffffff; /* Border above mat-card-content */
   border-bottom: 1px solid  #ffffff; /* Border below mat-card-content */
-  padding: 10px; /* Optional: Add padding for better visual separation */
+  padding: 0px; /* Optional: Add padding for better visual separation */
 }
 
 .info-container {
   border-bottom: 1px solid #ccc; /* Border between icon and information */
-  padding-bottom: 10px; /* Optional: Add padding for better spacing */
+
 }
 
 /* Add additional styles if needed */
