@@ -15,7 +15,7 @@ import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
   templateUrl: './create-cupon.component.html',
   styleUrls: ['./create-cupon.component.css'],
 })
-export class CreateCuponComponent {
+export class CreateCuponComponent implements OnInit  {
   destroy$: Subject<boolean> = new Subject<boolean>();
   TitleForm: string = 'Crear Cupon';
   categorys: any;
@@ -23,6 +23,8 @@ export class CreateCuponComponent {
   CuponForm: FormGroup;
   IsCreate: boolean = true;
   CallCupon: any;
+  IdCupon: number =0
+  CuponInfo: any
   previewImage
 
   constructor(
@@ -31,9 +33,38 @@ export class CreateCuponComponent {
     private fb: FormBuilder,
     private router: Router,
     private activeRouter: ActivatedRoute,
+    private notify: NotificacionService
   ) {
     this.getCategorys();
     this.reactiveForm()
+  }
+  ngOnInit(): void {
+    this.activeRouter.params.subscribe((params: Params) => {
+      this.IdCupon = params['Id'];
+      if (this.IdCupon != undefined && !isNaN(Number(this.IdCupon))) {
+        this.IsCreate = false;
+        this.TitleForm = 'Actualizar Material';
+        //call al api
+        this.gService
+          .get('cupon', this.IdCupon)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe((data: any) => {
+            this.CuponInfo = data.Data;
+            console.log('Api return data', this.CuponInfo);
+          
+            //Precargar los datos en el formulario
+            this.CuponForm.setValue({
+              id: this.CuponInfo.Id,
+              Name: this.CuponInfo.Name,
+              Description: this.CuponInfo.Description,
+              Price: this.CuponInfo.Price,
+              ValidateDateBegin: this.CuponInfo.ValidateDateBegin,
+              ValidateDateFinish: this.CuponInfo.ValidateDateFinish,
+              Categoria: this.CuponInfo.Category[0].Id
+            });
+          });
+      }
+    });
   }
 
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
@@ -65,9 +96,9 @@ export class CreateCuponComponent {
       Description: [null, Validators.compose([Validators.required])],
       Price: [null, Validators.compose([Validators.required])],
       ValidateDateBegin:[null, Validators.compose([Validators.required])],
-      ValiteDateFinish: [null, Validators.compose([Validators.required])],
-      Qr: [null, Validators.compose([Validators.required])],
-      Categorias:[null,null]
+      ValidateDateFinish: [null, Validators.compose([Validators.required])],
+      
+      Categoria:[null,null]
     })
   }
 
@@ -89,11 +120,56 @@ export class CreateCuponComponent {
     }
   }
 
+  InsertImage(Image: any) {
+    this.gService
+      .create('img', Image)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: any) => {});
+  }
+  
   submitForm(){
 
-   console.log('VALOR PRE POST', this.CuponForm.value
-   )
 
+
+    const formData = new FormData();
+    formData.append('Name', this.CuponForm.value.Name);
+    formData.append('Image', this.previewImage);
+
+    this.InsertImage(formData);
+  
+    if (this.IsCreate) {
+      this.gService
+        .create('cupon', this.CuponForm.value)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data: any) => {
+          //Obtener respuesta
+         
+          console.log('CALLBACK API', data);
+          this.notify.mensajeRedirect(
+            'Crear Cupon',
+            `Cupon  creado: ${data.Data.Name}`,
+            TipoMessage.success,
+            '/Dash/cupon'
+          );
+          //this.router.navigate(['/Dash/material']);
+        });
+    } else {
+      this.gService
+        .update('cupon', this.CuponForm.value)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data: any) => {
+          //Obtener respuesta
+          
+          console.log('CALLBACK API', data);
+          this.notify.mensajeRedirect(
+            'Actualizar cupon',
+            `Cupon Actualizado: ${data.Data.Name}`,
+            TipoMessage.success,
+            '/Dash/cupon'
+          );
+          this.router.navigate(['/Dash/cupon']);
+        });
+    }
 
   }
 }

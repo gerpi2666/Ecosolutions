@@ -32,7 +32,7 @@
 
         <mat-form-field class="col-4">
             <mat-label>Categorias</mat-label>
-            <mat-select placeholder="Category" formControlName="Categorias" >
+            <mat-select placeholder="Category" formControlName="Categoria" >
                 <mat-option *ngFor="let item of categorys" [value]="item.Id">
                     {{item.Name}}
                 </mat-option>
@@ -63,7 +63,7 @@
 
           <mat-form-field class="example-full-width col-6" >
             <mat-label>Fecha final</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="ValiteDateFinish">
+            <input matInput [matDatepicker]="picker1" formControlName="ValidateDateFinish">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker [dateClass]="dateClass" #picker1></mat-datepicker>
