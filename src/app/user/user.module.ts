@@ -20,6 +20,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { IndexComponent } from './index/index.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { IndexComponent } from './index/index.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatTableModule,
     ReactiveFormsModule
   ],
   exports: [

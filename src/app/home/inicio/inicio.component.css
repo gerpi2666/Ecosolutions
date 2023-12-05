@@ -1,5 +1,20 @@
 
+#contend{
 
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url("https://cdn.pixabay.com/photo/2018/04/27/08/56/water-3354063_1280.jpg");
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+      background-size: cover;
+     
+   
+}
+
+.container-fluid{
+  background-color: rgba(13, 13, 13, 0.8); 
+  color: white;
+}
 .cover-container {
   position: relative;
   display: flex;
@@ -31,17 +46,19 @@
 
 
 .text-large {
-  font-size: 14px;
+  font-size: 18px;
   /* Tamaño grande para el primer párrafo */
-  margin-top: 20px;
+  margin-top: 15px;
   /* Margen superior mayor */
 }
 
 .text-medium {
-  font-size: 12px;
+  font-size: 14px;
   /* Tamaño mediano para el segundo párrafo */
   margin-top: 15px;
   /* Margen superior mediano */
+
+  
 }
 
 .content-container {
@@ -51,6 +68,7 @@
 
 .image-container {
   flex-shrink: 0;
+  margin-right: 30px;
 }
 
 .content-container2 {

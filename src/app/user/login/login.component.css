@@ -1,17 +1,24 @@
 
 
-#contend {
+#contend{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("https://img.interempresas.net/fotos/2576767.jpeg");
+    background-image: url("https://cdn.pixabay.com/photo/2020/03/03/20/31/boat-4899802_1280.jpg");
     background-repeat: no-repeat; /* Evita que la imagen se repita */
         background-size: cover;
+       
+     
 }
 
-#card{
+.container-fluid{
+    background-color: rgba(13, 13, 13, 0.8); 
+}
+
+#card {
     padding: 20px;
+
 }
 
 img {

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -30,7 +31,7 @@ export class IndexComponent {
 
 
 
-  displayedColumns = ['id','nombre', 'email', 'rol','nunber'];
+  displayedColumns = ['id','nombre', 'email', 'rol','nunber', 'estado' , 'acciones'];
 
 
   constructor(private gService: GenericService,
@@ -60,6 +61,21 @@ export class IndexComponent {
        
       })
   }
+
+    
+  actualizarTabla(){
+
+    this.gService.list('user/')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((response:any)=>{
+       
+        this.datos=response.Data;
+  
+       
+      })
+  }
+
+
 
 
 

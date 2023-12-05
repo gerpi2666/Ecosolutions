@@ -1,4 +1,4 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/share/authentication.service';
@@ -11,7 +11,7 @@ import { NotificacionService, TipoMessage } from 'src/app/share/notification.ser
 })
 export class LoginComponent implements OnInit {
 
-  hide=true;
+  hide = true;
   formulario: FormGroup;
   makeSubmit: boolean = false;
   infoUsuario: any;
@@ -32,34 +32,39 @@ export class LoginComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    
+
   }
 
   onReset() {
     this.formulario.reset();
   }
   submitForm() {
-    this.makeSubmit=true;
+    this.makeSubmit = true;
     //Validación
-    if(this.formulario.invalid){
-     return;
+    if (this.formulario.invalid) {
+      return;
     }
-    console.log("Data login" , this.formulario.value)
+    console.log("Data login", this.formulario.value)
     //Login API
-this.authService.loginUser(this.formulario.value)
-    .subscribe((respuesta:any)=>{
-      console.log(respuesta)
+    this.authService.loginUser(this.formulario.value)
+      .subscribe({
+        next: (respuesta: any) => {
+          console.log(respuesta);
 
-      this.noti.mensajeRedirect(
-        'Usuario', 'Usuario logueado: ', 
-        TipoMessage.success,'Dash')
-        console.log('Antes de navegar a Dash');
-      this.router.navigate(['Dash'])
-    
-    },
-   
-    )
+          this.noti.mensajeRedirect(
+            'Usuario', 'Usuario logueado ',
+            TipoMessage.success, 'Dash');
+          console.log(respuesta);
+          this.router.navigate(['Dash']);
+        },
+        error: (error) => {
+         
+          this.noti.mensaje('Error', 'Verificar credenciales ', TipoMessage.error);
+        }
+      });
   }
+
+
   /* Manejar errores de formulario en Angular */
 
   public errorHandling = (control: string, error: string) => {
