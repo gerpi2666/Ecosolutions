@@ -6,6 +6,7 @@ import { GenericService } from 'src/app/share/generic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogCenterComponent } from '../dialog-center/dialog-center.component';
+import { AuthenticationService } from '../../share/authentication.service';
 
 @Component({
   selector: 'app-index',
@@ -16,6 +17,7 @@ export class IndexCenterComponent {
   datos:any; //Respuesta del API
   filterDatos: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
+  currentUser:any
 
 
   dataSource = new MatTableDataSource<any>();
@@ -25,10 +27,13 @@ export class IndexCenterComponent {
   constructor(private gService: GenericService,
     private dialog:MatDialog, 
     private router: Router,
-    private route: ActivatedRoute)
+    private route: ActivatedRoute,
+    private authService: AuthenticationService)
   {
     this.LisCenter();
-
+    this. authService.decodeToken.subscribe((user:any)=>(
+      this.currentUser=user
+    ))
   }
 
 

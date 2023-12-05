@@ -13,15 +13,15 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
+export class IndexComponent1 {
 
   datos:any; //Respuesta del API
   datosUsuario:any; //Respuesta del API
   filterDatos: any;
   usuarioSeleccionado: any;
   mostrarDetalleUsuario: any;
+  isEnabled: boolean
   destroy$: Subject<boolean> = new Subject<boolean>();
-
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -31,7 +31,7 @@ export class IndexComponent {
 
 
 
-  displayedColumns = ['id','nombre', 'email', 'rol','nunber', 'estado' , 'acciones'];
+  displayedColumns = ['id','nombre', 'email', 'rol','number',  'acciones'];
 
 
   constructor(private gService: GenericService,
@@ -50,14 +50,21 @@ export class IndexComponent {
 
 
   
-  listarUsuarios(){
+    listarUsuarios(){
 
     this.gService.list('user/')
       .pipe(takeUntil(this.destroy$))
       .subscribe((response:any)=>{
        
-        this.datos=response.Data;
-  
+        let list=[]
+       response.Data.forEach(element => {
+       if(element.Role.Id!=1){
+         list.push(element)
+       }
+       });
+        this.datos=list;
+        console.log('DATOS',this.datos)
+      
        
       })
   }
@@ -75,6 +82,20 @@ export class IndexComponent {
       })
   }
 
+  disableUser(Id:number){
+    let Ide:{
+      id:any
+    }= { id: null }; 
+    Ide.id=Id
+    console.log('ID',Ide)
+    this.gService
+    .update(`user/disabled`,Ide)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((data: any) => {
+
+      console.log('Api response', data)
+    });
+  }
 
 
 

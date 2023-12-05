@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TemplateComponent } from '../core/template/template.component';
 import { IndexCenterComponent } from './index/index.component';
 import { CreateCenterComponent } from './create/create.component';
+import { authGuard } from '../share/auth.guard';
 
 const routes: Routes = [
 {
@@ -13,10 +14,18 @@ const routes: Routes = [
       component: IndexCenterComponent,
     },
     {
-      path:'center/create', component: CreateCenterComponent
+      path:'center/create', component: CreateCenterComponent,
+      canActivate:[authGuard],
+      data:{
+        roles:['Administrador']
+      }
     },
     {
-      path:'center/update/:Id', component: CreateCenterComponent
+      path:'center/update/:Id', component: CreateCenterComponent,
+      canActivate:[authGuard],
+      data:{
+        roles:['Administrador']
+      }
     }
   ]
 

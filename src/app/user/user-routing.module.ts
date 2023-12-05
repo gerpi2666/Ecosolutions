@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from '../share/auth.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { IndexComponent1 } from './index/index.component';
 import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
@@ -15,7 +16,11 @@ const routes: Routes = [
     children: [
       {
         path: 'user/dashboard',
-        component: DashUsersComponent,
+        component: IndexComponent1,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
         
       },
       {
@@ -24,15 +29,19 @@ const routes: Routes = [
       },
       {
         path :'user/create',
-        component: CreateUserComponent
+        component: CreateUserComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
       },
       {
         path :'user/update/:Id',
-        component: CreateUserComponent
-      },
-      {
-        path :'user/info',
-        component: InfoComponent
+        component: CreateUserComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
       }
 
      
