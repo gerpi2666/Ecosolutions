@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './login/login.component';
 import { DashUsersComponent } from './dash-users/dash-users.component';
-import { ProfileComponent } from './profile/profile.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatButtonModule } from '@angular/material/button'; 
@@ -33,7 +32,6 @@ import { InfoComponent } from './info/info.component';
   declarations: [
     LoginComponent,
     DashUsersComponent,
-    ProfileComponent,
     IndexComponent1,
     CreateUserComponent,
     RegisterComponent,
