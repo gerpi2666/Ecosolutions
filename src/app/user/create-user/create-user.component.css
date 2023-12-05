@@ -1,0 +1,23 @@
+#main{
+    margin-top: 40px;
+   
+}
+
+.col-6{
+    width: 50vw;
+}
+
+.rowe{
+    display: block;
+}
+
+#contendCard {
+    margin-top: 30px;
+ }
+ #contendCard{
+     padding: 10px;
+ }
+ 
+ #contendCard button{
+     margin-top: 30px;
+  }

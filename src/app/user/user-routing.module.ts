@@ -5,6 +5,7 @@ import { DashUsersComponent } from './dash-users/dash-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from '../share/auth.guard';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,14 @@ const routes: Routes = [
         path:'user/profile',
         component: ProfileComponent
       },
+      {
+        path :'user/create',
+        component: CreateUserComponent
+      },
+      {
+        path :'user/update/:Id',
+        component: CreateUserComponent
+      }
      
     ],
   },
