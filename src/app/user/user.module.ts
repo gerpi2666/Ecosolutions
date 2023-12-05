@@ -14,12 +14,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 
 import { MatSelectModule } from '@angular/material/select';
+
 import { MatRadioModule } from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatDialogModule} from "@angular/material/dialog";
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { IndexComponent } from './index/index.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { IndexComponent } from './index/index.component';
     LoginComponent,
     DashUsersComponent,
     ProfileComponent,
-    IndexComponent
+    IndexComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +45,7 @@ import { IndexComponent } from './index/index.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatCheckboxModule,
     ReactiveFormsModule
   ],
   exports: [
