@@ -34,6 +34,10 @@
         <button class="custom-button" mat-button (click)="detailCenter(item.Id)">
           <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon>
         </button>
+
+        <ng-container *ngIf="currentUser.roleId === 1 ">
+          <button class="custom-button" mat-button routerLink='/Dash/center/update/{{item.Id}}' > <mat-icon>edit</mat-icon>Editar</button>
+         </ng-container>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
