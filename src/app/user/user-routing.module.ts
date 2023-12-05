@@ -5,6 +5,8 @@ import { DashUsersComponent } from './dash-users/dash-users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from '../share/auth.guard';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { IndexComponent1 } from './index/index.component';
 
 const routes: Routes = [
   {
@@ -13,13 +15,21 @@ const routes: Routes = [
     children: [
       {
         path: 'user/dashboard',
-        component: DashUsersComponent,
+        component: IndexComponent1,
         
       },
       {
         path:'user/profile',
         component: ProfileComponent
       },
+      {
+        path :'user/create',
+        component: CreateUserComponent
+      },
+      {
+        path :'user/update/:Id',
+        component: CreateUserComponent
+      }
      
     ],
   },
