@@ -53,6 +53,20 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.formulario.value).subscribe({
       next: (respuesta: any) => {
         console.log(respuesta);
+        this.authService.decodeToken.subscribe(
+          (user: any) => (this.currentUser = user)
+        );
+    
+        if (this.currentUser.roleId === 2) {
+          this.noti.mensajeRedirect(
+            'Usuario',
+            'Usuario logueado ',
+            TipoMessage.success,
+            'Dash/user/profile'
+          );
+    
+          this.router.navigate(['Dash/user/profile']);
+        }
       },
       error: (error) => {
         this.noti.mensaje(
@@ -63,20 +77,7 @@ export class LoginComponent implements OnInit {
       },
     });
 
-    this.authService.decodeToken.subscribe(
-      (user: any) => (this.currentUser = user)
-    );
-
-    if (this.currentUser.roleId === 2) {
-      this.noti.mensajeRedirect(
-        'Usuario',
-        'Usuario logueado ',
-        TipoMessage.success,
-        'Dash/user/profile'
-      );
-
-      this.router.navigate(['Dash/user/profile']);
-    }
+   
   }
 
   /* Manejar errores de formulario en Angular */
