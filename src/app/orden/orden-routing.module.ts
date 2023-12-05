@@ -6,6 +6,7 @@ import { IndexOrdenComponent } from './index-orden/index-orden.component';
 import { DetailComponent } from './detail/detail.component';
 import { OrdenCenterComponent } from './orden-center/orden-center.component';
 import { CreateOrdenComponent } from './create-orden/create-orden.component';
+import { authGuard } from '../share/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +17,12 @@ const routes: Routes = [
         component: IndexOrdenComponent,
       },
       {
-        path:'orden/create', component: CreateOrdenComponent
+        path:'orden/create', component: CreateOrdenComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['AdminCenter','Administrador']
+        }
+
       },
       {
          path: 'orden/:id', 

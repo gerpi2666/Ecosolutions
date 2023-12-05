@@ -27,9 +27,9 @@ export class UserGuard {
           'Usuario',
           `Usuario Sin permisos para acceder`,
           TipoMessage.warning,
-          '/usuario/login'
+          '/Dash'
         );
-        this.router.navigate(['/usuario/login']);
+        this.router.navigate(['/Dash']);
         return false;
       }
       return true;

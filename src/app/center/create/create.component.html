@@ -79,6 +79,11 @@
                     <input matInput formControlName="UsuarioCurrent" maxlength="2000" value={{userAdminCenterCurrent.Name}} [disabled]="true">
                    
                 </mat-form-field>
+                <mat-form-field class="col-12" *ngIf="!userAdminCenterCurrent">
+                    <mat-label>Administrador actual</mat-label>
+                    <input matInput formControlName="UsuarioCurrent" maxlength="2000" value={{userAdminCenterCurrent.Name}} [disabled]="true">
+                   
+                </mat-form-field>
 
                 <mat-form-field class="col=6">
                     <mat-select placeholder="User" formControlName="User" >

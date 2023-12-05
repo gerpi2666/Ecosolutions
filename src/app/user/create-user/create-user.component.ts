@@ -38,6 +38,7 @@ export class CreateUserComponent implements OnInit {
    
     this.reactiveForm();
   }
+  
   ngOnInit(): void {
 
     this.activeRouter.params.subscribe((params: Params) => {

@@ -20,10 +20,11 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from "@angular/material/dialog";
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { IndexComponent } from './index/index.component';
+import { IndexComponent1 } from './index/index.component';
 import { MatTableModule } from '@angular/material/table';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -31,8 +32,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     LoginComponent,
     DashUsersComponent,
     ProfileComponent,
-    IndexComponent,
-    CreateUserComponent
+    IndexComponent1,
+    CreateUserComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ReactiveFormsModule
   ],
   exports: [
-    IndexComponent
+    IndexComponent1
   ]
 })
 export class UserModule { }

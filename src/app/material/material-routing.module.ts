@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateComponent } from './create/create.component';
 import { IndexComponent } from './index/index.component';
 import { TemplateComponent } from '../core/template/template.component';
+import { authGuard } from '../share/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,10 +13,18 @@ const routes: Routes = [
         path: 'material', component: IndexComponent,
       },
       {
-        path:'material/create', component: CreateComponent
+        path:'material/create', component: CreateComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
       },
       {
-        path:'material/update/:Id', component: CreateComponent
+        path:'material/update/:Id', component: CreateComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
       }
     ]
   }
