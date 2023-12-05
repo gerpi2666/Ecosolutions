@@ -50,7 +50,7 @@ export class IndexComponent1 {
 
 
   
-  listarUsuarios(){
+    listarUsuarios(){
 
     this.gService.list('user/')
       .pipe(takeUntil(this.destroy$))

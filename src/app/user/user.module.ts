@@ -24,6 +24,7 @@ import { IndexComponent1 } from './index/index.component';
 import { MatTableModule } from '@angular/material/table';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     DashUsersComponent,
     ProfileComponent,
     IndexComponent1,
-    CreateUserComponent
+    CreateUserComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

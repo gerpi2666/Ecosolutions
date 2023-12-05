@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/share/authentication.service';
 import { NotificacionService, TipoMessage } from 'src/app/share/notification.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private noti: NotificacionService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog:MatDialog
   ) {
     this.reactiveForm();
   }
@@ -66,6 +69,17 @@ export class LoginComponent implements OnInit {
 
 
   /* Manejar errores de formulario en Angular */
+
+  register(Id: any) {
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.data={
+      IdCupon:Id,
+      
+    };
+    this.dialog.open(RegisterComponent,dialogConfig);
+
+  }
 
   public errorHandling = (control: string, error: string) => {
     return (
