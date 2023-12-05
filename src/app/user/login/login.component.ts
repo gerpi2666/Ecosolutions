@@ -70,11 +70,11 @@ export class LoginComponent implements OnInit {
 
   /* Manejar errores de formulario en Angular */
 
-  register(Id: any) {
+  register() {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=false;
     dialogConfig.data={
-      IdCupon:Id,
+      IdCupon:1,
       
     };
     this.dialog.open(RegisterComponent,dialogConfig);

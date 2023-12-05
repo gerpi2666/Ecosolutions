@@ -14,7 +14,7 @@ import { DialogDetailCuponComponent } from '../../cupon/dialog-detail-cupon/dial
 })
 export class RegisterComponent {
   destroy$: Subject<boolean> = new Subject<boolean>();
-  TitleForm: string = 'Creación de usuarios administradores de centros';
+  TitleForm: string = 'Registro de usuario';
   roles: any;
   Submitted: false;
   UserForm: FormGroup;
@@ -23,6 +23,8 @@ export class RegisterComponent {
   IdUser: number = 0;
   UserInfo: any;
   previewImage;
+  hide = true;
+
 
   
 
@@ -52,12 +54,14 @@ export class RegisterComponent {
  }
 
   public errorHandling = (control: string, error: string) => {
-     return this.UserForm.controls[control].hasError(error);
+    // return this.UserForm.controls[control].hasError(error);
   };
 
 
 
   submitForm(){
+
+    console.log('data pre post', this.UserForm.value)
 
   }
 
