@@ -1,0 +1,50 @@
+<div class="container">
+
+    <div *ngIf="datos" class="info-container">
+  
+      <div class="row">
+        <h1 class="col-12 text-center" style="margin-top: 20px;">{{ datos.Name }}</h1>
+  
+        <!-- Información personal -->
+        <div class="col-4 user-info" style="margin-bottom: 20px;">
+          <div class="user-info-section" style="margin-bottom: 20px; padding-bottom: 20px;" >
+            <h2 class="text-center">Información personal</h2>
+            <p><strong>Identificación:</strong> {{datos.Identification}}</p>
+            <p><strong>Correo:</strong> {{ datos.Email }}</p>
+            <p><strong>Dirección:</strong> {{ datos.Direccion}}</p>
+            <p><strong>Número:</strong> {{ datos.Number}}</p>
+          
+            <button class="custom-button" mat-button style="color: #4AD9A4;" >
+                <mat-icon class="icon" style="color: #4AD9A4;">restore_page</mat-icon>
+                Cambiar contraseña
+              </button>
+          </div>
+
+         
+  
+          <!-- Billetera -->
+          <div class="user-info-section wallet-info" *ngIf="datos.Wallet" style="margin-bottom: 20px; padding-bottom: 20px;">
+            <h2 class="text-center">Billetera</h2>
+            <p style="display: flex; align-items: center;">
+                Ecomonedas disponibles: {{ datos.Wallet.AvaibleCoins}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+                  alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
+              </p>
+              <p style="display: flex; align-items: center;">
+                Ecomonedas canjeadas: {{datos.Wallet.ChangesCoins}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+                  alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
+              </p>
+              <p style="display: flex; align-items: center;">
+                Ecomonedas recibidas: {{datos.Wallet.RecivedCoins}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+                  alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
+              </p>
+            
+            
+          </div>
+        </div>
+      </div>
+  
+      <mat-dialog-actions> </mat-dialog-actions>
+    </div>
+  
+  </div>
+  

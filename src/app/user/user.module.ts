@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './login/login.component';
 import { DashUsersComponent } from './dash-users/dash-users.component';
-import { ProfileComponent } from './profile/profile.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatButtonModule } from '@angular/material/button'; 
@@ -19,22 +18,24 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatDialogModule} from "@angular/material/dialog";
 
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { IndexComponent1 } from './index/index.component';
 import { MatTableModule } from '@angular/material/table';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RegisterComponent } from './register/register.component';
+import { InfoComponent } from './info/info.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashUsersComponent,
-    ProfileComponent,
     IndexComponent1,
     CreateUserComponent,
-    RegisterComponent
+    RegisterComponent,
+    InfoComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +54,8 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule
   ],
   exports: [
-    IndexComponent1
+    IndexComponent1,
+    InfoComponent
   ]
 })
 export class UserModule { }
