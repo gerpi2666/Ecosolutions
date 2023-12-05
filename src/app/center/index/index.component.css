@@ -1,10 +1,10 @@
 
-
 .center-text {
   /* Color del texto del título (ajusta el valor según tus preferencias) */
-    text-align: center;/* Ajusta el relleno según tus necesidades */
-   
-   /* Ajusta el valor según tus necesidades */
+  text-align: center;
+  /* Ajusta el relleno según tus necesidades */
+
+  /* Ajusta el valor según tus necesidades */
 }
 
 .left-align {
@@ -12,13 +12,13 @@
 }
 
 .padding-content {
-  padding: 20px;
+  padding: 30px;
   padding-bottom: 70px;
 
 }
 
 .padding-actions {
-  padding: 10px; 
+  padding: 10px;
   /* Ajusta el valor según tus necesidades */
 }
 
@@ -30,17 +30,17 @@
 
 
 
-.custom-card-header {
+.custom-card-header2 {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center; 
-  padding: 10px; 
-  color:  #4AD9A4;
+  text-align: center;
+  padding: 10px;
+  color: #4AD9A4;
 }
 
-.custom-button {
+.custom-button2 {
   color:  #4AD9A4; 
   border: none; 
   padding: 10px;
@@ -48,42 +48,50 @@
   border-radius: 5px; 
 }
 
-.custom-button:hover {
+.custom-button2 {
+  color:  #4AD9A4; 
+  border: none; 
+  padding: 10px;
+  cursor: pointer; 
+  border-radius: 5px; 
+}
+
+.custom-button2:hover {
   color: #1B1C26;
   background-color: #3E8C76 
 }
 
 
+.white-text {
+  color: white;
+ 
+}
+
 .example-card {
-  max-width: 500vh;
-  margin: 90px;
+  max-width: 40vh;
+  max-height: 50vh;
   background-color: #1B1C26;
+}
+
+.tittle{
+  color: #000;
 }
 
 .content-container {
   border-top: 1px solid #ffffff; /* Border above mat-card-content */
   border-bottom: 1px solid  #ffffff; /* Border below mat-card-content */
-  padding: 10px; /* Optional: Add padding for better visual separation */
+  padding: 0px; /* Optional: Add padding for better visual separation */
 }
 
+.info-container {
+  border-bottom: 1px solid #ccc; /* Border between icon and information */
+
+}
+
+/* Add additional styles if needed */
 .flex-end {
   display: flex;
   justify-content: flex-end;
 }
 
-.border-container {
-  text-align: center; /* Center the content horizontally */
-}
-
-.custom-card-header2 {
-  color:  #4AD9A4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header-content {
-  text-align: center;
-
-}
 
