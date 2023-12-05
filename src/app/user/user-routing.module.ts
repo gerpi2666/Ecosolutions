@@ -16,6 +16,10 @@ const routes: Routes = [
       {
         path: 'user/dashboard',
         component: IndexComponent1,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
         
       },
       {
@@ -24,11 +28,19 @@ const routes: Routes = [
       },
       {
         path :'user/create',
-        component: CreateUserComponent
+        component: CreateUserComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
       },
       {
         path :'user/update/:Id',
-        component: CreateUserComponent
+        component: CreateUserComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
+        }
       }
      
     ],
