@@ -29,6 +29,10 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of datosDetail">
+                                    <td style=" align-items: center;">
+                                        {{ item.Cantidad }}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+                                          alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
+                                      </td>
                                     <td>{{ item.Cantidad }}</td>
                                     <td><strong>{{ item.Material.Name}}</strong></td>
                                     <td>{{item.Material.Price}}</td>
