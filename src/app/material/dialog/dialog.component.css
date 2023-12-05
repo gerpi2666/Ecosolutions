@@ -4,7 +4,7 @@
   }
   
   .dialogDivision1 {
-    flex: 1;
+    flex: 3;
     padding-right: 0px;
     margin-right: 0px;
   }
@@ -14,18 +14,9 @@
     margin: 20px;
 }
 
-.color-circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-left: 5px; /* Ajusta el margen según sea necesario */
-  vertical-align: middle; /* Alinea verticalmente con el texto */
-}
   
   .dialogDivision2 {
-    flex: 1;
-    max-width: 50%; /* Ajusta según tus necesidades para controlar el tamaño máximo de la imagen */
+    max-width: 100%; /* Ajusta según tus necesidades para controlar el tamaño máximo de la imagen */
    
   }
   

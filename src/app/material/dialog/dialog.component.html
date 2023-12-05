@@ -10,8 +10,9 @@
         
         <div class="row diagCon">
             
-            <h2 mat-dialog-title color="primary" style="font-size: 50px;" [style.color]="datos.Color">{{ datos.Name }}</h2>
-            <div class="col-6  dialogDivision1" style="border-left: 2px solid white;">
+          <div class="col-2"  style="font-size: 50px;" [style.color]="datos.Color">{{ datos.Name }}</div>
+          
+            <div class="col-4  dialogDivision1" style="border-left: 2px solid white;">
                
                 <ul>
                     <li><strong>Descripcion</strong>:{{ datos.Description }}</li>
@@ -24,7 +25,7 @@
                     </li>
                   </ul>
             </div>
-            <div class="col-6 dialogDivision2">
+            <div class="col-4 dialogDivision2">
                 <img id="imgDia" src={{datos.image}}>
             </div>
         </div>

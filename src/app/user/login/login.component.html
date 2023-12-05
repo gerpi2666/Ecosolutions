@@ -1,8 +1,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<div class="container-fluid" id="contend">
-    <mat-card >
+<div  id="contend">
+    <mat-card class="container-fluid" >
         
         <mat-card-content id="card">
             <div class="container">
@@ -12,19 +12,19 @@
             </div>
             <div class="col-6"style="padding: 30px;" >
                 <div class="form-information-childs">
-                    <h2>Iniciar Sesión </h2>
+                    <h2 style="color: white;">Iniciar Sesión </h2>
                     
                    
                     <form class="example-form row" [formGroup]="formulario"  novalidate >
                         <mat-form-field class="example-full-width col-12">
                           <mat-label>Correo electronico</mat-label>
                      
-                          <input matInput type="text" placeholder="Email usuario" formControlName="email" />
+                          <input matInput type="text" placeholder="Correo usuario" formControlName="email" />
                          <mat-error *ngIf="errorHandling('email', 'required')">
                             Correo es <strong>requerido</strong>
                           </mat-error>
                           <mat-error *ngIf="errorHandling('email','email')">
-                            Verifique el <strong>formato</strong> del email
+                            Verifique el <strong>formato</strong> del correo
                           </mat-error>
                         </mat-form-field>
                       
@@ -34,6 +34,9 @@
                           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                           </button>
+                          <mat-error *ngIf="errorHandling('password', 'required')">
+                            Contraseña es <strong>requerida</strong>
+                          </mat-error>
             
                         </mat-form-field>
                         <button mat-raised-button style="width: 200px;" mat-raised-button color="accent" (click)="submitForm()">Iniciar sesion</button>
