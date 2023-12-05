@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from '../share/auth.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,12 @@ const routes: Routes = [
       {
         path :'user/update/:Id',
         component: CreateUserComponent
+      },
+      {
+        path :'user/info',
+        component: InfoComponent
       }
+
      
     ],
   },
