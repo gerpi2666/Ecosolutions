@@ -20,6 +20,8 @@ export class IndexCenterComponent {
   currentUser:any;
   datosFiltrados: any[];
 
+number:any;
+
 
   dataSource = new MatTableDataSource<any>();
 
@@ -38,6 +40,8 @@ export class IndexCenterComponent {
   }
 
 
+
+
   LisCenter(){
     //Solicitud al API para listar todos los videojuegos
     //localhost:3000/videojuego
@@ -48,6 +52,10 @@ export class IndexCenterComponent {
         this.datos=response.Data;
         //console.log('DATOS PARA MOSTRAR', this.datos)
         this.filterDatos=this.datos
+        this.datosFiltrados = this.datos;
+
+        console.log(this.datosFiltrados)
+        this.number= 0;
       })
   }
 
@@ -79,19 +87,28 @@ export class IndexCenterComponent {
     this.dialog.open(DialogCenterComponent,dialogConfig);
   }
 
-
   filtrarDatos(event: any) {
     const searchTerm = event.target.value.toLowerCase();
-
+  
     // Filtrar datos basados en el término de búsqueda
-    this.datosFiltrados = this.datos.filter(item =>
-      item.Name.toLowerCase().includes(searchTerm) ||
-      item.Provincia.toLowerCase().includes(searchTerm) ||
-      item.Canton.toLowerCase().includes(searchTerm) ||
-      item.Distrito.toLowerCase().includes(searchTerm) ||
-      item.Schecudale.toLowerCase().includes(searchTerm) ||
-      item.Numero.toLowerCase().includes(searchTerm)
-    );
+    this.datosFiltrados = this.datos.filter(item => {
+      // Verificar si algún material coincide con el término de búsqueda
+      const materialesCoinciden = item.Materials.some(material => 
+        material.Name.toLowerCase().includes(searchTerm)
+      );
+  
+      return (
+        item.Name.toLowerCase().includes(searchTerm) ||
+        item.Provincia.toLowerCase().includes(searchTerm) ||
+        item.Canton.toLowerCase().includes(searchTerm) ||
+        item.Distrito.toLowerCase().includes(searchTerm) ||
+        item.Schecudale.toLowerCase().includes(searchTerm) ||
+        item.Numero.toLowerCase().includes(searchTerm) ||
+        materialesCoinciden
+      );
+    });
+  }
+  
   }
 
-}
+
