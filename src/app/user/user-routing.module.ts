@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemplateComponent } from '../core/template/template.component';
-import { DashUsersComponent } from './dash-users/dash-users.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from '../share/auth.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { IndexComponent1 } from './index/index.component';
 import { InfoComponent } from './info/info.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   {
@@ -28,6 +28,14 @@ const routes: Routes = [
         canActivate:[authGuard],
         data:{
           roles:['Client']
+        }
+      },
+      {
+        path: 'user/adminProfile',
+        component: DashboardAdminComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['Administrador']
         }
       },
       {

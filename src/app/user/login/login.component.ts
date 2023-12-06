@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
             TipoMessage.success
           );
     
-          this.router.navigate(['Dash']);
+          this.router.navigate(['Dash/user/adminProfile']);
         }
         if (this.currentUser.roleId === 2) {
           this.noti.mensaje(

@@ -6,68 +6,71 @@
 
 
 
-<div class="mat-elevation-z8 container" style="min-height: 76.75vh;">
-  <table mat-table [dataSource]="datos" class="full-width-table" matSort aria-label="Elements">
-    <!-- Nombre Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificador</th>
-      <td mat-cell *matCellDef="let row">{{ row.Identification}}</td>
-    </ng-container>
-
-    <!-- Nombre Column -->
-    <ng-container matColumnDef="nombre">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre de usuario</th>
-      <td mat-cell *matCellDef="let row">{{ row.Name}}</td>
-    </ng-container>
-
-    <!-- Precio Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Correo electronico</th>
-      <td mat-cell *matCellDef="let row">{{ row.Email }}</td>
-    </ng-container>
-
-
-    <!-- Precio Column -->
-    <ng-container matColumnDef="rol">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol del usuario</th>
-      <td mat-cell *matCellDef="let row">
-        <ng-container *ngIf="row.Role.Id === 1">Adminitrador</ng-container>
-        <ng-container *ngIf="row.Role.Id === 2">Cliente</ng-container>
-        <ng-container *ngIf="row.Role.Id === 3">Administrador de centro</ng-container>
-        <ng-container *ngIf="row.Role.Id !== 1 && row.Role.Id !== 2 && row.Role.Id !== 3">Other Role Content</ng-container>
-      </td>
-      
-    </ng-container>
-
-    <ng-container matColumnDef="number">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero de telefono</th>
-      <td mat-cell *matCellDef="let row">{{ row.Number }}</td>
-    </ng-container>
-
-
-    <!-- Acciones Column -->
-    <ng-container matColumnDef="acciones" style="margin: 25px;">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
-      <td mat-cell *matCellDef="let row" style="margin: 25px;">
-
-        <button style="margin: 5px;" mat-mini-fab color="primary" matTooltip="CambiarEstado" aria-label="Cambiar estado" class="custom-button"
-          (click)=" actualizarTabla ">
-          <mat-icon class="mat-18">info</mat-icon>
-        </button>
-
-        <button style="margin: 5px;" mat-mini-fab color="accent" matTooltip="CambiarEstado" aria-label="Cambiar estado" class="custom-button" (click)="disableUser(row.Id)"
-           [color]="row.Enabled  ? 'accent' : 'warn'">
-           <mat-icon class="mat-18">
-            <ng-container *ngIf="row.Enabled; else disabledIcon">check_circle</ng-container>
-            <ng-template #disabledIcon >block</ng-template>
-           </mat-icon>
-        </button>
-
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="'header-row'"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-
-
-</div>
+<section class="container">
+  <div class="mat-elevation-z8 container" style="min-height: 76.75vh;">
+    <table mat-table [dataSource]="datos" class="full-width-table" matSort aria-label="Elements">
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificador</th>
+        <td mat-cell *matCellDef="let row">{{ row.Identification}}</td>
+      </ng-container>
+  
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre de usuario</th>
+        <td mat-cell *matCellDef="let row">{{ row.Name}}</td>
+      </ng-container>
+  
+      <!-- Precio Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Correo electronico</th>
+        <td mat-cell *matCellDef="let row">{{ row.Email }}</td>
+      </ng-container>
+  
+  
+      <!-- Precio Column -->
+      <ng-container matColumnDef="rol">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol del usuario</th>
+        <td mat-cell *matCellDef="let row">
+          <ng-container *ngIf="row.Role.Id === 1">Adminitrador</ng-container>
+          <ng-container *ngIf="row.Role.Id === 2">Cliente</ng-container>
+          <ng-container *ngIf="row.Role.Id === 3">Administrador de centro</ng-container>
+          <ng-container *ngIf="row.Role.Id !== 1 && row.Role.Id !== 2 && row.Role.Id !== 3">Other Role Content</ng-container>
+        </td>
+        
+      </ng-container>
+  
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero de telefono</th>
+        <td mat-cell *matCellDef="let row">{{ row.Number }}</td>
+      </ng-container>
+  
+  
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="acciones" style="margin: 25px;">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+        <td mat-cell *matCellDef="let row" style="margin: 25px;">
+  
+          <button style="margin: 5px;" mat-mini-fab color="primary" matTooltip="CambiarEstado" aria-label="Cambiar estado" class="custom-button"
+            (click)=" actualizarTabla ">
+            <mat-icon class="mat-18">info</mat-icon>
+          </button>
+  
+          <button style="margin: 5px;" mat-mini-fab color="accent" matTooltip="CambiarEstado" aria-label="Cambiar estado" class="custom-button" (click)="disableUser(row.Id)"
+             [color]="row.Enabled  ? 'accent' : 'warn'">
+             <mat-icon class="mat-18">
+              <ng-container *ngIf="row.Enabled; else disabledIcon">check_circle</ng-container>
+              <ng-template #disabledIcon >block</ng-template>
+             </mat-icon>
+          </button>
+  
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="'header-row'"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+  
+  </div>
+  
+</section>

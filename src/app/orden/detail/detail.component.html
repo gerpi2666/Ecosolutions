@@ -1,60 +1,70 @@
 <div class="content" style="min-height: 85.80vh;">
-    <h1 id="producto-titulo" class="mb-3 mt-5" style="font-size: 1.8rem !important;">CANJE: {{ datos.Id }} </h1>
 
-    <div class="align-at-same-height">
-        <div class="left-align">
-           
-            <h3>Fecha: {{ datos.Date |  date:'dd-MM-yyyy ' }}</h3>
-            <h3>Centro de acopio: {{ datos.RecicleCenter.Name }}</h3>
-            <h3>Cliente: {{ datos.User.Name }}</h3>
-        </div>
-    </div>
-    
-    <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class=" card w-100" style="background: var(--color-background)">
-            <div class="card-body">
-                <div class="card-text">
-                    <div class="col-lg-12 col-md-12 col-sm-12 mt-5 table-container">
-                        <h2 style="margin-bottom: 10px;">Desglose del canje</h2>
-                        <table class="table table-striped w-100">
-                            <thead class="head">
-                                <tr>
-                                    
-                                    <td class="cells">Cantidad</td>
-                                    <td class="cells">Material</td>
-                                    <td class="cells">Precio</td>
-                                    <td class="cells">Subtotal</td>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of datosDetail">
-                                    
-                                    <td  class="cols" style="padding: 20px;">{{ item.Cantidad }}</td>
-                                    <td class="cols" style="padding: 20px;">{{ item.Material.Name}}</td>
-                                
-                                    <td class="cols" style="display: flex; align-items: center; padding: 20px;">
-                                        {{item.Material.Price}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
-                                          alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
-                                      </td>
-                                    <td class="cols"  style="padding: 20px;"><span>{{ item.Subtotal}}</span></td>
-                                   
-                                </tr>
-                            </tbody>
-                        </table>                 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="align-at-same-height" #headerSec>
+    <section class="container row " id="header">
 
-    <div class="col-lg-12 col-md-12 col-sm-12 bottom-right-with-margin">
-        <div class="container-fluid card w-100" style="width: 18rem;">
-            <div class="card-body">              
-                <div class="card-text">
-                    <h1>Total : eco${{ datos.Total }} </h1>
-                </div>
-            </div>
+      <div class="col-2 contendHeader" id="imgC" style="width: 40%;">
+        <img style="height: 100%; width: 70%;" src="../../../assets/img/company-removebg-preview.png">
+      </div>
+
+      <div class="col-10" style="width: 60%;" id="lis">
+        <h1 style="text-align: center; font-size: 30px; font-weight: bold;">Orden: #{{datos.Id}}</h1>
+        <ul>
+
+          <li><span>Fecha de la transaccion: </span>{{datos.Date}}</li>
+          <li><span>Centro de acopio: </span>{{datos.RecicleCenter.Name}}</li>
+          <li><span>Cliente: </span>{{datos.User.Name}} {{datos.User.Identification}}</li>
+          <li><span>Infomacion de contacto: </span>{{datos.User.Email}} {{datos.User.Number}}</li>
+
+
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class=" card w-100" style="background: var(--color-background)">
+      <div class="card-body">
+        <div class="card-text">
+          <div class="col-lg-12 col-md-12 col-sm-12 mt-5 table-container">
+            <h2 style="margin-bottom: 10px;">Desglose del canje</h2>
+            <table class="table table-striped w-100">
+              <thead class="head">
+                <tr>
+
+                  <td class="cells">Cantidad</td>
+                  <td class="cells">Material</td>
+                  <td class="cells">Precio</td>
+                  <td class="cells">Subtotal</td>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of datosDetail">
+
+                  <td class="cols" style="padding: 20px;">{{ item.Cantidad }}</td>
+                  <td class="cols" style="padding: 20px;">{{ item.Material.Name}}</td>
+
+                  <td class="cols" style="display: flex; align-items: center; padding: 20px;">
+                    {{item.Material.Price}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+                      alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
+                  </td>
+                  <td class="cols" style="padding: 20px;"><span>{{ item.Subtotal}}</span></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-    </div>  
+      </div>
+    </div>
+  </div>
+
+  <section class="container d-flex" #total>
+   
+    <h1>Total : <span> <img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg" alt="Portada" class=""
+        id="toIm" /></span>{{ datos.Total }} </h1>
+  </section>
+
+
 </div>

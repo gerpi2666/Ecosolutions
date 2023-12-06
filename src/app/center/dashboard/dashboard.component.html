@@ -4,30 +4,57 @@
   integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 
-<div class="container">
+<div class="container" id="main">
+
+   <section class="container row " id="header">
+   
+            <div class="col-2 contendHeader"  id="imgC" style="width: 40%;">
+                <img style="height: 100%; width: 70%;"
+                src="../../../assets/img/company-removebg-preview.png">
+              </div>
+          
+              <div class="col-10" style="width: 60%;" id="lis">
+                <h1 style="text-align: start; font-size: 30px; font-weight: bold;">{{CenterName}}</h1>
+                <ul >
+                    <li><span>Direccion: </span>{{Report.Center.Adress}}</li>
+                    <li><span>Horario: </span>{{Report.Center.Horario}}</li>
+                    <li><span>Correo electronico: </span>{{Report.Center.Email}}</li>
+                    <li><span>Numero: </span>{{Report.Center.Number}}</li>
+
+                </ul>
+              </div>
+   </section> 
+
   <section class="container">
     <div class="row">
       <div class="card col-3" style="width: 18rem;">
         <div class="card-body">
           <h3 class="card-title">Ordenes realizas en el mes</h3>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">{{Report.Count}}</p>
          
         </div>
       </div>
       <div class="card col-3" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h3 class="card-title">Monedas Generadas</h3>
+          <p class="card-text"><span><img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+            alt="Portada" class="cover-image__image2" style="margin-left: 10px;" /> </span> {{Report.Coins._sum.Total}}</p>
          
         </div>
       </div>
       <div class="card col-3" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h3 class="card-title">Administrador</h3>
+          <p class="card-text" id="admi">{{Report.Center.User}}</p>
          
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="container">
+    <h1>Ordenes por material</h1>
+    <canvas #graficoCanvas1 class="chart" width="500" height="200"></canvas>
+
   </section>
 </div>

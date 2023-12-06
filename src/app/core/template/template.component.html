@@ -10,6 +10,12 @@
         <!-- Admin -->
         <ng-container *ngIf="currentUser.roleId === 1">
           <mat-list-item>
+            <button mat-button routerLink="/Dash/user/adminProfile">
+              <mat-icon>receipt</mat-icon>Home
+            </button>
+          </mat-list-item>
+          
+          <mat-list-item>
             <button mat-button routerLink="/Dash/cupon">
               <mat-icon>receipt</mat-icon>Cupones
             </button>

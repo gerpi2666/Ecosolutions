@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './login/login.component';
-import { DashUsersComponent } from './dash-users/dash-users.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatButtonModule } from '@angular/material/button'; 
@@ -27,17 +26,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RegisterComponent } from './register/register.component';
 import { InfoComponent } from './info/info.component';
 import { PasswordComponent } from './password/password.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    DashUsersComponent,
     IndexComponent1,
     CreateUserComponent,
     RegisterComponent,
     InfoComponent,
-    PasswordComponent
+    PasswordComponent,
+    DashboardAdminComponent
   ],
   imports: [
     CommonModule,

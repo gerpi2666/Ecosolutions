@@ -111,3 +111,38 @@ text-align: center;
 .cols{
   text-align: center;
 }
+
+#header{
+  display: flex;
+}
+
+#lis{
+  text-align: start;
+  margin-top: 20x;
+  margin-bottom: 70px;
+}
+
+#lis h1{
+text-align: start;
+}
+
+#lis span{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#headerSec{
+  margin-bottom: 2000px !important;
+}
+
+#total{
+  display: flex;
+}
+
+#toIm{
+  width:25px;
+  height: 25xpx;
+  border-radius: 50%;
+  /* Hace que la imagen sea redonda */
+  overflow: hidden;
+}
