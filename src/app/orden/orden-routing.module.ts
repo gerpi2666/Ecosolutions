@@ -15,10 +15,7 @@ const routes: Routes = [
       {
         path:'orden',
         component: IndexOrdenComponent,
-        canActivate:[authGuard],
-        data:{
-          roles:['AdminCenter','Administrador']
-        }
+       
       },
       
       {
@@ -30,14 +27,15 @@ const routes: Routes = [
 
       },
       {
+        path: 'orden/center', 
+       component:  OrdenCenterComponent,
+      } ,
+      {
          path: 'orden/:id', 
         component: DetailComponent,
       },
      
-      {
-        path: 'orden/center/:id', 
-       component:  OrdenCenterComponent,
-      }    
+        
     ]
   }
 ];

@@ -57,16 +57,35 @@ export class LoginComponent implements OnInit {
           (user: any) => (this.currentUser = user)
         );
     
-        if (this.currentUser.roleId === 2) {
-          this.noti.mensajeRedirect(
+
+        if (this.currentUser.roleId === 1) {
+          this.noti.mensaje(
             'Usuario',
             'Usuario logueado ',
-            TipoMessage.success,
-            'Dash/user/profile'
+            TipoMessage.success
+          );
+    
+          this.router.navigate(['Dash']);
+        }
+        if (this.currentUser.roleId === 2) {
+          this.noti.mensaje(
+            'Usuario',
+            'Usuario logueado ',
+            TipoMessage.success
           );
     
           this.router.navigate(['Dash/user/profile']);
         }
+        if (this.currentUser.roleId === 3) {
+          this.noti.mensaje(
+            'Usuario',
+            'Usuario logueado ',
+            TipoMessage.success
+          );
+    
+          this.router.navigate(['Dash/center/profile']);
+        }
+        
       },
       error: (error) => {
         this.noti.mensaje(

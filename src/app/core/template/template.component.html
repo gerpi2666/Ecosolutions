@@ -49,7 +49,7 @@
           </mat-list-item>
 
           <mat-list-item>
-            <button mat-button routerLink="/Dash/cupon">
+            <button mat-button routerLink="/Dash/orden">
               <mat-icon>assignment_turned_in</mat-icon>Mis ordenes
             </button>
           </mat-list-item>
@@ -59,13 +59,13 @@
         <ng-container *ngIf="currentUser.roleId === 3">
           
           <mat-list-item>
-            <button mat-button>
+            <button mat-button routerLink="/Dash/center/profile">
               <mat-icon>dashboard</mat-icon> Dashboard
             </button>
           </mat-list-item>
 
           <mat-list-item>
-            <button mat-button routerLink="/Dash/orden">
+            <button mat-button routerLink="/Dash/orden/center">
               <mat-icon>assignment_turned_in</mat-icon>Ordenes del centro
             </button>
           </mat-list-item>
