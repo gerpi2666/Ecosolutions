@@ -95,3 +95,22 @@
 }
 
 
+/* styles.css o styles.scss */
+/* styles.css o styles.scss */
+
+.search-container {
+  width: 300px; /* Ancho del contenedor, ajusta según tus necesidades */
+  margin: auto; /* Centrar horizontalmente */
+  padding: 20px; /* Ajusta según tus necesidades (márgenes internos) */
+  border: 1px solid #ccc; /* Ajusta según tus necesidades */
+  border-radius: 5px; /* Ajusta según tus necesidades */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.search-container p {
+  margin-bottom: 10px; /* Ajusta según tus necesidades */
+}
+
+
+
+

@@ -1,9 +1,15 @@
 
-<input matInput (input)="filtrarDatos($event)" placeholder="Buscar">
+<div  style="margin: 30px;">
+<div class="search-container" >
+  <p>Filtrar búsqueda</p>
+  <input matInput (input)="filtrarDatos($event)" placeholder="Buscar">
+</div>
+</div>
 
+<div style="margin: 10px;">
 
 <mat-grid-list cols="4" class="">
-  <mat-grid-tile *ngFor="let item of datos">
+  <mat-grid-tile *ngFor="let item of datosFiltrados">
     <mat-card class="example-card">
       <mat-card-header class="custom-card-header2 center-text">
         <div>
@@ -34,15 +40,17 @@
         </mat-card-content>
       </div>
       <mat-card-actions class=" flex-end padding-actions">
-        <button class="custom-button" mat-button (click)="detailCenter(item.Id)">
-          <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon>
+        <button style="color: #4AD9A4;" class="custom-button" mat-button (click)="detailCenter(item.Id)">
+          <mat-icon class="icon" style="color: #4AD9A4;">informacion</mat-icon> Detalle
         </button>
 
         <ng-container *ngIf="currentUser.roleId === 1 ">
-          <button class="custom-button" mat-button routerLink='/Dash/center/update/{{item.Id}}' > <mat-icon>edit</mat-icon>Editar</button>
+          <button  style="color: #4AD9A4;" mat-button routerLink='/Dash/center/update/{{item.Id}}' > <mat-icon style="color: #4AD9A4;" >edit</mat-icon>Editar</button>
          </ng-container>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 
 </mat-grid-list>
+
+</div>

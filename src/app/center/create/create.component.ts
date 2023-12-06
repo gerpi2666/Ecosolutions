@@ -15,7 +15,7 @@ import { UserGuard } from '../../share/auth.guard';
 })
 export class CreateCenterComponent implements OnInit{
   destroy$: Subject<boolean> = new Subject<boolean>();
-  TitleForm: string='Crear Centro de acopio';
+  TitleForm: string='Crear centro de acopio';
   MateList: any;
   UserList:any
   centerInfo:any;
@@ -49,7 +49,7 @@ export class CreateCenterComponent implements OnInit{
       if(this.IdMaterial != undefined && !isNaN(Number(this.IdMaterial))){
           this.IsCreate=false;
          
-          this.TitleForm= 'Actualizar Material';
+          this.TitleForm= 'Actualizar centro';
           //call al api
           this.listUser()
          
