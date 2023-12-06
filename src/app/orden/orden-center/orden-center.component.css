@@ -11,3 +11,13 @@
     margin-top: 20px; /* Ajusta el valor según tus necesidades */
     margin-bottom: 50px; /* Ajusta el valor según tus necesidades */
   }
+
+  #main{
+    padding: 40px;
+  }
+ th{
+  text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    
+  }

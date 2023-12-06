@@ -1,73 +1,75 @@
 
-
+<div class="container" id="main">
+  
 <div class="grid-container">
-    <mat-card>
-      <mat-card-header><h1 class="mat-h1">Historial de canjes</h1></mat-card-header>
+  <mat-card>
+    <mat-card-header><h1 class="mat-h1">Historial de canjes</h1></mat-card-header>
+    
+      <h1 *ngIf="datos">  {{datos[0].RecicleCenter.Name }}</h1>
       
-        <h1 *ngIf="datos">  {{datos[0].RecicleCenter.Name }}</h1>
-        
-    </mat-card>
+  </mat-card>
 
 </div>
 
-  <div class="mat-elevation-z8" style="min-height: 86.15vh;">
-    <table
-      mat-table
-      [dataSource]="datos"
-      class="full-width-table"
-      matSort
-      aria-label="Elements"
-    >
-      <!-- Nombre Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificador</th>
-        <td mat-cell *matCellDef="let row">{{ row.Id}}</td>
-      </ng-container>
+<div class="mat-elevation-z8" style="min-height: 86.15vh;">
+  <table
+    mat-table
+    [dataSource]="datos"
+    class="full-width-table"
+    matSort
+    aria-label="Elements"
+  >
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Identificador</th>
+      <td mat-cell *matCellDef="let row">{{ row.Id}}</td>
+    </ng-container>
 
 
+    <!-- Precio Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de canje</th>
+      <td mat-cell *matCellDef="let row">{{ row.Date }}</td>
+    </ng-container>
       <!-- Precio Column -->
-      <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de canje</th>
-        <td mat-cell *matCellDef="let row">{{ row.Date }}</td>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total canjeado</th>
+        <td mat-cell *matCellDef="let row">{{ row.Total }}</td>
       </ng-container>
-        <!-- Precio Column -->
-        <ng-container matColumnDef="total">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total canjeado</th>
-          <td mat-cell *matCellDef="let row">{{ row.Total }}</td>
-        </ng-container>
-      <!-- Acciones Column -->
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
-        <td mat-cell *matCellDef="let row">
-        
-          <button
-            mat-mini-fab
-            color="accent"
-            matTooltip="Detalle Canje"
-            aria-label="Detalle Canje"
-            color="primary"
-            (click)=" detailCanje(row.Id)"
-          >
-            <mat-icon class="mat-18" >info</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-      <tr
-        mat-header-row
-        *matHeaderRowDef="displayedColumns"
-        [ngClass]="'header-row'"
-      ></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+      <td mat-cell *matCellDef="let row">
+      
+        <button
+          mat-mini-fab
+          color="accent"
+          matTooltip="Detalle Canje"
+          aria-label="Detalle Canje"
+          color="primary"
+          (click)=" detailCanje(row.Id)"
+        >
+          <mat-icon class="mat-18" >info</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      [ngClass]="'header-row'"
+    ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 
-    <mat-paginator
-      #paginator
-      [length]="dataSource.data.length"
-      [pageIndex]="0"
-      [pageSize]="3"
-      [pageSizeOptions]="[3, 5, 10]"
-      aria-label="Seleccione una página"
-    >
-    </mat-paginator>
-  </div>
-  
+  <mat-paginator
+    #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="3"
+    [pageSizeOptions]="[3, 5, 10]"
+    aria-label="Seleccione una página"
+  >
+  </mat-paginator>
+</div>
+
+</div>

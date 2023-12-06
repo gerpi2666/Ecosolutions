@@ -20,6 +20,7 @@ import { CreateCenterComponent } from './create/create.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { CenterRoutingModule } from './center-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -29,7 +30,8 @@ import { CenterRoutingModule } from './center-routing.module';
   declarations: [
     IndexCenterComponent,
     DialogCenterComponent,
-    CreateCenterComponent
+    CreateCenterComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
