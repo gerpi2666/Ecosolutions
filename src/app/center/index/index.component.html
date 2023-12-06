@@ -1,4 +1,7 @@
 
+<input matInput (input)="filtrarDatos($event)" placeholder="Buscar">
+
+
 <mat-grid-list cols="4" class="">
   <mat-grid-tile *ngFor="let item of datos">
     <mat-card class="example-card">

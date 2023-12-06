@@ -17,7 +17,8 @@ export class IndexCenterComponent {
   datos:any; //Respuesta del API
   filterDatos: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
-  currentUser:any
+  currentUser:any;
+  datosFiltrados: any[];
 
 
   dataSource = new MatTableDataSource<any>();
@@ -76,6 +77,21 @@ export class IndexCenterComponent {
      
     };
     this.dialog.open(DialogCenterComponent,dialogConfig);
+  }
+
+
+  filtrarDatos(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+
+    // Filtrar datos basados en el término de búsqueda
+    this.datosFiltrados = this.datos.filter(item =>
+      item.Name.toLowerCase().includes(searchTerm) ||
+      item.Provincia.toLowerCase().includes(searchTerm) ||
+      item.Canton.toLowerCase().includes(searchTerm) ||
+      item.Distrito.toLowerCase().includes(searchTerm) ||
+      item.Schecudale.toLowerCase().includes(searchTerm) ||
+      item.Numero.toLowerCase().includes(searchTerm)
+    );
   }
 
 }
