@@ -83,3 +83,31 @@ th {
 .table-container {/* Ajusta el valor según tus preferencias */
   margin-bottom: 50px; /* Ajusta el valor según tus preferencias */
 }
+
+
+
+.cover-image__image2 {
+  max-width: 20px;
+  /* La imagen no será más ancha que el contenedor */
+
+  max-height: 20px;
+  /* Ajusta según tus necesidades para limitar la altura */
+
+  border-radius: 50%;
+  /* Hace que la imagen sea redonda */
+  overflow: hidden;
+}
+
+.head{
+  background-color: #4AD9A4;
+border: #1B1C26;
+  color:  #1B1C26;
+}
+
+.cells{
+text-align: center;
+}
+
+.cols{
+  text-align: center;
+}
