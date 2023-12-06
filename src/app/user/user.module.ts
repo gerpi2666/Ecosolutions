@@ -26,6 +26,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RegisterComponent } from './register/register.component';
 import { InfoComponent } from './info/info.component';
+import { PasswordComponent } from './password/password.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { InfoComponent } from './info/info.component';
     IndexComponent1,
     CreateUserComponent,
     RegisterComponent,
-    InfoComponent
+    InfoComponent,
+    PasswordComponent
   ],
   imports: [
     CommonModule,

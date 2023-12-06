@@ -15,7 +15,12 @@ const routes: Routes = [
       {
         path:'orden',
         component: IndexOrdenComponent,
+        canActivate:[authGuard],
+        data:{
+          roles:['AdminCenter','Administrador']
+        }
       },
+      
       {
         path:'orden/create', component: CreateOrdenComponent,
         canActivate:[authGuard],
