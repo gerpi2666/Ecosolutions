@@ -33,3 +33,15 @@
 .custom-button:hover {
   color: #4AD9A4; 
 }
+
+.cover-image__image2 {
+  max-width: 20px;
+  /* La imagen no será más ancha que el contenedor */
+
+  max-height: 20px;
+  /* Ajusta según tus necesidades para limitar la altura */
+
+  border-radius: 50%;
+  /* Hace que la imagen sea redonda */
+  overflow: hidden;
+}

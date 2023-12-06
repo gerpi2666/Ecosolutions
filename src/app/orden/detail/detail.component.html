@@ -17,26 +17,27 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 mt-5 table-container">
                         <h2 style="margin-bottom: 10px;">Desglose del canje</h2>
                         <table class="table table-striped w-100">
-                            <thead>
+                            <thead class="head">
                                 <tr>
                                     
-                                    <td>Cantidad</td>
-                                    <td>Material</td>
-                                    <td>Precio</td>
-                                    <td>Subtotal</td>
+                                    <td class="cells">Cantidad</td>
+                                    <td class="cells">Material</td>
+                                    <td class="cells">Precio</td>
+                                    <td class="cells">Subtotal</td>
                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of datosDetail">
-                                    <td style=" align-items: center;">
-                                        {{ item.Cantidad }}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
+                                    
+                                    <td  class="cols" style="padding: 20px;">{{ item.Cantidad }}</td>
+                                    <td class="cols" style="padding: 20px;">{{ item.Material.Name}}</td>
+                                
+                                    <td class="cols" style="display: flex; align-items: center; padding: 20px;">
+                                        {{item.Material.Price}}<img src="../../../assets/img/_0aaed9ae-ac9c-4071-ba11-dc972e857a11.jpg"
                                           alt="Portada" class="cover-image__image2" style="margin-left: 10px;" />
                                       </td>
-                                    <td>{{ item.Cantidad }}</td>
-                                    <td><strong>{{ item.Material.Name}}</strong></td>
-                                    <td>{{item.Material.Price}}</td>
-                                    <td><span>{{ item.Subtotal}}</span></td>
+                                    <td class="cols"  style="padding: 20px;"><span>{{ item.Subtotal}}</span></td>
                                    
                                 </tr>
                             </tbody>
