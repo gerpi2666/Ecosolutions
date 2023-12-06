@@ -4,6 +4,7 @@ import { TemplateComponent } from '../core/template/template.component';
 import { IndexCenterComponent } from './index/index.component';
 import { CreateCenterComponent } from './create/create.component';
 import { authGuard } from '../share/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
 {
@@ -12,6 +13,10 @@ const routes: Routes = [
     {
       path:'center',
       component: IndexCenterComponent,
+    },
+    {
+      path:'center/profile',
+      component: DashboardComponent,
     },
     {
       path:'center/create', component: CreateCenterComponent,

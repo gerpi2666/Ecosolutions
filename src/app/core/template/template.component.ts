@@ -21,7 +21,7 @@ export class TemplateComponent implements OnInit {
     this. authService.decodeToken.subscribe((user:any)=>(
       this.currentUser=user
     ))
-    console.log('DATA USER ',this.currentUser);
+   
   }
 
 ;
